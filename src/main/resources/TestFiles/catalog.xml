@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<catalog>
+	<product>
+		<catalog_item>
+			<item_number>QWZ5671</item_number>
+			<price>39.95</price>
+			<size>
+				<color_swatch>Red</color_swatch>
+				<color_swatch>Burgundy</color_swatch>
+			</size>
+			<size>
+				<color_swatch>Red</color_swatch>
+				<color_swatch>Burgundy</color_swatch>
+			</size>
+		</catalog_item>
+		<catalog_item>
+			<item_number>RRX9856</item_number>
+			<price>42.50</price>
+			<size>
+				<color_swatch>Red</color_swatch>
+				<color_swatch>Navy</color_swatch>
+				<color_swatch>Burgundy</color_swatch>
+			</size>
+			<size description="Medium">
+				<color_swatch>Red</color_swatch>
+				<color_swatch>Navy</color_swatch>
+				<color_swatch>Burgundy</color_swatch>
+				<color_swatch>Black</color_swatch>
+			</size>
+			<size description="Large">
+				<color_swatch>Navy</color_swatch>
+				<color_swatch>Black</color_swatch>
+			</size>
+			<size description="Extra Large">
+				<color_swatch>Burgundy</color_swatch>
+				<color_swatch>Black</color_swatch>
+			</size>
+		</catalog_item>
+	</product>
+</catalog>

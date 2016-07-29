@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="urn:oasis:names:tc:emergency:cap:1.2 file:/home/arda/Dropbox/SRDC%20Team%20Folder/xsd/CAP-v1.2.xsd">
+	<identifier required="true">££££</identifier>
+	<sender required="true">££££</sender>
+	<sent required="true">££££</sent>
+	<status required="true">££££</status>
+	<msgType required="true">££££</msgType>
+	<source>££££</source>
+	<scope required="true">££££</scope>
+	<restriction>££££</restriction>
+	<addresses>££££</addresses>
+	<code cardinality="unbounded">££££</code>
+	<note>££££</note>
+	<references>££££</references>
+	<incidents>££££</incidents>
+	<info cardinality="unbounded">
+		<language>££££</language>
+		<category required="true" cardinality="unbounded">££££</category>
+		<event required="true">££££</event>
+		<responseType cardinality="unbounded">££££</responseType>
+		<urgency required="true">££££</urgency>
+		<severity required="true">££££</severity>
+		<certainty required="true">££££</certainty>
+		<audience>££££</audience>
+		<eventCode cardinality="unbounded">
+			<valueName>££££</valueName>
+			<value>££££</value>
+		</eventCode>
+		<effective>££££</effective>
+		<onset>££££</onset>
+		<expires>££££</expires>
+		<senderName>££££</senderName>
+		<headline>££££</headline>
+		<description>££££</description>
+		<instruction>££££</instruction>
+		<web>££££</web>
+		<contact>££££</contact>
+		<parameter cardinality="unbounded">
+			<valueName required="true">££££</valueName>
+			<value required="true">££££</value>
+		</parameter>
+		<resource cardinality="unbounded">
+			<resourceDesc required="true">££££</resourceDesc>
+			<mimeType required="true">££££</mimeType>
+			<size>££££</size>
+			<uri>££££</uri>
+			<derefUri>££££</derefUri>
+			<digest>££££</digest>
+		</resource>
+		<area cardinality="unbounded">
+			<areaDesc>££££</areaDesc>
+			<polygon cardinality="unbounded">££££</polygon>
+			<circle cardinality="unbounded">££££</circle>
+			<geocode cardinality="unbounded">
+				<valueName required="true">££££</valueName>
+				<value required="true">££££</value>
+			</geocode>
+			<altitude>££££</altitude>
+			<ceiling>££££</ceiling>
+		</area>
+	</info>
+</alert>

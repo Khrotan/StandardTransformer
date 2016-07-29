@@ -1,0 +1,3 @@
+Value;/RequestResource/ResourceInformation/Resource/TypeStructure/Value;/alert/info/eventCode/valueName
+ScheduleType;/RequestResource/ResourceInformation/ScheduleInformation/ScheduleType;/alert/info/eventCode/valueName
+ScheduleType;/RequestResource/ResourceInformation/ScheduleInformation/DateTime;/alert/info/eventCode/valueName

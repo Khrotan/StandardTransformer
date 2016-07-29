@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<sml:PhysicalSystem xmlns:sml="http://www.opengis.net/sensorml/2.0" xmlns:gco="http://www.isotc211.org/2005/gco"
+                    xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2"
+                    xmlns:swe="http://www.opengis.net/swe/2.0"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="ID000"
+                    xsi:schemaLocation="http://www.opengis.net/sensorml/2.0 file:/home/arda/Dropbox/SRDC%20Team%20Folder/xsd/physical_system.xsd http://www.opengis.net/swe/2.0 ">
+	<gml:description>Actual</gml:description>
+	<gml:identifier codeSpace="http://www.oxygenxml.com/">KSTO1055887203</gml:identifier>
+	<gml:name>KSTO@NWS.NOAA.GOV</gml:name>
+	<gml:boundedBy>
+		<gml:Envelope>
+			<gml:coordinates>38.47,-120.14 38.34,-119.95 38.52,-119.74 38.62,-119.89 38.47,-120.14</gml:coordinates>
+		</gml:Envelope>
+	</gml:boundedBy>
+	<gml:location>
+		<gml:LocationString>EXTREME NORTH CENTRAL TUOLUMNE COUNTY IN CALIFORNIA, EXTREME NORTHEASTERN
+			CALAVERAS COUNTY IN CALIFORNIA, SOUTHWESTERN ALPINE COUNTY IN CALIFORNIA
+		</gml:LocationString>
+	</gml:location>
+	<sml:keywords>
+		<sml:KeywordList>
+			<sml:keyword>SEVERE THUNDERSTORM WARNING</sml:keyword>
+		</sml:KeywordList>
+	</sml:keywords>
+	<sml:validTime>
+		<gml:TimePeriod gml:id="ID055">
+			<gml:relatedTime>
+				<gml:TimeInstant gml:id="ID074">
+					<gml:timePosition>2003-06-17T14:57:00-07:00</gml:timePosition>
+				</gml:TimeInstant>
+			</gml:relatedTime>
+		</gml:TimePeriod>
+	</sml:validTime>
+	<sml:capabilities name="name16">
+		<sml:CapabilityList>
+			<swe:identifier>Shelter</swe:identifier>
+			<sml:capability name="name17">NO_INFO</sml:capability>
+		</sml:CapabilityList>
+	</sml:capabilities>
+	<sml:contacts>
+		<sml:ContactList>
+			<swe:description>Public</swe:description>
+			<sml:contact>NO_INFO</sml:contact>
+		</sml:ContactList>
+	</sml:contacts>
+	<sml:documentation>
+		<sml:DocumentList>
+			<sml:document>
+				<gmd:CI_OnlineResource>
+					<gmd:protocol>
+						<gco:CharacterString>TAKE COVER IN A SUBSTANTIAL SHELTER UNTIL THE STORM PASSES.
+						</gco:CharacterString>
+					</gmd:protocol>
+				</gmd:CI_OnlineResource>
+			</sml:document>
+		</sml:DocumentList>
+	</sml:documentation>
+	<sml:components>
+		<sml:ComponentList>
+			<sml:component name="name276">
+				<sml:PhysicalComponent gml:id="I1957">
+					<gml:description>AT 254 PM PDT...NATIONAL WEATHER SERVICE DOPPLER RADAR INDICATED A SEVERE
+						THUNDERSTORM OVER SOUTH CENTRAL ALPINE COUNTY...OR ABOUT 18 MILES SOUTHEAST OF KIRKWOOD...MOVING
+						SOUTHWEST AT 5 MPH. HAIL...INTENSE RAIN AND STRONG DAMAGING WINDS ARE LIKELY WITH THIS
+						STORM.
+					</gml:description>
+					<sml:classification>
+						<sml:ClassifierList>
+							<sml:classifier>
+								<sml:Term>
+									<sml:label>SAME</sml:label>
+									<sml:value>SVR</sml:value>
+								</sml:Term>
+							</sml:classifier>
+						</sml:ClassifierList>
+					</sml:classification>
+				</sml:PhysicalComponent>
+			</sml:component>
+		</sml:ComponentList>
+	</sml:components>
+</sml:PhysicalSystem>

@@ -1,0 +1,11 @@
+identifier;/alert/identifier;/RequestResource/MessageID
+sender;/alert/sender;/RequestResource/OriginatingMessageID
+sent;/alert/sent;/RequestResource/SentDateTime
+msgType;/alert/msgType;/RequestResource/MessageContentType
+event;/alert/info/event;/RequestResource/ResourceInformation/ResourceInfoElementID
+responseType;/alert/info/responseType;/RequestResource/MessageRecall/RecallType
+valueName;/alert/info/parameter/valueName;/RequestResource/ContactInformation/Radio/RadioType/ValueListURN
+resourceDesc;/alert/info/resource/resourceDesc;/RequestResource/IncidentInformation/IncidentDescription
+areaDesc;/alert/info/area/areaDesc;/RequestResource/ContactInformation/ContactLocation/LocationDescription
+polygon;/alert/info/area/polygon;/RequestResource/ResourceInformation/ScheduleInformation/Location/TargetArea/Polygon
+circle;/alert/info/area/circle;/RequestResource/ResourceInformation/ScheduleInformation/Location/TargetArea/CircleByCenterPoint

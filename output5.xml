@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="urn:oasis:names:tc:emergency:cap:1.2 file:/home/arda/Dropbox/SRDC%20Team%20Folder/xsd/CAP-v1.2.xsd">
+	<identifier>NO_INFO</identifier>
+	<sender>NO_INFO</sender>
+	<sent>NO_INFO</sent>
+	<status>NO_INFO</status>
+	<msgType>NO_INFO</msgType>
+	<scope>NO_INFO</scope>
+	<info>
+		<category>NO_INFO</category>
+		<event>NO_INFO</event>
+		<urgency>NO_INFO</urgency>
+		<severity>NO_INFO</severity>
+		<certainty>NO_INFO</certainty>
+		<eventCode>
+			<valueName>2003-03-24T09:00:00+10:00</valueName>
+		</eventCode>
+		<eventCode>
+			<valueName>2004-03-30T17:00:00+10:00</valueName>
+		</eventCode>
+		<eventCode>
+			<valueName>2005-03-22T09:00:00+10:00</valueName>
+		</eventCode>
+		<eventCode>
+			<valueName>2006-03-22T08:00:00+10:00</valueName>
+		</eventCode>
+		<eventCode>
+			<valueName>RequestedArrival</valueName>
+		</eventCode>
+		<eventCode>
+			<valueName>EstimatedReturnDeparture</valueName>
+		</eventCode>
+		<eventCode>
+			<valueName>RequestedArrival</valueName>
+		</eventCode>
+		<eventCode>
+			<valueName>RequestedArrival</valueName>
+		</eventCode>
+		<eventCode>
+			<valueName>value1</valueName>
+		</eventCode>
+		<eventCode>
+			<valueName>value2</valueName>
+		</eventCode>
+		<eventCode>
+			<valueName>value3</valueName>
+		</eventCode>
+		<eventCode>
+			<valueName>value0</valueName>
+		</eventCode>
+	</info>
+</alert>

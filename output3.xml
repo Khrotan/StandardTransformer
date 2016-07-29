@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rmsg:RequestResource xmlns:rmsg="urn:oasis:names:tc:emergency:EDXL:RM:1.0:msg" xmlns:ct="urn:oasis:names:tc:ciq:ct:3"
+                      xmlns:gml="http://www.opengis.net/gml"
+                      xmlns:oasis="urn:oasis:names:tc:emergency:EDXL:HAVE:1.0:geo-oasis"
+                      xmlns:rm="urn:oasis:names:tc:emergency:EDXL:RM:1.0" xmlns:xal="urn:oasis:names:tc:ciq:xal:3"
+                      xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xlink1="http://www.w3.org/1999/xlink1"
+                      xmlns:xnal="urn:oasis:names:tc:ciq:xnal:3" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:3"
+                      xmlns:xpil="urn:oasis:names:tc:ciq:xpil:3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="urn:oasis:names:tc:emergency:EDXL:RM:1.0:msg file:/home/arda/Dropbox/SRDC%20Team%20Folder/xsd/edxl-rm/EDXL-RMRequestResource.xsd">
+	<rmsg:MessageID>identifier0</rmsg:MessageID>
+	<rmsg:SentDateTime>2003-06-11T20:56:00-07:00</rmsg:SentDateTime>
+	<rmsg:MessageContentType>Alert</rmsg:MessageContentType>
+	<rmsg:OriginatingMessageID>sender0</rmsg:OriginatingMessageID>
+	<rmsg:IncidentInformation>
+		<rm:IncidentDescription>resourceDesc1</rm:IncidentDescription>
+	</rmsg:IncidentInformation>
+	<rmsg:IncidentInformation>
+		<rm:IncidentDescription>resourceDesc2</rm:IncidentDescription>
+	</rmsg:IncidentInformation>
+	<rmsg:IncidentInformation>
+		<rm:IncidentDescription>resourceDesc3</rm:IncidentDescription>
+	</rmsg:IncidentInformation>
+	<rmsg:IncidentInformation>
+		<rm:IncidentDescription>resourceDesc0</rm:IncidentDescription>
+	</rmsg:IncidentInformation>
+	<rmsg:MessageRecall>
+		<rm:RecallMessageID>NO_INFO</rm:RecallMessageID>
+		<rm:RecallType>Shelter</rm:RecallType>
+	</rmsg:MessageRecall>
+	<rmsg:ContactInformation>
+		<rm:ContactLocation>
+			<rm:LocationDescription>areaDesc1</rm:LocationDescription>
+		</rm:ContactLocation>
+	</rmsg:ContactInformation>
+	<rmsg:ContactInformation>
+		<rm:ContactLocation>
+			<rm:LocationDescription>areaDesc2</rm:LocationDescription>
+		</rm:ContactLocation>
+	</rmsg:ContactInformation>
+	<rmsg:ContactInformation>
+		<rm:ContactLocation>
+			<rm:LocationDescription>areaDesc3</rm:LocationDescription>
+		</rm:ContactLocation>
+	</rmsg:ContactInformation>
+	<rmsg:ContactInformation>
+		<rm:Radio>
+			<rm:RadioType>
+				<rm:ValueListURN>valueName3</rm:ValueListURN>
+				<rm:ValueListURN>valueName10</rm:ValueListURN>
+				<rm:ValueListURN>valueName11</rm:ValueListURN>
+				<rm:ValueListURN>valueName2</rm:ValueListURN>
+				<rm:Value>NO_INFO</rm:Value>
+			</rm:RadioType>
+			<rm:RadioChannel>NO_INFO</rm:RadioChannel>
+		</rm:Radio>
+		<rm:ContactLocation>
+			<rm:LocationDescription>areaDesc0</rm:LocationDescription>
+		</rm:ContactLocation>
+	</rmsg:ContactInformation>
+	<rmsg:ResourceInformation>
+		<rmsg:ResourceInfoElementID>event1</rmsg:ResourceInfoElementID>
+		<rmsg:Resource>
+		</rmsg:Resource>
+		<rmsg:ScheduleInformation>
+			<rmsg:ScheduleType>NO_INFO</rmsg:ScheduleType>
+			<rmsg:Location>
+				<rm:TargetArea>
+					<gml:CircleByCenterPoint numArc="££££">circle0</gml:CircleByCenterPoint>
+					<gml:Polygon>polygon1</gml:Polygon>
+				</rm:TargetArea>
+			</rmsg:Location>
+		</rmsg:ScheduleInformation>
+		<rmsg:ScheduleInformation>
+			<rmsg:ScheduleType>NO_INFO</rmsg:ScheduleType>
+			<rmsg:Location>
+				<rm:TargetArea>
+					<gml:CircleByCenterPoint numArc="££££">circle1</gml:CircleByCenterPoint>
+					<gml:Polygon>polygon2</gml:Polygon>
+				</rm:TargetArea>
+			</rmsg:Location>
+		</rmsg:ScheduleInformation>
+		<rmsg:ScheduleInformation>
+			<rmsg:ScheduleType>NO_INFO</rmsg:ScheduleType>
+			<rmsg:Location>
+				<rm:TargetArea>
+					<gml:CircleByCenterPoint numArc="££££">circle2</gml:CircleByCenterPoint>
+					<gml:Polygon>polygon3</gml:Polygon>
+				</rm:TargetArea>
+			</rmsg:Location>
+		</rmsg:ScheduleInformation>
+		<rmsg:ScheduleInformation>
+			<rmsg:ScheduleType>NO_INFO</rmsg:ScheduleType>
+			<rmsg:Location>
+				<rm:TargetArea>
+					<gml:CircleByCenterPoint numArc="££££">circle3</gml:CircleByCenterPoint>
+					<gml:Polygon>polygon4</gml:Polygon>
+				</rm:TargetArea>
+			</rmsg:Location>
+		</rmsg:ScheduleInformation>
+		<rmsg:ScheduleInformation>
+			<rmsg:ScheduleType>NO_INFO</rmsg:ScheduleType>
+			<rmsg:Location>
+				<rm:TargetArea>
+					<gml:CircleByCenterPoint numArc="££££">circle4</gml:CircleByCenterPoint>
+					<gml:Polygon>polygon5</gml:Polygon>
+				</rm:TargetArea>
+			</rmsg:Location>
+		</rmsg:ScheduleInformation>
+		<rmsg:ScheduleInformation>
+			<rmsg:ScheduleType>NO_INFO</rmsg:ScheduleType>
+			<rmsg:Location>
+				<rm:TargetArea>
+					<gml:CircleByCenterPoint numArc="££££">circle5</gml:CircleByCenterPoint>
+					<gml:Polygon>polygon6</gml:Polygon>
+				</rm:TargetArea>
+			</rmsg:Location>
+		</rmsg:ScheduleInformation>
+		<rmsg:ScheduleInformation>
+			<rmsg:ScheduleType>NO_INFO</rmsg:ScheduleType>
+			<rmsg:Location>
+				<rm:TargetArea>
+					<gml:CircleByCenterPoint numArc="££££">circle6</gml:CircleByCenterPoint>
+					<gml:Polygon>polygon7</gml:Polygon>
+				</rm:TargetArea>
+			</rmsg:Location>
+		</rmsg:ScheduleInformation>
+		<rmsg:ScheduleInformation>
+			<rmsg:ScheduleType>NO_INFO</rmsg:ScheduleType>
+			<rmsg:Location>
+				<rm:TargetArea>
+					<gml:CircleByCenterPoint numArc="££££">circle7</gml:CircleByCenterPoint>
+					<gml:Polygon>polygon0</gml:Polygon>
+				</rm:TargetArea>
+			</rmsg:Location>
+		</rmsg:ScheduleInformation>
+	</rmsg:ResourceInformation>
+	<rmsg:ResourceInformation>
+		<rmsg:ResourceInfoElementID>event0</rmsg:ResourceInfoElementID>
+		<rmsg:Resource>
+		</rmsg:Resource>
+	</rmsg:ResourceInformation>
+</rmsg:RequestResource>

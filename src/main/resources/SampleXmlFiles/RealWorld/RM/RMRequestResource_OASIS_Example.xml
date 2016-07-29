@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RequestResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:emergency:EDXL:RM:1.0:msg
+SampleXmlFiles/XSD/edxl-rm/EDXL-RMRequestResource.xsd" xmlns="urn:oasis:names:tc:emergency:EDXL:RM:1.0:msg"
+                 xmlns:rm="urn:oasis:names:tc:emergency:EDXL:RM:1.0" xmlns:xpil="urn:oasis:names:tc:ciq:xpil:3"
+                 xmlns:xnl="urn:oasis:names:tc:ciq:xnl:3" xmlns:xal="urn:oasis:names:tc:ciq:xal:3"
+                 xmlns:gml="http://www.opengis.net/gml">
+	<MessageID>urn:au-qld-eoc:12332</MessageID>
+	<SentDateTime>2006-03-21T11:58:00+10:00</SentDateTime>
+	<MessageContentType>RequestResource</MessageContentType>
+	<OriginatingMessageID>urn:au-qld-eoc:12332</OriginatingMessageID>
+	<IncidentInformation>
+		<rm:IncidentDescription>Cyclone Larry</rm:IncidentDescription>
+	</IncidentInformation>
+	<ContactInformation>
+		<rm:ContactRole>Sender</rm:ContactRole>
+		<rm:AdditionalContactInformation>
+			<xpil:PartyName>
+				<xnl:PersonName>
+					<xnl:NameElement xnl:ElementType="FirstName">Alex</xnl:NameElement>
+					<xnl:NameElement xnl:ElementType="LastName">Jones</xnl:NameElement>
+				</xnl:PersonName>
+				<xnl:OrganisationName>
+					<xnl:NameElement>Dept of Emergency Services</xnl:NameElement>
+				</xnl:OrganisationName>
+			</xpil:PartyName>
+			<xpil:ContactNumbers>
+				<xpil:ContactNumber xpil:CommunicationMediaType="Telephone" xpil:ContactHours="9:00AM - 5:00PM">
+					<xpil:ContactNumberElement xpil:Type="CountryCode">61</xpil:ContactNumberElement>
+					<xpil:ContactNumberElement xpil:Type="AreaCode">7</xpil:ContactNumberElement>
+					<xpil:ContactNumberElement xpil:Type="LocalNumber">
+						3000 1234
+					</xpil:ContactNumberElement>
+				</xpil:ContactNumber>
+			</xpil:ContactNumbers>
+			<xpil:ElectronicAddressIdentifiers>
+				<xpil:ElectronicAddressIdentifier>alexj@emergencyservices.gov.au
+				</xpil:ElectronicAddressIdentifier>
+			</xpil:ElectronicAddressIdentifiers>
+		</rm:AdditionalContactInformation>
+	</ContactInformation>
+	<ResourceInformation>
+		<ResourceInfoElementID>001</ResourceInfoElementID>
+		<Resource>
+			<TypeStructure>
+				<rm:ValueListURN>urn:x-hazard:vocab:resourceTypes</rm:ValueListURN>
+				<rm:Value>Small Animal Sheltering Team</rm:Value>
+			</TypeStructure>
+			<Description>
+				5-person response team to advise and support local efforts to set up a small animal shelter
+			</Description>
+			<SpecialRequirements>A qualified veterinary surgeon</SpecialRequirements>
+		</Resource>
+		<AssignmentInformation>
+			<Quantity>
+				<rm:MeasuredQuantity>
+					<rm:Amount>1</rm:Amount>
+				</rm:MeasuredQuantity>
+			</Quantity>
+		</AssignmentInformation>
+		<ScheduleInformation>
+			<ScheduleType>RequestedArrival</ScheduleType>
+			<DateTime>2006-03-24T09:00:00+10:00</DateTime>
+			<Location>
+				<rm:LocationDescription>Innisfail Animal Refuge</rm:LocationDescription>
+				<rm:Address>
+					<xal:Country>
+						<xal:NameElement>Australia</xal:NameElement>
+					</xal:Country>
+					<xal:AdministrativeArea>
+						<xal:NameElement>QLD</xal:NameElement>
+					</xal:AdministrativeArea>
+					<xal:Locality>
+						<xal:NameElement>Innisfail</xal:NameElement>
+					</xal:Locality>
+					<xal:Thoroughfare>
+						<xal:NameElement>Downing St</xal:NameElement>
+						<xal:Number>27</xal:Number>
+					</xal:Thoroughfare>
+					<xal:PostCode>
+						<xal:Identifier>4860</xal:Identifier>
+					</xal:PostCode>
+				</rm:Address>
+			</Location>
+		</ScheduleInformation>
+		<ScheduleInformation>
+			<ScheduleType>EstimatedReturnDeparture</ScheduleType>
+			<DateTime>2006-03-30T17:00:00+10:00</DateTime>
+		</ScheduleInformation>
+	</ResourceInformation>
+	<ResourceInformation>
+		<ResourceInfoElementID>002</ResourceInfoElementID>
+		<Resource>
+			<TypeStructure>
+				<rm:ValueListURN>urn:x-hazard:vocab:resourceTypes</rm:ValueListURN>
+				<rm:Value>Patrol and Surveillance Helicopters</rm:Value>
+			</TypeStructure>
+		</Resource>
+		<AssignmentInformation>
+			<Quantity>
+				<rm:MeasuredQuantity>
+					<rm:Amount>3</rm:Amount>
+				</rm:MeasuredQuantity>
+			</Quantity>
+			<AnticipatedFunction>
+				Aerial surveillance to determine extent of flooding
+			</AnticipatedFunction>
+		</AssignmentInformation>
+		<ScheduleInformation>
+			<ScheduleType>RequestedArrival</ScheduleType>
+			<DateTime>2006-03-22T09:00:00+10:00</DateTime>
+			<Location>
+				<rm:LocationDescription>Innisfail airport</rm:LocationDescription>
+			</Location>
+		</ScheduleInformation>
+	</ResourceInformation>
+	<ResourceInformation>
+		<ResourceInfoElementID>003</ResourceInfoElementID>
+		<Resource>
+			<TypeStructure>
+				<rm:ValueListURN>urn:x-hazard:vocab:resourceTypes</rm:ValueListURN>
+				<rm:Value>Electrical Power Restoration Team</rm:Value>
+			</TypeStructure>
+		</Resource>
+		<AssignmentInformation>
+			<Quantity>
+				<rm:MeasuredQuantity>
+					<rm:Amount>2</rm:Amount>
+				</rm:MeasuredQuantity>
+			</Quantity>
+			<AnticipatedFunction>
+				Restore power to critical infrastructure in and around the Innisfail area
+			</AnticipatedFunction>
+		</AssignmentInformation>
+		<ScheduleInformation>
+			<ScheduleType>RequestedArrival</ScheduleType>
+			<DateTime>2006-03-22T08:00:00+10:00</DateTime>
+			<Location>
+				<rm:TargetArea>
+					<gml:Point>
+						<gml:pos>146.03 -17.53</gml:pos>
+					</gml:Point>
+				</rm:TargetArea>
+			</Location>
+		</ScheduleInformation>
+	</ResourceInformation>
+</RequestResource>
