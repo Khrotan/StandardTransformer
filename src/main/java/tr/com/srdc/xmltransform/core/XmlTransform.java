@@ -3,14 +3,16 @@
  * Class to transform template xmlString's
  */
 
-import TextContextRestriction.RM_to_CAP.RM_to_CAP_RestrictionInformation;
-import TextContextRestriction.RestrictionInformation;
-import TextContextRestriction.TextContextComparatorModes;
+package tr.com.srdc.xmltransform.core;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+import tr.com.srdc.xmltransform.TextContextRestriction.RM_to_CAP.RMtoCAPRestrictionInformation;
+import tr.com.srdc.xmltransform.TextContextRestriction.RestrictionInformation;
+import tr.com.srdc.xmltransform.TextContextRestriction.TextContextComparatorModes;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -25,8 +27,15 @@ import javax.xml.xpath.XPathFactory;
 import java.io.*;
 import java.util.List;
 import java.util.Stack;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 public class XmlTransform {
+    private static final Logger logger = Logger.getLogger( XmlTransform.class.getName() );
+    private static FileHandler fileHandler = null;
+
     private XPath xPath;
     private RestrictionInformation restrictionInformation;
 
@@ -36,10 +45,17 @@ public class XmlTransform {
 
     public XmlTransform() throws ParserConfigurationException, IOException, SAXException {
         xPath = XPathFactory.newInstance().newXPath();
+
+        fileHandler = new FileHandler( "XmlTransform.log", false );
+        fileHandler.setFormatter( new SimpleFormatter() );
+        logger.addHandler( fileHandler );
+        logger.setLevel( Level.ALL );
     }
 
-    private void deleteUntouched( Node node ) {
-
+    /**
+     * @param node Base node to delete appropriate
+     */
+    private void deleteNonmappedNodes( Node node ) {
         if ( node.getTextContent().replaceAll( "££££", "" ).replaceAll( "NO_INFO", "" ).trim().equals( "" ) ) {
             if ( node.getAttributes().getNamedItem( "required" ) == null ) {
                 node.getParentNode().removeChild( node );
@@ -69,12 +85,13 @@ public class XmlTransform {
 
             if ( prevSize != nodeList.size() )
                 m--;
+
             prevSize = nodeList.size();
 
             Node currentNode = nodeList.get( m );
             if ( currentNode.getNodeType() == Node.ELEMENT_NODE ) {
                 //calls this method for all the children which is Element
-                deleteUntouched( currentNode );
+                deleteNonmappedNodes( currentNode );
             }
             else if ( currentNode.getNodeType() == Node.TEXT_NODE && currentNode.getTextContent().trim().equals( "" ) ) {
                 currentNode.getParentNode().removeChild( currentNode );
@@ -82,9 +99,16 @@ public class XmlTransform {
         }
     }
 
-    private void makeUntouched( Node node ) {
+    /**
+     * <p>
+     * This method replaces every descendant node of given parameter's text context with either ££££ or NO_INFO.
+     * </p>
+     *
+     * @param node Base node that is going to be reverted back to it's template form.
+     */
+    private void revertNode( Node node ) {
         if ( node.getTextContent().replaceAll( "££££", "" ).trim().equals( "" ) == false ) {
-            if ( node.hasChildNodes() == false || ( ( node.getChildNodes().getLength() == 1 ) && ( node.getChildNodes().item( 0 ).getNodeType() == Node.TEXT_NODE ) ) ) {
+            if ( XmlUtil.isLeafNode( node ) ) {
                 if ( node.getAttributes().getNamedItem( "required" ) == null ) {
                     node.setTextContent( "££££" );
                 }
@@ -93,12 +117,13 @@ public class XmlTransform {
                 }
             }
         }
+
         NodeList nodeList = node.getChildNodes();
         for ( int m = 0; m < nodeList.getLength(); m++ ) {
             Node currentNode = nodeList.item( m );
             if ( currentNode.getNodeType() == Node.ELEMENT_NODE ) {
                 //calls this method for all the children which is Element
-                makeUntouched( currentNode );
+                revertNode( currentNode );
             }
         }
     }
@@ -116,9 +141,7 @@ public class XmlTransform {
             //unbounded'sa buraya gir
             if ( target.getAttributes().getNamedItem( "cardinality" ) != null && target.getAttributes().getNamedItem( "cardinality" ).getTextContent().equals( "unbounded" ) ) {
                 Node newcomerNode = dummyTarget.cloneNode( true );
-
-                transformNode( newcomerNode.getNodeName(), source.getTextContent(), newcomerNode );
-
+                changeTextContext( newcomerNode.getNodeName(), source.getTextContent(), newcomerNode );
                 targetNodeParentNode.insertBefore( newcomerNode, dummyTarget );
             }
             //unbounded degilse buraya gir
@@ -139,10 +162,9 @@ public class XmlTransform {
                     }
 
                     Node newcomer = dummyTarget.cloneNode( true );
-                    makeUntouched( newcomer );
-                    transformNode( targetName, source.getTextContent(), newcomer );
+                    revertNode( newcomer );
+                    changeTextContext( targetName, source.getTextContent(), newcomer );
                     dummyTarget.getParentNode().insertBefore( newcomer, dummyTarget );
-
                 }
                 // No need to create new node in  here
                 else {
@@ -157,24 +179,32 @@ public class XmlTransform {
                     if ( sourceList.size() != 0 && target.getNodeType() == Node.ELEMENT_NODE && target.getChildNodes().getLength() == 1 ) {
                         target.setTextContent( sourceList.get( sourceNodeIndex ).getTextContent() );
                     }*/
-                    transformNode( targetList.get( sourceNodeIndex ).getNodeName(), sourceList.get( sourceNodeIndex ).getTextContent(), targetList.get( sourceNodeIndex + 1 ) );
+                    changeTextContext( targetList.get( sourceNodeIndex ).getNodeName(), sourceList.get( sourceNodeIndex ).getTextContent(), targetList.get( sourceNodeIndex + 1 ) );
                 }
             }
         }
     }
 
-    private void transformNode( String targetNodeName, String sourceNodeTextContext, Node toBeTransformedNode ) {
+    /**
+     * Iterative Depth First Search implementation to find node with targetName in the children of toBeSearchedNode.
+     * If it has found, replace it's text context with appropriate value.
+     *
+     * @param targetName        Target node's name that is going to searched in toBeSearchedNode
+     * @param sourceTextContext Source node's text context that is going to be replaced
+     * @param toBeSearchedNode  Base node that is going to be searched in, for element with targetName
+     */
+    private void changeTextContext( String targetName, String sourceTextContext, Node toBeSearchedNode ) {
         Stack<Node> stack = new Stack<>();
-        stack.push( toBeTransformedNode );
+        stack.push( toBeSearchedNode );
         while ( !stack.isEmpty() ) {
             Node poppedNode = stack.pop();
-            if ( poppedNode.getNodeType() == Node.ELEMENT_NODE && poppedNode.getNodeName().equals( targetNodeName ) ) {
+            if ( poppedNode.getNodeType() == Node.ELEMENT_NODE && poppedNode.getNodeName().equals( targetName ) ) {
 
                 if ( restrictionInformation.getComparator( poppedNode.getNodeName() ) != null ) {
-                    poppedNode.setTextContent( restrictionInformation.getComparator( poppedNode.getNodeName() ).decideTextContext( sourceNodeTextContext, poppedNode, TextContextComparatorModes.CompareValuesAndDecide ) );
+                    poppedNode.setTextContent( restrictionInformation.getComparator( poppedNode.getNodeName() ).decideTextContext( sourceTextContext, poppedNode, TextContextComparatorModes.CompareValuesAndDecide ) );
                 }
                 else {
-                    poppedNode.setTextContent( sourceNodeTextContext );
+                    poppedNode.setTextContent( sourceTextContext );
                 }
 
                 break;
@@ -190,7 +220,7 @@ public class XmlTransform {
 
         while ( ( line = bufferedReader.readLine() ) != null ) {
 
-            // use comma as separator
+            // use semicolon as separator
             String[] mapping = line.split( ";" );
 
 
@@ -199,20 +229,17 @@ public class XmlTransform {
                 List<Node> sourceNodeList = XmlUtil.asList( (NodeList) xPath.compile( mapping[ 1 ] ).evaluate( sourceDocumentParam, XPathConstants.NODESET ) );
 
                 if ( sourceNodeList.size() == 0 ) {
+                    logger.log( Level.INFO, "Source: " + mapping[ 1 ] + " is null." );
                     continue;
                 }
 
-                //target
+                // Target
                 List<Node> targetNodeList = XmlUtil.asList( (NodeList) xPath.compile( mapping[ 2 ] ).evaluate( templateDocumentParam, XPathConstants.NODESET ) );
                 Node targetNode = (Node) xPath.compile( mapping[ 2 ] ).evaluate( templateDocumentParam, XPathConstants.NODE );
 
                 if ( targetNode == null ) {
-                    System.out.println( "Target: " + mapping[ 2 ] + " is null." );
+                    logger.log( Level.SEVERE, "Target: " + mapping[ 2 ] + " is null." );
                     continue;
-                }
-
-                if ( mapping[ 0 ].equals( "circle" ) ) {
-                    System.out.println( "" );
                 }
 
                 // Mapping have been previously done, so just create new nodes
@@ -220,18 +247,17 @@ public class XmlTransform {
                     createNewNodes( sourceNodeList, targetNodeList, CreateNewNodesModes.OnlyCreate );
                 }
                 else {
-                    // ilk eslesmeyi yapıp direkt geciriyor
-                    this.transformNode( targetNode.getNodeName(), sourceNodeList.get( 0 ).getTextContent(), targetNode );
+                    // The mapping done on the the template document's element with ££££ value.
+                    this.changeTextContext( targetNode.getNodeName(), sourceNodeList.get( 0 ).getTextContent(), targetNode );
 
                     if ( sourceNodeList.size() > 1 ) {
                         this.createNewNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList, CreateNewNodesModes.CanReplace );
                     }
                 }
-
             }
         }
 
-        deleteUntouched( templateDocumentParam.getDocumentElement() );
+        deleteNonmappedNodes( templateDocumentParam.getDocumentElement() );
 
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.setOutputProperty( OutputKeys.INDENT, "yes" );
@@ -301,8 +327,8 @@ public class XmlTransform {
         File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--rm--cap.csv" ).getFile() );
 
         XmlTransform xmlTransform = new XmlTransform();
-        xmlTransform.setRestrictionInformation( new RM_to_CAP_RestrictionInformation() );
+        xmlTransform.setRestrictionInformation( new RMtoCAPRestrictionInformation() );
 
-        System.out.println( xmlTransform.transformDocument( sourceDocument, targetDocument, csvFile ) );
+        xmlTransform.transformDocument( sourceDocument, targetDocument, csvFile );
     }
 }

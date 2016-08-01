@@ -1,4 +1,6 @@
-/**
+package tr.com.srdc.xmltransform.core;
+
+/*
  * Created by Arda Guney on 27.7.2016 02:44.
  * Helper class for Xml Transform
  */
@@ -16,7 +18,7 @@ public final class XmlUtil {
     }
 
     public static List<Node> asList( NodeList n ) {
-        return n.getLength() == 0 ? Collections.<Node>emptyList() : new NodeListWrapper( n );
+        return n.getLength() == 0 ? Collections.emptyList() : new NodeListWrapper( n );
     }
 
     public static Node[] convertToArray( NodeList list ) {

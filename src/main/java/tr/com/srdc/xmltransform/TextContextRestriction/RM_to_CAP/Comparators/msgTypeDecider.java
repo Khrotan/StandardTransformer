@@ -1,8 +1,8 @@
-package TextContextRestriction.RM_to_CAP.Comparators;
+package tr.com.srdc.xmltransform.TextContextRestriction.RM_to_CAP.Comparators;
 
-import TextContextRestriction.TextContextDecider;
-import TextContextRestriction.TextContextComparatorModes;
 import org.w3c.dom.Node;
+import tr.com.srdc.xmltransform.TextContextRestriction.TextContextComparatorModes;
+import tr.com.srdc.xmltransform.TextContextRestriction.TextContextDecider;
 
 /**
  * Created by arda on 01.08.2016.

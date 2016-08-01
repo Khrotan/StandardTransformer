@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:emergency:cap:1.2 file:/home/arda/Dropbox/SRDC%20Team%20Folder/xsd/CAP-v1.2.xsd">
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="urn:oasis:names:tc:emergency:cap:1.2 file:/home/arda/Dropbox/SRDC%20Team%20Folder/xsd/CAP-v1.2.xsd">
     <identifier>urn:au-qld-eoc:12332</identifier>
     <sender>urn:au-qld-eoc:12332</sender>
     <sent>2006-03-21T11:58:00+10:00</sent>
@@ -16,27 +17,27 @@
         <headline>EstimatedReturnDeparture</headline>
         <area>
             <areaDesc>
-				Innisfail Animal Refuge
-				
-					
-						Australia
-					
-					
-						QLD
-					
-					
-						Innisfail
-					
-					
-						Downing St
-						27
-					
-					
-						4860
-					
-				
-			</areaDesc>
-		</area>
+	            Innisfail Animal Refuge
+	
+	
+	            Australia
+	
+	
+	            QLD
+	
+	
+	            Innisfail
+	
+	
+	            Downing St
+	            27
+	
+	
+	            4860
+
+
+            </areaDesc>
+        </area>
     </info>
     <info>
         <category>Other</category>
@@ -48,9 +49,9 @@
         <headline>RequestedArrival</headline>
         <area>
             <areaDesc>
-				Innisfail airport
-			</areaDesc>
-		</area>
+	            Innisfail airport
+            </areaDesc>
+        </area>
     </info>
     <info>
         <category>Other</category>
@@ -62,13 +63,13 @@
         <headline>RequestedArrival</headline>
         <area>
             <areaDesc>
-				
-					
-						146.03 -17.53
-					
-				
-			</areaDesc>
-		</area>
+	
+	
+	            146.03 -17.53
+
+
+            </areaDesc>
+        </area>
     </info>
     <info>
         <category>Other</category>
@@ -79,36 +80,30 @@
         <effective>2006-03-22T08:00:00+10:00</effective>
         <headline>RequestedArrival</headline>
         <description>
-				5-person response team to advise and support local efforts to set up a small animal shelter
-			</description>
+	        5-person response team to advise and support local efforts to set up a small animal shelter
+        </description>
         <instruction>A qualified veterinary surgeon</instruction>
         <contact>
-		Sender
-		
-			
-				
-					Alex
-					Jones
-				
-				
-					Dept of Emergency Services
-				
-			
-			
-				
-					61
-					7
-					
-						3000 1234
-					
-				
-			
-			
-				alexj@emergencyservices.gov.au
-				
-			
-		
-	</contact>
+	        Sender
+	
+	
+	        Alex
+	        Jones
+	
+	
+	        Dept of Emergency Services
+	
+	
+	        61
+	        7
+	
+	        3000 1234
+	
+	
+	        alexj@emergencyservices.gov.au
+
+
+        </contact>
         <parameter>
             <valueName>urn:x-hazard:vocab:resourceTypes</valueName>
             <value>Small Animal Sheltering Team</value>
@@ -125,16 +120,16 @@
             <resourceDesc>NO_INFO</resourceDesc>
             <mimeType>NO_INFO</mimeType>
             <derefUri>002</derefUri>
-		</resource>
+        </resource>
         <resource>
             <resourceDesc>NO_INFO</resourceDesc>
             <mimeType>NO_INFO</mimeType>
             <derefUri>003</derefUri>
-		</resource>
+        </resource>
         <resource>
             <resourceDesc>Cyclone Larry</resourceDesc>
             <mimeType>NO_INFO</mimeType>
             <derefUri>001</derefUri>
-		</resource>
-	</info>
+        </resource>
+    </info>
 </alert>

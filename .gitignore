@@ -33,6 +33,7 @@ GitHub.sublime-settings
 # IntelliJ project files
 .idea
 *.iml
+*.log
 out
 gen### Java template
 *.class
@@ -137,3 +138,6 @@ fabric.properties
 /src/main/resources/TestFiles/XML
 /src/main/resources/TestFiles/books.xml
 /src/main/resources/TestFiles/catalog.xml
+
+# JAVADOC
+/javadoc

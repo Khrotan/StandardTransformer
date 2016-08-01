@@ -1,14 +1,14 @@
-package TextContextRestriction.RM_to_CAP.Comparators;
+package tr.com.srdc.xmltransform.TextContextRestriction.RM_to_CAP.Comparators;
 
-import TextContextRestriction.TextContextDecider;
-import TextContextRestriction.TextContextComparatorModes;
 import org.w3c.dom.Node;
+import tr.com.srdc.xmltransform.TextContextRestriction.TextContextComparatorModes;
+import tr.com.srdc.xmltransform.TextContextRestriction.TextContextDecider;
 
 /**
  * Created by arda on 01.08.2016.
- * Comparator class for status element on Common Alerting Protocol.
+ * Comparator class for urgency element on Common Alerting Protocol.
  */
-public class statusDecider implements TextContextDecider {
+public class urgencyDecider implements TextContextDecider {
     /**
      * @param sourceContext   is the text context of the source node.
      * @param toBeTransformed is the node to be text context changed.
@@ -17,10 +17,10 @@ public class statusDecider implements TextContextDecider {
      */
     public String decideTextContext( String sourceContext, Node toBeTransformed, TextContextComparatorModes mode ) {
         if ( mode == TextContextComparatorModes.OnDeleteIfNoInfo ) {
-            return "Actual";
+            return "Unknown";
         }
         else {
-            return "Actual";
+            return "Immediate";
         }
     }
 }
