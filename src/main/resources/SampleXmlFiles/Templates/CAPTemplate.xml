@@ -50,7 +50,7 @@
 			<digest>££££</digest>
 		</resource>
 		<area cardinality="unbounded">
-			<areaDesc>££££</areaDesc>
+			<areaDesc required="true">££££</areaDesc>
 			<polygon cardinality="unbounded">££££</polygon>
 			<circle cardinality="unbounded">££££</circle>
 			<geocode cardinality="unbounded">
