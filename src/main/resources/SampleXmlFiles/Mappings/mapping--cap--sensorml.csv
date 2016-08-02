@@ -29,7 +29,7 @@ instruction;/alert/info/instruction;/PhysicalSystem/documentation/DocumentList/d
 web;/alert/info/web;/PhysicalSystem/documentation/DocumentList/document/CI_OnlineResource/linkage/URL
 contact;/alert/info/contact;/PhysicalSystem/contacts/ContactList/contact/CI_ResponsibleParty/role/CI_RoleCode
 resourceDesc;/alert/info/resource/resourceDesc;/PhysicalSystem/components/ComponentList/component/PhysicalComponent/name
-uri;/alert/info/resource/uri;/PhysicalSystem/components/ComponentList/component/PhysicalComponent/descriptionReference
+uri;/alert/info/resource/uri;/PhysicalSystem/components/ComponentList/component/PhysicalComponent/characteristics/CharacteristicList/description
 derefUri;/alert/info/resource/derefUri;/PhysicalSystem/components/ComponentList/component/PhysicalComponent/description
 areaDesc;/alert/info/area/areaDesc;/PhysicalSystem/location/LocationString
 polygon;/alert/info/area/polygon;/PhysicalSystem/boundedBy/Envelope/coordinates

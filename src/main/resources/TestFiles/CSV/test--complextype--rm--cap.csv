@@ -1,3 +1,4 @@
---;/RequestResource/ResourceInformation/Resource/TypeStructure/Value;/alert/info/area/geocode/valueName
---;/RequestResource/ResourceInformation/Resource/TypeStructure/ValueListURN;/alert/info/area/geocode/value
+--;/RequestResource/ResourceInformation/Resource/TypeStructure/Value;/alert/info/area/geocode/value
+--;/RequestResource/ResourceInformation/Resource/TypeStructure/ValueListURN;/alert/info/area/geocode/valueName
 --;/RequestResource/ResourceInformation/ScheduleInformation/DateTime;/alert/info/area/geocode/valueName
+--;/RequestResource/ResourceInformation/Resource/Description;/alert/info/area/geocode/value

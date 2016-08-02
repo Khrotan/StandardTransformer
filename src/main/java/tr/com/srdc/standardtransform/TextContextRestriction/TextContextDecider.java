@@ -1,4 +1,4 @@
-package tr.com.srdc.xmltransform.TextContextRestriction;
+package tr.com.srdc.standardtransform.TextContextRestriction;
 
 import org.w3c.dom.Node;
 

@@ -42,8 +42,8 @@ SampleXmlFiles/XSD/edxl-rm/EDXL-RMRequestResource.xsd" xmlns="urn:oasis:names:tc
 		<ResourceInfoElementID>001</ResourceInfoElementID>
 		<Resource>
 			<TypeStructure>
-				<rm:ValueListURN>urn:x-hazard:vocab:resourceTypes</rm:ValueListURN>
-				<rm:Value>Small Animal Sheltering Team</rm:Value>
+				<rm:ValueListURN>valueURN0</rm:ValueListURN>
+				<rm:Value>value0</rm:Value>
 			</TypeStructure>
 			<Description>
 				5-person response team to advise and support local efforts to set up a small animal shelter
@@ -59,7 +59,7 @@ SampleXmlFiles/XSD/edxl-rm/EDXL-RMRequestResource.xsd" xmlns="urn:oasis:names:tc
 		</AssignmentInformation>
 		<ScheduleInformation>
 			<ScheduleType>RequestedArrival</ScheduleType>
-			<DateTime>2006-03-24T09:00:00+10:00</DateTime>
+			<DateTime>2003-03-24T09:00:00+10:00</DateTime>
 			<Location>
 				<rm:LocationDescription>Innisfail Animal Refuge</rm:LocationDescription>
 				<rm:Address>
@@ -84,15 +84,15 @@ SampleXmlFiles/XSD/edxl-rm/EDXL-RMRequestResource.xsd" xmlns="urn:oasis:names:tc
 		</ScheduleInformation>
 		<ScheduleInformation>
 			<ScheduleType>EstimatedReturnDeparture</ScheduleType>
-			<DateTime>2006-03-30T17:00:00+10:00</DateTime>
+			<DateTime>2004-03-30T17:00:00+10:00</DateTime>
 		</ScheduleInformation>
 	</ResourceInformation>
 	<ResourceInformation>
 		<ResourceInfoElementID>002</ResourceInfoElementID>
 		<Resource>
 			<TypeStructure>
-				<rm:ValueListURN>urn:x-hazard:vocab:resourceTypes</rm:ValueListURN>
-				<rm:Value>Patrol and Surveillance Helicopters</rm:Value>
+				<rm:ValueListURN>valueURN1</rm:ValueListURN>
+				<rm:Value>value1</rm:Value>
 			</TypeStructure>
 		</Resource>
 		<AssignmentInformation>
@@ -107,7 +107,7 @@ SampleXmlFiles/XSD/edxl-rm/EDXL-RMRequestResource.xsd" xmlns="urn:oasis:names:tc
 		</AssignmentInformation>
 		<ScheduleInformation>
 			<ScheduleType>RequestedArrival</ScheduleType>
-			<DateTime>2006-03-22T09:00:00+10:00</DateTime>
+			<DateTime>2005-03-22T09:00:00+10:00</DateTime>
 			<Location>
 				<rm:LocationDescription>Innisfail airport</rm:LocationDescription>
 			</Location>
@@ -117,8 +117,8 @@ SampleXmlFiles/XSD/edxl-rm/EDXL-RMRequestResource.xsd" xmlns="urn:oasis:names:tc
 		<ResourceInfoElementID>003</ResourceInfoElementID>
 		<Resource>
 			<TypeStructure>
-				<rm:ValueListURN>urn:x-hazard:vocab:resourceTypes</rm:ValueListURN>
-				<rm:Value>Electrical Power Restoration Team</rm:Value>
+				<rm:ValueListURN>valueURN2</rm:ValueListURN>
+				<rm:Value>value2</rm:Value>
 			</TypeStructure>
 		</Resource>
 		<AssignmentInformation>

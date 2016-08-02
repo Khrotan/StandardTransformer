@@ -1,7 +1,7 @@
-package tr.com.srdc.xmltransform.TextContextRestriction.RM_to_CAP;
+package tr.com.srdc.standardtransform.TextContextRestriction.RM_to_CAP;
 
-import tr.com.srdc.xmltransform.TextContextRestriction.RM_to_CAP.Comparators.*;
-import tr.com.srdc.xmltransform.TextContextRestriction.RestrictionInformation;
+import tr.com.srdc.standardtransform.TextContextRestriction.RM_to_CAP.Comparators.*;
+import tr.com.srdc.standardtransform.TextContextRestriction.RestrictionInformation;
 
 /**
  * Created by arda on 01.08.2016.

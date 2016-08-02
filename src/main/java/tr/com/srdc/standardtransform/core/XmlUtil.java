@@ -1,4 +1,4 @@
-package tr.com.srdc.xmltransform.core;
+package tr.com.srdc.standardtransform.core;
 
 /*
  * Created by Arda Guney on 27.7.2016 02:44.
@@ -46,7 +46,25 @@ public final class XmlUtil {
     }
 
     protected static boolean isRequiredNode( Node node ) {
-        if ( node.getAttributes().getNamedItem( "cardinality" ) != null && node.getAttributes().getNamedItem( "cardinality" ).getTextContent().equals( "unbounded" ) )
+        if ( node.getAttributes().getNamedItem( "required" ) != null && node.getAttributes().getNamedItem( "required" ).getTextContent().equals( "true" ) ) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    protected static boolean isUnboundedNode( Node node ) {
+        if ( node.getAttributes().getNamedItem( "cardinality" ) != null && node.getAttributes().getNamedItem( "cardinality" ).getTextContent().equals( "unbounded" ) ) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    protected static boolean isNoTextContextNode( Node node ) {
+        if ( node.getAttributes().getNamedItem( "haveNoTextContext" ) != null && node.getAttributes().getNamedItem( "haveNoTextContext" ).getTextContent().equals( "true" ) )
             return true;
         else
             return false;

@@ -1,4 +1,4 @@
-package tr.com.srdc.xmltransform.TextContextRestriction;
+package tr.com.srdc.standardtransform.TextContextRestriction;
 
 import java.util.HashMap;
 

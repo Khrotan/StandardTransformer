@@ -1,4 +1,4 @@
-package tr.com.srdc.xmltransform.core;
+package tr.com.srdc.standardtransform.core;
 
 /**
  * Created by arda on 29.07.2016.
