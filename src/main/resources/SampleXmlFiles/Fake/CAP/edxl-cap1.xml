@@ -46,7 +46,7 @@
 		<headline>headline0</headline>
 		<description>description0</description>
 		<instruction>instruction0</instruction>
-		<web>http://www.oxygenxml.com/</web>
+		<web>http://www.srdc.com.tr/</web>
 		<contact>contact0</contact>
 		<parameter>
 			<valueName>valueName2</valueName>
@@ -60,7 +60,7 @@
 			<resourceDesc>resourceDesc0</resourceDesc>
 			<mimeType>mimeType0</mimeType>
 			<size>0</size>
-			<uri>http://www.oxygenxml.com/</uri>
+			<uri>http://www.srdc.com.tr/</uri>
 			<derefUri>derefUri0</derefUri>
 			<digest>digest0</digest>
 		</resource>
@@ -68,7 +68,7 @@
 			<resourceDesc>resourceDesc1</resourceDesc>
 			<mimeType>mimeType1</mimeType>
 			<size>0</size>
-			<uri>http://www.oxygenxml.com/</uri>
+			<uri>http://www.srdc.com.tr/</uri>
 			<derefUri>derefUri1</derefUri>
 			<digest>digest1</digest>
 		</resource>
@@ -137,7 +137,7 @@
 		<headline>headline1</headline>
 		<description>description1</description>
 		<instruction>instruction1</instruction>
-		<web>http://www.oxygenxml.com/</web>
+		<web>http://www.srdc.com.tr/</web>
 		<contact>contact1</contact>
 		<parameter>
 			<valueName>valueName10</valueName>
@@ -151,7 +151,7 @@
 			<resourceDesc>resourceDesc2</resourceDesc>
 			<mimeType>mimeType2</mimeType>
 			<size>0</size>
-			<uri>http://www.oxygenxml.com/</uri>
+			<uri>http://www.srdc.com.tr/</uri>
 			<derefUri>derefUri2</derefUri>
 			<digest>digest2</digest>
 		</resource>
@@ -159,7 +159,7 @@
 			<resourceDesc>resourceDesc3</resourceDesc>
 			<mimeType>mimeType3</mimeType>
 			<size>0</size>
-			<uri>http://www.oxygenxml.com/</uri>
+			<uri>http://www.srdc.com.tr/</uri>
 			<derefUri>derefUri3</derefUri>
 			<digest>digest3</digest>
 		</resource>
