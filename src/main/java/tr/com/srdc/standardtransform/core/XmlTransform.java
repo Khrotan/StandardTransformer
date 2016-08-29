@@ -179,14 +179,14 @@ public class XmlTransform {
         for ( Node sourceNode : sourceList ) {
             Node newcomer = unboundedAncestor.cloneNode( true );
             revertNodeToTemplateForm( newcomer );
-            changeTextContext( target.getNodeName(), sourceNode.getTextContent(), newcomer );
             unboundedAncestor.getParentNode().insertBefore( newcomer, unboundedAncestor );
+            changeTextContext( XmlUtil.getXPath( target ), sourceNode.getTextContent(), newcomer );
         }
     }
 
     public void replaceNodes( List<Node> sourceList, List<Node> targetList ) {
         for ( int i = 0 ; i < sourceList.size() ; i++ ) {
-            changeTextContext( targetList.get( i ).getNodeName(), sourceList.get( i ).getTextContent(), targetList.get( i ) );
+            changeTextContext( XmlUtil.getXPath( targetList.get( i ) ), sourceList.get( i ).getTextContent(), targetList.get( i ) );
         }
     }
 
@@ -207,7 +207,7 @@ public class XmlTransform {
 
             if ( XmlUtil.isUnboundedNode( target ) ) {
                 Node newcomerNode = dummyTarget.cloneNode( true );
-                changeTextContext( newcomerNode.getNodeName(), source.getTextContent(), newcomerNode );
+                changeTextContext( XmlUtil.getXPath( newcomerNode ), source.getTextContent(), newcomerNode );
                 targetNodeParentNode.insertBefore( newcomerNode, dummyTarget );
             }
             else {
@@ -228,7 +228,7 @@ public class XmlTransform {
 
                     Node newcomer = dummyTarget.cloneNode( true );
                     revertNodeToTemplateForm( newcomer );
-                    changeTextContext( targetName, source.getTextContent(), newcomer );
+                    changeTextContext( XmlUtil.getXPath( target ), source.getTextContent(), newcomer );
                     dummyTarget.getParentNode().insertBefore( newcomer, dummyTarget );
                 }
                 // No need to create new node in  here
@@ -244,7 +244,7 @@ public class XmlTransform {
                     if ( sourceList.size() != 0 && target.getNodeType() == Node.ELEMENT_NODE && target.getChildNodes().getLength() == 1 ) {
                         target.setTextContent( sourceList.get( sourceNodeIndex ).getTextContent() );
                     }*/
-                    changeTextContext( targetList.get( sourceNodeIndex ).getNodeName(), sourceList.get( sourceNodeIndex ).getTextContent(), targetList.get( sourceNodeIndex + 1 ) );
+                    changeTextContext( XmlUtil.getXPath( targetList.get( sourceNodeIndex ) ), sourceList.get( sourceNodeIndex ).getTextContent(), targetList.get( sourceNodeIndex + 1 ) );
                 }
             }
         }
@@ -254,23 +254,23 @@ public class XmlTransform {
      * Iterative Depth First Search implementation to find node with targetName in the children of toBeSearchedNode.
      * If it has found, replace it's text context with appropriate value.
      *
-     * @param targetName        Target node's name that is going to searched in toBeSearchedNode
+     * @param targetXpath        Target node's name that is going to searched in toBeSearchedNode
      * @param sourceTextContext Source node's text context that is going to be replaced
      * @param toBeSearchedNode  Base node that is going to be searched in, for element with targetName
      */
-    private void changeTextContext( String targetName, String sourceTextContext, Node toBeSearchedNode ) {
+    private void changeTextContext( String targetXpath, String sourceTextContext, Node toBeSearchedNode ) {
         Stack<Node> stack = new Stack<>();
         stack.push( toBeSearchedNode );
         while ( !stack.isEmpty() ) {
             Node poppedNode = stack.pop();
             if ( poppedNode.getNodeType() == Node.ELEMENT_NODE
-                    && poppedNode.getNodeName().equals( targetName ) ) {
+                    && XmlUtil.getXPath( poppedNode ).equals( targetXpath ) ) {
 
                 if ( restrictionInformation.getComparator( poppedNode.getNodeName() ) != null ) {
                     poppedNode.setTextContent( restrictionInformation.getComparator( poppedNode.getNodeName() ).decideTextContext( sourceTextContext, poppedNode, TextContextComparatorModes.CompareValuesAndDecide ) );
                 }
                 else {
-                    poppedNode.setTextContent( sourceTextContext );
+                    poppedNode.setTextContent( sourceTextContext.trim() );
                 }
 
                 break;
@@ -305,7 +305,7 @@ public class XmlTransform {
                     continue;
                 }
 
-                if ( mapping[0].equals( "resourceDesc" ) ) {
+                if ( mapping[0].equals( "resourceDesc" ) || mapping[0].equals( "event" ) || mapping[0].equals( "responseType" ) ) {
                     System.out.print("");
                 }
 
@@ -320,6 +320,7 @@ public class XmlTransform {
                     if ( sourceNodeList.size() > 1 ) {
 //                        this.createNewNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList, CreateNewNodesModes.CanReplace );
 
+                        //TODO: This check is NOT VALID and should be changed. Target nodes may have changed previously, if this is the case, previously written values may overwritten.
                         if ( sourceNodeList.size() > targetNodeList.size() ) {
                             createBoundedNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList.get( 0 ) );
                         } else {
@@ -330,6 +331,8 @@ public class XmlTransform {
                 }
 
             }
+
+            System.out.print( "" );
         }
 
         deleteNonmappedNodes( templateDocumentParam.getDocumentElement() );

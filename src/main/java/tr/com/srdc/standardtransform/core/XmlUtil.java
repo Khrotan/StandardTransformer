@@ -9,7 +9,11 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import java.math.BigInteger;
+import javax.xml.transform.*;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.File;
+import java.io.StringWriter;
 import java.security.SecureRandom;
 import java.util.*;
 
@@ -77,8 +81,8 @@ public final class XmlUtil {
         SecureRandom secureRandom = new SecureRandom();
         Random random = new Random();
 
-        return "I" + random.nextInt(9999);
-//        return new BigInteger( 130, secureRandom ).toString( 32 ).substring( 0, length );
+        return "I" + random.nextInt( 9999 );
+        //        return new BigInteger( 130, secureRandom ).toString( 32 ).substring( 0, length );
     }
 
 
@@ -124,9 +128,10 @@ public final class XmlUtil {
             parentName = node.getParentNode().getNodeName().substring( node.getParentNode().getNodeName().indexOf( ":" ) + 1 );
             parentName = parentName.substring( 0, 1 ).toUpperCase() + parentName.substring( 1 );
 
-            if ( XmlUtil.isLeafNode( node ) )
+            if ( XmlUtil.isLeafNode( node ) ) {
                 System.out.println( getXPath( node ).substring( 11, getXPath( node ).length() ).replaceAll( "/", "" ) );
-                //System.out.println( nodeName + ";" + getXPath( node ) + ";." );
+            }
+            //System.out.println( nodeName + ";" + getXPath( node ) + ";." );
         }
         else {
             //            sitRepStandard[ traverseIndex - 1 ][ 1 ] = "parent";
@@ -140,6 +145,21 @@ public final class XmlUtil {
                 traverse( currentNode );
             }
         }
+    }
+
+    protected static String prettyPrint( Node parentNode ) throws TransformerException {
+        Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        transformer.setOutputProperty( OutputKeys.INDENT, "yes" );
+        transformer.setOutputProperty( "{http://xml.apache.org/xslt}indent-amount", "4" );
+        StringWriter stringWriter = new StringWriter();
+
+        Result stringOutput = new StreamResult( stringWriter );
+
+        Source input = new DOMSource( parentNode );
+
+        transformer.transform( input, stringOutput );
+
+        return stringWriter.getBuffer().toString();
     }
 
     /*protected int findIndexInExcelFile( String parentElement, String childElement ) throws IOException {
