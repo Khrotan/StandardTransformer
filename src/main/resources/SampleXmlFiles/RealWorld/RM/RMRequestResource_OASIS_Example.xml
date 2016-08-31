@@ -143,4 +143,22 @@ SampleXmlFiles/XSD/edxl-rm/EDXL-RMRequestResource.xsd" xmlns="urn:oasis:names:tc
 			</Location>
 		</ScheduleInformation>
 	</ResourceInformation>
+	<ResourceInformation>
+		<ResourceInfoElementID>004</ResourceInfoElementID>
+		<Resource>
+			<TypeStructure>
+				<rm:ValueListURN>valueURN3</rm:ValueListURN>
+				<rm:Value>value3</rm:Value>
+			</TypeStructure>
+		</Resource>
+	</ResourceInformation>
+	<ResourceInformation>
+		<ResourceInfoElementID>005</ResourceInfoElementID>
+		<Resource>
+			<TypeStructure>
+				<rm:ValueListURN>valueURN4</rm:ValueListURN>
+				<rm:Value>value4</rm:Value>
+			</TypeStructure>
+		</Resource>
+	</ResourceInformation>
 </RequestResource>

@@ -271,9 +271,21 @@ public class XmlTransform {
                     replaceNodes( sourceNodeList.subList( 0, 1 ), targetNodeList.subList( 0, 1 ) );
 
                     if ( sourceNodeList.size() > 1 ) {
-                        //TODO: This check is NOT VALID and should be changed. Target nodes may have changed previously, if this is the case, previously written values may overwritten.
                         if ( sourceNodeList.size() > nonmappedNodesCount ) {
                             createBoundedNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList.get( 0 ) );
+
+/*                            targetNodeList = XmlUtil.asList( (NodeList) xPath.compile( mapping[ 2 ] ).evaluate( templateDocumentParam, XPathConstants.NODESET ) );
+
+                            Node kayikNode = targetNodeList.get( targetNodeList.size() - 1 );
+                            Node babaKayikNode = findUnboundedAncestorNode( kayikNode );
+                            Node babaRefNode = findUnboundedAncestorNode( targetNodeList.get( 0 ) );
+
+                            if ( babaKayikNode == null ) {
+                                continue;
+                            }
+
+                            babaRefNode.getParentNode().insertBefore( babaKayikNode, babaRefNode );
+*/
                         }
                         else {
                             replaceNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList.subList( 1, targetNodeList.size() ) );
