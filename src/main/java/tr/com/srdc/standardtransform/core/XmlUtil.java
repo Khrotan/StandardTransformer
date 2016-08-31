@@ -35,6 +35,19 @@ public final class XmlUtil {
         return copy;
     }
 
+    static int findConsecutiveNonmappedNodes( List<Node> targetNodes ) {
+        int result = 0;
+        for ( Node targetNode : targetNodes ) {
+            if ( XmlUtil.isNonmappedNode( targetNode ) ) {
+                result++;
+            }
+            else {
+                break;
+            }
+        }
+        return result;
+    }
+
     static boolean isLeafNode( Node node ) {
         if ( node.hasChildNodes() == false ) {
             return true;
@@ -47,6 +60,10 @@ public final class XmlUtil {
             }
         }
         return true;
+    }
+
+    static boolean isNonmappedNode( Node node ) {
+        return node.getTextContent().replaceAll( "££££", "" ).replaceAll( "NO_INFO", "" ).trim().equals( "" );
     }
 
     static boolean isRequiredNode( Node node ) {
@@ -150,7 +167,7 @@ public final class XmlUtil {
 
         Source input = new DOMSource( parentNode );
 
-        Result fileOutput = new StreamResult( new File( "output.xml" ) );
+        Result fileOutput = new StreamResult( new File( fileName ) );
 
         transformer.transform( input, fileOutput );
     }

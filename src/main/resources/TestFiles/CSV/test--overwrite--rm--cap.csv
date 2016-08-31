@@ -1,0 +1,5 @@
+.;/RequestResource/MessageContentType;/alert/info/parameter/value
+.;/RequestResource/MessageID;/alert/info/parameter/value
+.;/RequestResource/IncidentInformation/IncidentDescription;/alert/info/parameter/valueName
+.;/RequestResource/SentDateTime;/alert/info/parameter/value
+.;/RequestResource/ContactInformation/AdditionalContactInformation/PartyName/PersonName/NameElement;/alert/info/parameter/valueName

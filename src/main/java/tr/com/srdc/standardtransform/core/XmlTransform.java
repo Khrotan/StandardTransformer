@@ -56,7 +56,7 @@ public class XmlTransform {
      * @param node Base node to delete appropriate elements
      */
     private void deleteNonmappedNodes( Node node ) {
-        if ( node.getTextContent().replaceAll( "££££", "" ).replaceAll( "NO_INFO", "" ).trim().equals( "" ) ) {
+        if ( XmlUtil.isNonmappedNode( node ) ) {
             if ( XmlUtil.isRequiredNode( node ) == false ) {
                 node.getParentNode().removeChild( node );
                 return;
@@ -70,8 +70,8 @@ public class XmlTransform {
                 }
 
                 if ( XmlUtil.isNoTextContextNode( node ) ) {
-                    if ( node.getTextContent().replaceAll( "££££", "" ).replaceAll( "NO_INFO", "" ).equals( "" ) == false ) {
-                        logger.log( Level.WARNING, XmlUtil.getXPath( node ) + " have been mapped wrongly, is a no text context node." );
+                    if ( XmlUtil.isNonmappedNode( node ) == false ) {
+                        logger.log( Level.WARNING, XmlUtil.getXPath( node ) + " have been mapped incorrectly, is a no text context node." );
                     }
                     node.setTextContent( "" );
                 }
@@ -265,14 +265,14 @@ public class XmlTransform {
                     createBoundedNodes( sourceNodeList, targetNodeList.get( 0 ) );
                 }
                 else {
+                    int nonmappedNodesCount = XmlUtil.findConsecutiveNonmappedNodes( targetNodeList );
+
                     // The first mapping on the the template document's element with ££££ value.
                     replaceNodes( sourceNodeList.subList( 0, 1 ), targetNodeList.subList( 0, 1 ) );
 
                     if ( sourceNodeList.size() > 1 ) {
-                        //                        this.createNewNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList, CreateNewNodesModes.CanReplace );
-
                         //TODO: This check is NOT VALID and should be changed. Target nodes may have changed previously, if this is the case, previously written values may overwritten.
-                        if ( sourceNodeList.size() > targetNodeList.size() ) {
+                        if ( sourceNodeList.size() > nonmappedNodesCount ) {
                             createBoundedNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList.get( 0 ) );
                         }
                         else {
@@ -303,11 +303,9 @@ public class XmlTransform {
 */
 
         //output2
-/*
         Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Fake/CAP/edxl-cap1.xml" ).getFile() ) );
         Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/SensorMlTemplate.xml" ).getFile() ) );
         File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--cap--sensorml.csv" ).getFile() );
-*/
 
         //output3
 /*
@@ -345,9 +343,18 @@ public class XmlTransform {
 */
 
         //output8
+/*
         Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/RealWorld/RM/RMRequestResource_OASIS_Example.xml" ).getFile() ) );
         Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/CAPTemplate.xml" ).getFile() ) );
         File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--rm--cap.csv" ).getFile() );
+*/
+
+        //output9
+/*
+        Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/RealWorld/RM/RMRequestResource_OASIS_Example.xml" ).getFile() ) );
+        Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/CAPTemplate.xml" ).getFile() ) );
+        File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "TestFiles/CSV/test--overwrite--rm--cap.csv" ).getFile() );
+*/
 
         //XmlUtil.traverse( targetDocument.getDocumentElement() );
 

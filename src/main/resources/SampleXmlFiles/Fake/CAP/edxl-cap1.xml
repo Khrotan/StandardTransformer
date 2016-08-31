@@ -130,9 +130,9 @@
 			<valueName>valueName10</valueName>
 			<value>value10</value>
 		</eventCode>
-		<effective>2003-06-11T20:56:00-07:00</effective>
-		<onset>2003-06-11T20:56:00-09:00</onset>
-		<expires>2003-06-11T20:56:00-08:00</expires>
+		<effective>2007-06-11T20:56:00-07:00</effective>
+		<onset>2008-06-11T20:56:00-09:00</onset>
+		<expires>2009-06-11T20:56:00-08:00</expires>
 		<senderName>senderName1</senderName>
 		<headline>headline1</headline>
 		<description>description1</description>
@@ -140,8 +140,8 @@
 		<web>http://www.srdcweb1.com.tr/</web>
 		<contact>contact1</contact>
 		<parameter>
-			<valueName>valueName10</valueName>
-			<value>value10</value>
+			<valueName>valueName19</valueName>
+			<value>value19</value>
 		</parameter>
 		<parameter>
 			<valueName>valueName11</valueName>
