@@ -7,28 +7,28 @@
                       xmlns:xnal="urn:oasis:names:tc:ciq:xnal:3" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:3"
                       xmlns:xpil="urn:oasis:names:tc:ciq:xpil:3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                       xsi:schemaLocation="urn:oasis:names:tc:emergency:EDXL:RM:1.0:msg file:/home/arda/Dropbox/SRDC%20Team%20Folder/xsd/edxl-rm/EDXL-RMRequestResource.xsd">
-	<rmsg:MessageID>43b080713727</rmsg:MessageID>
-	<rmsg:SentDateTime>2003-04-02T14:39:01-05:00</rmsg:SentDateTime>
-	<rmsg:MessageContentType>Alert</rmsg:MessageContentType>
-	<rmsg:OriginatingMessageID>hsas@dhs.gov</rmsg:OriginatingMessageID>
-	<rmsg:IncidentInformation>
-		<rm:IncidentDescription>Image file (GIF)</rm:IncidentDescription>
-	</rmsg:IncidentInformation>
-	<rmsg:ContactInformation>
-		<rm:Radio>
-			<rm:RadioType>
-				<rm:ValueListURN>HSAS</rm:ValueListURN>
-				<rm:Value>NO_INFO</rm:Value>
-			</rm:RadioType>
-			<rm:RadioChannel>NO_INFO</rm:RadioChannel>
-		</rm:Radio>
-		<rm:ContactLocation>
-			<rm:LocationDescription>U.S. nationwide and interests worldwide</rm:LocationDescription>
+    <rmsg:MessageID>43b080713727</rmsg:MessageID>
+    <rmsg:SentDateTime>2003-04-02T14:39:01-05:00</rmsg:SentDateTime>
+    <rmsg:MessageContentType>Alert</rmsg:MessageContentType>
+    <rmsg:OriginatingMessageID>hsas@dhs.gov</rmsg:OriginatingMessageID>
+    <rmsg:IncidentInformation>
+        <rm:IncidentDescription>Image file (GIF)</rm:IncidentDescription>
+    </rmsg:IncidentInformation>
+    <rmsg:ContactInformation>
+        <rm:Radio>
+            <rm:RadioType>
+                <rm:ValueListURN>HSAS</rm:ValueListURN>
+                <rm:Value>NO_INFO</rm:Value>
+            </rm:RadioType>
+            <rm:RadioChannel>NO_INFO</rm:RadioChannel>
+        </rm:Radio>
+        <rm:ContactLocation>
+            <rm:LocationDescription>U.S. nationwide and interests worldwide</rm:LocationDescription>
 		</rm:ContactLocation>
 	</rmsg:ContactInformation>
-	<rmsg:ResourceInformation>
-		<rmsg:ResourceInfoElementID>Homeland Security Advisory System Update</rmsg:ResourceInfoElementID>
-		<rmsg:Resource>
+    <rmsg:ResourceInformation>
+        <rmsg:ResourceInfoElementID>Homeland Security Advisory System Update</rmsg:ResourceInfoElementID>
+        <rmsg:Resource>
 		</rmsg:Resource>
 	</rmsg:ResourceInformation>
 </rmsg:RequestResource>

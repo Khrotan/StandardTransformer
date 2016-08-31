@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <sml:PhysicalSystem xmlns:sml="http://www.opengis.net/sensorml/2.0" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="ID000" xsi:schemaLocation="http://www.opengis.net/sensorml/2.0 file:/home/arda/Dropbox/SRDC%20Team%20Folder/xsd/physical_system.xsd http://www.opengis.net/swe/2.0 ">
     <gml:description>Actual</gml:description>
-    <gml:identifier codeSpace="http://www.oxygenxml.com/">KSTO1055887203</gml:identifier>
+    <gml:identifier codeSpace="http://www.srdc.com.tr/">KSTO1055887203</gml:identifier>
     <gml:name>KSTO@NWS.NOAA.GOV</gml:name>
     <gml:boundedBy>
         <gml:Envelope>
@@ -12,8 +12,8 @@
 	</gml:boundedBy>
     <gml:location>
         <gml:LocationString>EXTREME NORTH CENTRAL TUOLUMNE COUNTY IN CALIFORNIA, EXTREME NORTHEASTERN
-				CALAVERAS COUNTY IN CALIFORNIA, SOUTHWESTERN ALPINE COUNTY IN CALIFORNIA
-			</gml:LocationString>
+            CALAVERAS COUNTY IN CALIFORNIA, SOUTHWESTERN ALPINE COUNTY IN CALIFORNIA
+        </gml:LocationString>
 	</gml:location>
     <sml:keywords>
         <sml:KeywordList>
@@ -34,8 +34,8 @@
     <sml:validTime>
         <gml:TimePeriod gml:id="ID055">
             <gml:relatedTime>
-                <gml:TimeInstant gml:id="I5319">
-                    <gml:timePosition>2003-06-17T16:00:00-07:00</gml:timePosition>
+                <gml:TimeInstant gml:id="I6291">
+                    <gml:timePosition>2004-06-17T16:00:00-07:00</gml:timePosition>
                 </gml:TimeInstant>
             </gml:relatedTime>
             <gml:relatedTime>
@@ -70,7 +70,9 @@
             <sml:contact>
                 <gmd:CI_ResponsibleParty>
                     <gmd:role>
-                        <gmd:CI_RoleCode codeList="http://www.oxygenxml.com/" codeListValue="http://www.oxygenxml.com/">BARUFFALDI/JUSKIE</gmd:CI_RoleCode>
+                        <gmd:CI_RoleCode codeList="http://www.srdc.com.tr/" codeListValue="http://www.srdc.com.tr/">
+                            BARUFFALDI/JUSKIE
+                        </gmd:CI_RoleCode>
                     </gmd:role>
                 </gmd:CI_ResponsibleParty>
             </sml:contact>
@@ -103,8 +105,8 @@
                     <gml:description>AT 254 PM PDT...NATIONAL WEATHER SERVICE DOPPLER RADAR INDICATED A SEVERE
 			THUNDERSTORM OVER SOUTH CENTRAL ALPINE COUNTY...OR ABOUT 18 MILES SOUTHEAST OF KIRKWOOD...MOVING
 			SOUTHWEST AT 5 MPH. HAIL...INTENSE RAIN AND STRONG DAMAGING WINDS ARE LIKELY WITH THIS
-			STORM.
-		</gml:description>
+                        STORM.
+                    </gml:description>
                     <sml:classification>
                         <sml:ClassifierList>
                             <sml:classifier>

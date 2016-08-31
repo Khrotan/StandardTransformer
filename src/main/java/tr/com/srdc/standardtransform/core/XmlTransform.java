@@ -17,14 +17,15 @@ import tr.com.srdc.standardtransform.TextContextRestriction.TextContextComparato
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.*;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.TransformerException;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 import java.util.Stack;
 import java.util.logging.FileHandler;
@@ -144,11 +145,16 @@ public class XmlTransform {
         }
     }
 
-    public Node findUnboundedAncestorNode( Node unboundedAncestor ) {
+    /**
+     * @param unboundedAncestor Base node that is going to be searched an unbounded node in it's ancestors
+     * @return Returns first unbounded ancestor node if found, returns null if it doesn't have one.
+     */
+    private Node findUnboundedAncestorNode( Node unboundedAncestor ) {
         while ( unboundedAncestor.getParentNode() != null ) {
             if ( XmlUtil.isUnboundedNode( unboundedAncestor ) ) {
                 break;
-            } else {
+            }
+            else {
                 unboundedAncestor = unboundedAncestor.getParentNode();
             }
         }
@@ -160,15 +166,11 @@ public class XmlTransform {
         return unboundedAncestor;
     }
 
-    /*public void createUnboundedNodes( List<Node> sourceList, Node target ) {
-        for ( Node sourceNode : sourceList ) {
-            Node newcomerNode = target.cloneNode( true );
-            changeTextContext( newcomerNode.getNodeName(), sourceNode.getTextContent(), newcomerNode );
-            target.getParentNode().insertBefore( newcomerNode, target );
-        }
-    }*/
-
-    public void createBoundedNodes( List<Node> sourceList, Node target ) {
+    /**
+     * @param sourceList
+     * @param target
+     */
+    private void createBoundedNodes( List<Node> sourceList, Node target ) {
         Node unboundedAncestor = findUnboundedAncestorNode( target );
 
         if ( unboundedAncestor == null ) {
@@ -184,69 +186,13 @@ public class XmlTransform {
         }
     }
 
-    public void replaceNodes( List<Node> sourceList, List<Node> targetList ) {
+    /**
+     * @param sourceList
+     * @param targetList
+     */
+    private void replaceNodes( List<Node> sourceList, List<Node> targetList ) {
         for ( int i = 0 ; i < sourceList.size() ; i++ ) {
             changeTextContext( XmlUtil.getXPath( targetList.get( i ) ), sourceList.get( i ).getTextContent(), targetList.get( i ) );
-        }
-    }
-
-    /**
-     * @param sourceList is the list of source xpath nodes
-     * @param targetList is the list of 4
-     * @param mode
-     */
-    private void createNewNodes( List<Node> sourceList, List<Node> targetList, CreateNewNodesModes mode ) {
-        Node target = targetList.get( 0 );
-        String targetName = target.getNodeName();
-
-        Node dummyTarget = target;
-
-        for ( int i = 0 ; i < sourceList.size() ; i++ ) {
-            Node source = sourceList.get( i );
-            Node targetNodeParentNode = dummyTarget.getParentNode();
-
-            if ( XmlUtil.isUnboundedNode( target ) ) {
-                Node newcomerNode = dummyTarget.cloneNode( true );
-                changeTextContext( XmlUtil.getXPath( newcomerNode ), source.getTextContent(), newcomerNode );
-                targetNodeParentNode.insertBefore( newcomerNode, dummyTarget );
-            }
-            else {
-                // A new node is creating in here
-                if ( sourceList.size() + 1 > targetList.size() || mode == CreateNewNodesModes.OnlyCreate ) {
-
-                    while ( dummyTarget.getParentNode() != null ) {
-                        if ( XmlUtil.isUnboundedNode( dummyTarget ) ) {
-                            break;
-                        }
-                        dummyTarget = dummyTarget.getParentNode();
-                    }
-
-                    if ( dummyTarget.getParentNode() == null || dummyTarget.equals( target.getOwnerDocument().getDocumentElement() ) ) {
-                        dummyTarget = target;
-                        continue;
-                    }
-
-                    Node newcomer = dummyTarget.cloneNode( true );
-                    revertNodeToTemplateForm( newcomer );
-                    changeTextContext( XmlUtil.getXPath( target ), source.getTextContent(), newcomer );
-                    dummyTarget.getParentNode().insertBefore( newcomer, dummyTarget );
-                }
-                // No need to create new node in  here
-                else {
-                    int sourceNodeIndex = 0;
-                    for ( int j = 1 ; j < sourceList.size() ; j++ ) {
-                        if ( sourceList.get( j ).isEqualNode( source ) ) {
-                            sourceNodeIndex = j;
-                            break;
-                        }
-                    }
-                    /*target = targetList.get( sourceNodeIndex );
-                    if ( sourceList.size() != 0 && target.getNodeType() == Node.ELEMENT_NODE && target.getChildNodes().getLength() == 1 ) {
-                        target.setTextContent( sourceList.get( sourceNodeIndex ).getTextContent() );
-                    }*/
-                    changeTextContext( XmlUtil.getXPath( targetList.get( sourceNodeIndex ) ), sourceList.get( sourceNodeIndex ).getTextContent(), targetList.get( sourceNodeIndex + 1 ) );
-                }
-            }
         }
     }
 
@@ -254,17 +200,16 @@ public class XmlTransform {
      * Iterative Depth First Search implementation to find node with targetName in the children of toBeSearchedNode.
      * If it has found, replace it's text context with appropriate value.
      *
-     * @param targetXpath        Target node's name that is going to searched in toBeSearchedNode
-     * @param sourceTextContext Source node's text context that is going to be replaced
-     * @param toBeSearchedNode  Base node that is going to be searched in, for element with targetName
+     * @param targetXpath       Target node's XPath that is going to searched in toBeSearchedNode
+     * @param sourceTextContext Source node's text context that is going to be replaced with found node
+     * @param toBeSearchedNode  Base node that is going to be searched in, for element that has same XPath with targetXpath
      */
     private void changeTextContext( String targetXpath, String sourceTextContext, Node toBeSearchedNode ) {
         Stack<Node> stack = new Stack<>();
         stack.push( toBeSearchedNode );
         while ( !stack.isEmpty() ) {
             Node poppedNode = stack.pop();
-            if ( poppedNode.getNodeType() == Node.ELEMENT_NODE
-                    && XmlUtil.getXPath( poppedNode ).equals( targetXpath ) ) {
+            if ( poppedNode.getNodeType() == Node.ELEMENT_NODE && XmlUtil.getXPath( poppedNode ).equals( targetXpath ) ) {
 
                 if ( restrictionInformation.getComparator( poppedNode.getNodeName() ) != null ) {
                     poppedNode.setTextContent( restrictionInformation.getComparator( poppedNode.getNodeName() ).decideTextContext( sourceTextContext, poppedNode, TextContextComparatorModes.CompareValuesAndDecide ) );
@@ -279,6 +224,12 @@ public class XmlTransform {
         }
     }
 
+    /**
+     * @param sourceDocumentParam   Source document input that is going to be converted
+     * @param templateDocumentParam Target template document that is going to be filled in
+     * @param csvFile               Mapping specifications that stores the information about mapping relationships
+     * @return Converted document as String
+     */
     public String transformDocument( Document sourceDocumentParam, Document templateDocumentParam, File csvFile ) throws IOException, XPathExpressionException, TransformerException {
         BufferedReader bufferedReader = new BufferedReader( new FileReader( csvFile ) );
 
@@ -305,8 +256,8 @@ public class XmlTransform {
                     continue;
                 }
 
-                if ( mapping[0].equals( "resourceDesc" ) || mapping[0].equals( "event" ) || mapping[0].equals( "responseType" ) ) {
-                    System.out.print("");
+                if ( mapping[ 0 ].equals( "resourceDesc" ) || mapping[ 0 ].equals( "event" ) || mapping[ 0 ].equals( "responseType" ) ) {
+                    System.out.print( "" );
                 }
 
                 // Mapping have been previously done, so just create new nodes
@@ -318,14 +269,14 @@ public class XmlTransform {
                     replaceNodes( sourceNodeList.subList( 0, 1 ), targetNodeList.subList( 0, 1 ) );
 
                     if ( sourceNodeList.size() > 1 ) {
-//                        this.createNewNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList, CreateNewNodesModes.CanReplace );
+                        //                        this.createNewNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList, CreateNewNodesModes.CanReplace );
 
                         //TODO: This check is NOT VALID and should be changed. Target nodes may have changed previously, if this is the case, previously written values may overwritten.
                         if ( sourceNodeList.size() > targetNodeList.size() ) {
                             createBoundedNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList.get( 0 ) );
-                        } else {
-                            replaceNodes( sourceNodeList.subList( 1, sourceNodeList.size() ),
-                                    targetNodeList.subList( 1, targetNodeList.size() ));
+                        }
+                        else {
+                            replaceNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList.subList( 1, targetNodeList.size() ) );
                         }
                     }
                 }
@@ -336,22 +287,8 @@ public class XmlTransform {
         }
 
         deleteNonmappedNodes( templateDocumentParam.getDocumentElement() );
-
-        Transformer transformer = TransformerFactory.newInstance().newTransformer();
-        transformer.setOutputProperty( OutputKeys.INDENT, "yes" );
-        transformer.setOutputProperty( "{http://xml.apache.org/xslt}indent-amount", "4" );
-        StringWriter stringWriter = new StringWriter();
-        Result output = new StreamResult( new File( "output.xml" ) );
-
-        Result stringOutput = new StreamResult( stringWriter );
-
-        Source input = new DOMSource( templateDocumentParam );
-
-        transformer.transform( input, output );
-
-        transformer.transform( input, stringOutput );
-
-        return stringWriter.getBuffer().toString();
+        XmlUtil.writeResultToFile( templateDocumentParam, "output.xml" );
+        return XmlUtil.prettyPrint( templateDocumentParam );
     }
 
     public static void main( String[] args ) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException {
@@ -366,9 +303,11 @@ public class XmlTransform {
 */
 
         //output2
+/*
         Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Fake/CAP/edxl-cap1.xml" ).getFile() ) );
         Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/SensorMlTemplate.xml" ).getFile() ) );
         File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--cap--sensorml.csv" ).getFile() );
+*/
 
         //output3
 /*
@@ -406,11 +345,9 @@ public class XmlTransform {
 */
 
         //output8
-/*
         Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/RealWorld/RM/RMRequestResource_OASIS_Example.xml" ).getFile() ) );
         Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/CAPTemplate.xml" ).getFile() ) );
         File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--rm--cap.csv" ).getFile() );
-*/
 
         //XmlUtil.traverse( targetDocument.getDocumentElement() );
 

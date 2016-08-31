@@ -2,7 +2,7 @@ package tr.com.srdc.standardtransform.core;
 
 /*
  * Created by Arda Guney on 27.7.2016 02:44.
- * Helper class for Xml Transform
+ * Helper class for Standard Transformer
  */
 
 import org.w3c.dom.Element;
@@ -14,14 +14,13 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.StringWriter;
-import java.security.SecureRandom;
 import java.util.*;
 
 public final class XmlUtil {
     private XmlUtil() {
     }
 
-    public static List<Node> asList( NodeList n ) {
+    static List<Node> asList( NodeList n ) {
         return n.getLength() == 0 ? Collections.emptyList() : new NodeListWrapper( n );
     }
 
@@ -36,7 +35,7 @@ public final class XmlUtil {
         return copy;
     }
 
-    protected static boolean isLeafNode( Node node ) {
+    static boolean isLeafNode( Node node ) {
         if ( node.hasChildNodes() == false ) {
             return true;
         }
@@ -50,35 +49,19 @@ public final class XmlUtil {
         return true;
     }
 
-    protected static boolean isRequiredNode( Node node ) {
-        if ( node.getAttributes().getNamedItem( "required" ) != null && node.getAttributes().getNamedItem( "required" ).getTextContent().equals( "true" ) ) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    static boolean isRequiredNode( Node node ) {
+        return node.getAttributes().getNamedItem( "required" ) != null && node.getAttributes().getNamedItem( "required" ).getTextContent().equals( "true" );
     }
 
-    protected static boolean isUnboundedNode( Node node ) {
-        if ( node.getAttributes().getNamedItem( "cardinality" ) != null && node.getAttributes().getNamedItem( "cardinality" ).getTextContent().equals( "unbounded" ) ) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    static boolean isUnboundedNode( Node node ) {
+        return node.getAttributes().getNamedItem( "cardinality" ) != null && node.getAttributes().getNamedItem( "cardinality" ).getTextContent().equals( "unbounded" );
     }
 
-    protected static boolean isNoTextContextNode( Node node ) {
-        if ( node.getAttributes().getNamedItem( "haveNoTextContext" ) != null && node.getAttributes().getNamedItem( "haveNoTextContext" ).getTextContent().equals( "true" ) ) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    static boolean isNoTextContextNode( Node node ) {
+        return node.getAttributes().getNamedItem( "haveNoTextContext" ) != null && node.getAttributes().getNamedItem( "haveNoTextContext" ).getTextContent().equals( "true" );
     }
 
-    public static String generateRandomString( int length ) {
-        SecureRandom secureRandom = new SecureRandom();
+    static String generateRandomString( int length ) {
         Random random = new Random();
 
         return "I" + random.nextInt( 9999 );
@@ -86,21 +69,20 @@ public final class XmlUtil {
     }
 
 
-    public void changeIdIfExist( Element element ) {
+    private void changeIdIfExist( Element element ) {
         if ( element.getAttribute( "gml:id" ) != null ) {
             element.setAttribute( "gml:id", generateRandomString( 10 ) );
         }
 
         List<Node> nodeList = XmlUtil.asList( element.getChildNodes() );
-        for ( int m = 0 ; m < nodeList.size() ; m++ ) {
-            Node currentNode = nodeList.get( m );
+        for ( Node currentNode : nodeList ) {
             if ( currentNode.getNodeType() == Node.ELEMENT_NODE ) {
                 changeIdIfExist( (Element) currentNode );
             }
         }
     }
 
-    protected static String getXPath( Node node ) {
+    static String getXPath( Node node ) {
         Node parent = node.getParentNode();
         if ( parent == null ) {
             if ( node.getNodeName().split( ":" ).length == 2 ) {
@@ -119,7 +101,7 @@ public final class XmlUtil {
         }
     }
 
-    protected static void traverse( Node node ) {
+    private static void traverse( Node node ) {
         String nodeName, parentName;
         nodeName = node.getNodeName().substring( node.getNodeName().indexOf( ":" ) + 1 );
         nodeName = nodeName.substring( 0, 1 ).toUpperCase() + nodeName.substring( 1 );
@@ -147,48 +129,31 @@ public final class XmlUtil {
         }
     }
 
-    protected static String prettyPrint( Node parentNode ) throws TransformerException {
+    static String prettyPrint( Node parentNode ) throws TransformerException {
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.setOutputProperty( OutputKeys.INDENT, "yes" );
         transformer.setOutputProperty( "{http://xml.apache.org/xslt}indent-amount", "4" );
         StringWriter stringWriter = new StringWriter();
 
-        Result stringOutput = new StreamResult( stringWriter );
-
         Source input = new DOMSource( parentNode );
+        Result stringOutput = new StreamResult( stringWriter );
 
         transformer.transform( input, stringOutput );
 
         return stringWriter.getBuffer().toString();
     }
 
-    /*protected int findIndexInExcelFile( String parentElement, String childElement ) throws IOException {
-        FileInputStream file = new FileInputStream( new File( getClass().getClassLoader().getResource( "c2SenseMapping.xls" ).getFile() ) );
+    static void writeResultToFile( Node parentNode, String fileName ) throws TransformerException {
+        Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        transformer.setOutputProperty( OutputKeys.INDENT, "yes" );
+        transformer.setOutputProperty( "{http://xml.apache.org/xslt}indent-amount", "4" );
 
-        //Get the workbook instance for XLS file
-        HSSFWorkbook workbook = new HSSFWorkbook( file );
+        Source input = new DOMSource( parentNode );
 
-        //Get first sheet from the workbook
-        HSSFSheet sheet = workbook.getSheetAt( 0 );
+        Result fileOutput = new StreamResult( new File( "output.xml" ) );
 
-        //Get iterator to all the rows in current sheet
-        Iterator<Row> rowIterator = sheet.iterator();
-
-        Row row = rowIterator.next();
-
-        while ( rowIterator.hasNext() ) {
-            String BColumn = row.getCell( 1 ).getStringCellValue();
-            String DColumn = row.getCell( 3 ).getStringCellValue();
-
-            if ( parentElement.equals( BColumn ) && childElement.equals( DColumn ) ) {
-                return row.getRowNum();
-            }
-
-            row = rowIterator.next();
-        }
-
-        return -1;
-    }*/
+        transformer.transform( input, fileOutput );
+    }
 
     static final class NodeListWrapper extends AbstractList<Node> implements RandomAccess {
         private final NodeList list;

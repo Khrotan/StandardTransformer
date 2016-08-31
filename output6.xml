@@ -6,102 +6,112 @@
                     xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                     gml:id="ID000"
                     xsi:schemaLocation="http://www.opengis.net/sensorml/2.0 file:/home/arda/Dropbox/SRDC%20Team%20Folder/xsd/physical_system.xsd http://www.opengis.net/swe/2.0 ">
-	<gml:description>Actual</gml:description>
-	<gml:identifier codeSpace="http://www.oxygenxml.com/">43b080713727</gml:identifier>
-	<gml:name>hsas@dhs.gov</gml:name>
-	<gml:location>
-		<gml:LocationString>U.S. nationwide and interests worldwide</gml:LocationString>
+    <gml:description>Actual</gml:description>
+    <gml:identifier codeSpace="http://www.srdc.com.tr/">43b080713727</gml:identifier>
+    <gml:name>hsas@dhs.gov</gml:name>
+    <gml:location>
+        <gml:LocationString>U.S. nationwide and interests worldwide</gml:LocationString>
 	</gml:location>
-	<sml:keywords>
-		<sml:KeywordList>
-			<sml:keyword>Homeland Security Sets Code ORANGE</sml:keyword>
-		</sml:KeywordList>
-	</sml:keywords>
-	<sml:classification>
-		<sml:ClassifierList>
-			<swe:label>Alert</swe:label>
-			<sml:classifier>
-				<sml:Term>
-					<sml:label>NO_INFO</sml:label>
-					<sml:value>NO_INFO</sml:value>
-				</sml:Term>
-			</sml:classifier>
-		</sml:ClassifierList>
-	</sml:classification>
-	<sml:validTime>
-		<gml:TimePeriod gml:id="ID055">
-			<gml:relatedTime>
-				<gml:TimeInstant gml:id="ID074">
-					<gml:timePosition>2003-04-02T14:39:01-05:00</gml:timePosition>
-				</gml:TimeInstant>
-			</gml:relatedTime>
-			<gml:begin>
+    <sml:keywords>
+        <sml:KeywordList>
+            <sml:keyword>Homeland Security Sets Code ORANGE</sml:keyword>
+        </sml:KeywordList>
+    </sml:keywords>
+    <sml:classification>
+        <sml:ClassifierList>
+            <swe:label>Alert</swe:label>
+            <sml:classifier>
+                <sml:Term>
+                    <sml:label>NO_INFO</sml:label>
+                    <sml:value>NO_INFO</sml:value>
+                </sml:Term>
+            </sml:classifier>
+        </sml:ClassifierList>
+    </sml:classification>
+    <sml:validTime>
+        <gml:TimePeriod gml:id="ID055">
+            <gml:relatedTime>
+                <gml:TimeInstant gml:id="ID074">
+                    <gml:timePosition>2003-04-02T14:39:01-05:00</gml:timePosition>
+                </gml:TimeInstant>
+            </gml:relatedTime>
+            <gml:begin>
 			</gml:begin>
-			<gml:end>
+            <gml:end>
 			</gml:end>
 		</gml:TimePeriod>
 	</sml:validTime>
-	<sml:characteristics name="name0">
-		<sml:CharacteristicList>
-			<swe:extension>Homeland Security Advisory System Update</swe:extension>
-			<swe:extension>Security</swe:extension>
-			<sml:characteristic name="name1">
+    <sml:characteristics name="name0">
+        <sml:CharacteristicList>
+            <swe:extension>Homeland Security Advisory System Update</swe:extension>
+            <swe:extension>Security</swe:extension>
+            <sml:characteristic name="name1">
 			</sml:characteristic>
-		</sml:CharacteristicList>
-	</sml:characteristics>
-	<sml:contacts>
-		<sml:ContactList>
-			<swe:description>Public</swe:description>
-			<sml:contact>
+        </sml:CharacteristicList>
+    </sml:characteristics>
+    <sml:contacts>
+        <sml:ContactList>
+            <swe:description>Public</swe:description>
+            <sml:contact>
 			</sml:contact>
-		</sml:ContactList>
-	</sml:contacts>
-	<sml:documentation>
-		<sml:DocumentList>
-			<sml:document>
-				<gmd:CI_OnlineResource>
-					<gmd:linkage>
-						<gmd:URL>http://www.dhs.gov/dhspublic/display?theme=29</gmd:URL>
-					</gmd:linkage>
-					<gmd:protocol>
-						<gco:CharacterString>A High Condition is declared when there is a high risk of terrorist
-							attacks. In
-							addition to the Protective Measures taken in the previous Threat Conditions, Federal
-							departments
-							and agencies should consider agency-specific Protective Measures in accordance with their
-							existing plans.
-						</gco:CharacterString>
-					</gmd:protocol>
+        </sml:ContactList>
+    </sml:contacts>
+    <sml:documentation>
+        <sml:DocumentList>
+            <sml:document>
+                <gmd:CI_OnlineResource>
+                    <gmd:linkage>
+                        <gmd:URL>http://www.dhs.gov/dhspublic/display?theme=29</gmd:URL>
+                    </gmd:linkage>
+                    <gmd:protocol>
+                        <gco:CharacterString>A High Condition is declared when there is a high risk of terrorist
+                            attacks. In
+                            addition to the Protective Measures taken in the previous Threat Conditions, Federal
+                            departments
+                            and agencies should consider agency-specific Protective Measures in accordance with their
+                            existing plans.
+                        </gco:CharacterString>
+                    </gmd:protocol>
 				</gmd:CI_OnlineResource>
-			</sml:document>
-		</sml:DocumentList>
-	</sml:documentation>
-	<sml:modes>
-		<sml:AbstractModes>
-			<swe:extension>Likely</swe:extension>
-			<swe:extension>Severe</swe:extension>
-			<swe:extension>Immediate</swe:extension>
-		</sml:AbstractModes>
-	</sml:modes>
-	<sml:components>
-		<sml:ComponentList>
-			<sml:component name="name276">
-				<sml:PhysicalComponent gml:id="I1957">
-					<gml:description>The Department of Homeland Security has elevated the Homeland Security Advisory
-						System threat level to ORANGE / High in response to intelligence which may indicate a heightened
-						threat of terrorism.
-					</gml:description>
-					<gml:descriptionReference>http://www.dhs.gov/dhspublic/getAdvisoryImage</gml:descriptionReference>
-					<gml:name>Image file (GIF)</gml:name>
+            </sml:document>
+        </sml:DocumentList>
+    </sml:documentation>
+    <sml:modes>
+        <sml:AbstractModes>
+            <swe:extension>Likely</swe:extension>
+            <swe:extension>Severe</swe:extension>
+            <swe:extension>Immediate</swe:extension>
+        </sml:AbstractModes>
+    </sml:modes>
+    <sml:components>
+        <sml:ComponentList>
+            <sml:component name="name276">
+                <sml:PhysicalComponent gml:id="I1957">
+                    <gml:description>The Department of Homeland Security has elevated the Homeland Security Advisory
+                        System threat level to ORANGE / High in response to intelligence which may indicate a heightened
+                        threat of terrorism.
+                    </gml:description>
+                    <gml:name>Image file (GIF)</gml:name>
+                    <sml:characteristics name="name277">
+                        <sml:CharacteristicList>
+                            <swe:description>http://www.dhs.gov/dhspublic/getAdvisoryImage</swe:description>
+                            <sml:characteristic name="name278">
+                            </sml:characteristic>
+                        </sml:CharacteristicList>
+                    </sml:characteristics>
 				</sml:PhysicalComponent>
 			</sml:component>
-		</sml:ComponentList>
-	</sml:components>
-	<sml:connections>
-		<sml:ConnectionList>
-			<swe:extension>U.S. Government, Department of Homeland Security</swe:extension>
-			<sml:connection>
-			</sml:connection>
-		</sml:ConnectionList>
-	</sml:connections>
+        </sml:ComponentList>
+    </sml:components>
+    <sml:connections>
+        <sml:ConnectionList>
+            <swe:extension>U.S. Government, Department of Homeland Security</swe:extension>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="ref20"/>
+                    <sml:destination ref="ref21"/>
+                </sml:Link>
+            </sml:connection>
+        </sml:ConnectionList>
+    </sml:connections>
 </sml:PhysicalSystem>

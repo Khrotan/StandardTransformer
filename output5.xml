@@ -4,15 +4,15 @@
 	<identifier>NO_INFO</identifier>
 	<sender>NO_INFO</sender>
 	<sent>NO_INFO</sent>
-	<status>NO_INFO</status>
-	<msgType>NO_INFO</msgType>
-	<scope>NO_INFO</scope>
+	<status>Actual</status>
+	<msgType>Update</msgType>
+	<scope>Public</scope>
 	<info>
-		<category>NO_INFO</category>
+		<category>Other</category>
 		<event>NO_INFO</event>
-		<urgency>NO_INFO</urgency>
-		<severity>NO_INFO</severity>
-		<certainty>NO_INFO</certainty>
+		<urgency>Unknown</urgency>
+		<severity>Unknown</severity>
+		<certainty>Unknown</certainty>
 		<eventCode>
 			<valueName>2003-03-24T09:00:00+10:00</valueName>
 		</eventCode>
@@ -42,9 +42,6 @@
 		</eventCode>
 		<eventCode>
 			<valueName>value2</valueName>
-		</eventCode>
-		<eventCode>
-			<valueName>value3</valueName>
 		</eventCode>
 		<eventCode>
 			<valueName>value0</valueName>

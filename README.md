@@ -34,7 +34,7 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Mapping File
 
-Mapping file is the required `.csv` that hold the information about relationships between elements. Every line represents a mapping, and a **mapping** consists of three information. These three information are separated with semicolon.
+Mapping file is the required `.csv` file that stores the information about relationships between elements. Every line represents a mapping, and a **mapping** consists of three information. These three information are separated with semicolon.
 
 * First section is the name of the element. This section is provided to ease the debugging, may ignored with any character.
 
@@ -52,22 +52,15 @@ Template document is the required `xml` file to transform one message to another
 
 * Template document should have exactly one copy from each element, even from optional elements.
 * Each element's text context should be filled with
-`££££`
+`££££`.
 
 * If the element has unbounded cardinality
-`cardinality="unbounded"`
-
-attribute should be appended.
-
+`cardinality="unbounded"` attribute should be appended.
 * If the element has minOccurs=0, i.e it is required,
-`required="true"`
-
-attribute should be appended.
+`required="true"` attribute should be appended.
 
 * If the element should not have text context
-`haveNoTextContext="true"`
-
-attribute should be appended.
+`haveNoTextContext="true"` attribute should be appended.
 
 e.g 
 
@@ -93,8 +86,6 @@ In order to convert a message to another standard, both template document of tar
 ## Authors
 
 * **Arda Güney** - [Khrotan](https://github.com/Khrotan)
-
-* **Enver Evci** - [dominozor](https://github.com/dominozor)
 
 ## License
 
