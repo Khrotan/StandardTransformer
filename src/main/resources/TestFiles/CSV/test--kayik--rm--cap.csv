@@ -1,0 +1,7 @@
+IncidentDescription;/RequestResource/IncidentInformation/IncidentDescription;/alert/info/parameter/valueName
+IncidentDescription;/RequestResource/IncidentInformation/IncidentDescription;/alert/info/parameter/value
+ValueListURN;/RequestResource/ResourceInformation/Resource/TypeStructure/ValueListURN;/alert/info/parameter/valueName
+Value;/RequestResource/ResourceInformation/Resource/TypeStructure/Value;/alert/info/parameter/value
+MessageContentType;/RequestResource/MessageContentType;/alert/info/parameter/value
+MessageID;/RequestResource/MessageID;/alert/info/parameter/value
+IncidentDescription;/RequestResource/IncidentInformation/IncidentDescription;/alert/info/parameter/value

@@ -52,7 +52,60 @@ public class XmlTransform {
         logger.setLevel( Level.ALL );
     }
 
+
     /**
+     * Asserts whether every mapped text context appears on target document.
+     */
+    private boolean testMethod( Document sourceDocument, Document targetDocument, File csvFile ) throws IOException, XPathExpressionException {
+        boolean returnResult = true;
+
+        BufferedReader bufferedReader = new BufferedReader( new FileReader( csvFile ) );
+        String line;
+
+        while ( ( line = bufferedReader.readLine() ) != null ) {
+            String[] mapping = line.split( ";" );
+
+            if ( mapping[ 2 ].equals( "." ) == false ) {
+                List<Node> sourceNodeList = XmlUtil.asList( (NodeList) xPath.compile( mapping[ 1 ] ).evaluate( sourceDocument, XPathConstants.NODESET ) );
+
+                if ( sourceNodeList.size() == 0 ) {
+                    continue;
+                }
+
+                // Target
+                List<Node> targetNodeList = XmlUtil.asList( (NodeList) xPath.compile( mapping[ 2 ] ).evaluate( targetDocument, XPathConstants.NODESET ) );
+
+                if ( targetNodeList.size() == 0 ) {
+                    continue;
+                }
+
+                if ( findUnboundedAncestorNode( targetNodeList.get( 0 ) ) == null ) {
+                    continue;
+                }
+
+                for ( Node sourceNode : sourceNodeList ) {
+                    boolean miniResult = false;
+
+                    for ( Node targetNode : targetNodeList ) {
+                        if ( sourceNode.getTextContent().trim().equals( targetNode.getTextContent().trim() ) ) {
+                            miniResult = true;
+                            break;
+                        }
+                    }
+
+                    if ( miniResult == false ) {
+                        returnResult = false;
+                        logger.log( Level.SEVERE, "Source value " + sourceNode.getTextContent().trim() + " doesn't exist!!!" );
+                    }
+                }
+            }
+        }
+
+        return returnResult;
+    }
+
+    /**
+     * Deletes descendant nonmapped nodes and custom attributes(cardainality, required, haveNoTextContext).
      * @param node Base node to delete appropriate elements
      */
     private void deleteNonmappedNodes( Node node ) {
@@ -150,6 +203,8 @@ public class XmlTransform {
      * @return Returns first unbounded ancestor node if found, returns null if it doesn't have one.
      */
     private Node findUnboundedAncestorNode( Node unboundedAncestor ) {
+
+
         while ( unboundedAncestor.getParentNode() != null ) {
             if ( XmlUtil.isUnboundedNode( unboundedAncestor ) ) {
                 break;
@@ -256,12 +311,12 @@ public class XmlTransform {
                     continue;
                 }
 
-                if ( mapping[ 0 ].equals( "resourceDesc" ) || mapping[ 0 ].equals( "event" ) || mapping[ 0 ].equals( "responseType" ) ) {
+                if ( mapping[ 0 ].equals( "resourceDesc" ) || mapping[ 0 ].equals( "Value" ) ) {
                     System.out.print( "" );
                 }
 
                 // Mapping have been previously done, so just create new nodes
-                if ( targetNodeList.get( 0 ).getTextContent().replaceAll( "££££", "" ).trim().equals( "" ) == false ) {
+                if ( XmlUtil.isNonmappedNode( targetNodeList.get( 0 ) ) == false ) {
                     createBoundedNodes( sourceNodeList, targetNodeList.get( 0 ) );
                 }
                 else {
@@ -272,20 +327,28 @@ public class XmlTransform {
 
                     if ( sourceNodeList.size() > 1 ) {
                         if ( sourceNodeList.size() > nonmappedNodesCount ) {
+                            int beforeCount = targetNodeList.size();
+
                             createBoundedNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList.get( 0 ) );
 
-/*                            targetNodeList = XmlUtil.asList( (NodeList) xPath.compile( mapping[ 2 ] ).evaluate( templateDocumentParam, XPathConstants.NODESET ) );
+                            //this piece of code is to move the reference node which new nodes inserted before it to the top of new created nodes
 
-                            Node kayikNode = targetNodeList.get( targetNodeList.size() - 1 );
-                            Node babaKayikNode = findUnboundedAncestorNode( kayikNode );
-                            Node babaRefNode = findUnboundedAncestorNode( targetNodeList.get( 0 ) );
+                            targetNodeList = XmlUtil.asList( (NodeList) xPath.compile( mapping[ 2 ] ).evaluate( templateDocumentParam, XPathConstants.NODESET ) );
 
-                            if ( babaKayikNode == null ) {
+                            //no new node have been created, so simply skip
+                            if ( beforeCount == targetNodeList.size() ) {
                                 continue;
                             }
 
-                            babaRefNode.getParentNode().insertBefore( babaKayikNode, babaRefNode );
-*/
+                            Node referenceNode = targetNodeList.get( sourceNodeList.size() - 1 );
+                            Node unboundeAncestorOfReferenceNode = findUnboundedAncestorNode( referenceNode );
+                            Node babaNode = findUnboundedAncestorNode( targetNodeList.get( 0 ) );
+
+                            if ( unboundeAncestorOfReferenceNode == null ) {
+                                continue;
+                            }
+
+                            babaNode.getParentNode().insertBefore( unboundeAncestorOfReferenceNode, babaNode );
                         }
                         else {
                             replaceNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList.subList( 1, targetNodeList.size() ) );
@@ -297,6 +360,8 @@ public class XmlTransform {
 
             System.out.print( "" );
         }
+
+        testMethod( sourceDocumentParam, templateDocumentParam, csvFile );
 
         deleteNonmappedNodes( templateDocumentParam.getDocumentElement() );
         XmlUtil.writeResultToFile( templateDocumentParam, "output.xml" );
@@ -315,9 +380,11 @@ public class XmlTransform {
 */
 
         //output2
+/*
         Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Fake/CAP/edxl-cap1.xml" ).getFile() ) );
         Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/SensorMlTemplate.xml" ).getFile() ) );
         File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--cap--sensorml.csv" ).getFile() );
+*/
 
         //output3
 /*
@@ -367,6 +434,11 @@ public class XmlTransform {
         Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/CAPTemplate.xml" ).getFile() ) );
         File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "TestFiles/CSV/test--overwrite--rm--cap.csv" ).getFile() );
 */
+
+        //output10
+        Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/RealWorld/RM/RMRequestResource_OASIS_Example.xml" ).getFile() ) );
+        Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/CAPTemplate.xml" ).getFile() ) );
+        File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "TestFiles/CSV/test--kayik--rm--cap.csv" ).getFile() );
 
         //XmlUtil.traverse( targetDocument.getDocumentElement() );
 
