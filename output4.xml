@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="urn:oasis:names:tc:emergency:cap:1.2 file:/home/arda/Dropbox/SRDC%20Team%20Folder/xsd/CAP-v1.2.xsd">
+	<identifier>NO_INFO</identifier>
+	<sender>NO_INFO</sender>
+	<sent>NO_INFO</sent>
+	<status>Actual</status>
+	<msgType>Update</msgType>
+	<scope>Public</scope>
+	<info>
+		<category>Other</category>
+		<event>NO_INFO</event>
+		<urgency>Unknown</urgency>
+		<severity>Unknown</severity>
+		<certainty>Unknown</certainty>
+		<area>
+			<areaDesc>NO_INFO</areaDesc>
+			<geocode>
+				<valueName>2003-03-24T09:00:00+10:00</valueName>
+				<value>5-person response team to advise and support local efforts to set up a small animal shelter
+				</value>
+			</geocode>
+			<geocode>
+				<valueName>2004-03-30T17:00:00+10:00</valueName>
+				<value>NO_INFO</value>
+			</geocode>
+			<geocode>
+				<valueName>2005-03-22T09:00:00+10:00</valueName>
+				<value>NO_INFO</value>
+			</geocode>
+			<geocode>
+				<valueName>2006-03-22T08:00:00+10:00</valueName>
+				<value>NO_INFO</value>
+			</geocode>
+			<geocode>
+				<valueName>valueURN0</valueName>
+				<value>value0</value>
+			</geocode>
+			<geocode>
+				<valueName>valueURN1</valueName>
+				<value>value1</value>
+			</geocode>
+			<geocode>
+				<valueName>valueURN2</valueName>
+				<value>value2</value>
+			</geocode>
+			<geocode>
+				<valueName>valueURN3</valueName>
+				<value>value3</value>
+			</geocode>
+			<geocode>
+				<valueName>valueURN4</valueName>
+				<value>value4</value>
+			</geocode>
+		</area>
+	</info>
+</alert>

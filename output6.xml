@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <sml:PhysicalSystem xmlns:sml="http://www.opengis.net/sensorml/2.0" xmlns:gco="http://www.isotc211.org/2005/gco"
                     xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2"
-                    xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gss="http://www.isotc211.org/2005/gss"
-                    xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:swe="http://www.opengis.net/swe/2.0"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                     gml:id="ID000"
                     xsi:schemaLocation="http://www.opengis.net/sensorml/2.0 file:/home/arda/Dropbox/SRDC%20Team%20Folder/xsd/physical_system.xsd http://www.opengis.net/swe/2.0 ">
     <gml:description>Actual</gml:description>
@@ -64,13 +62,13 @@
                         <gmd:URL>http://www.dhs.gov/dhspublic/display?theme=29</gmd:URL>
                     </gmd:linkage>
                     <gmd:protocol>
-                        <gco:CharacterString>A High Condition is declared when there is a high risk of terrorist
-                            attacks. In
-                            addition to the Protective Measures taken in the previous Threat Conditions, Federal
-                            departments
-                            and agencies should consider agency-specific Protective Measures in accordance with their
-                            existing plans.
-                        </gco:CharacterString>
+	                    <gco:CharacterString>A High Condition is declared when there is a high risk of terrorist
+		                    attacks. In
+		                    addition to the Protective Measures taken in the previous Threat Conditions, Federal
+		                    departments
+		                    and agencies should consider agency-specific Protective Measures in accordance with their
+		                    existing plans.
+	                    </gco:CharacterString>
                     </gmd:protocol>
 				</gmd:CI_OnlineResource>
             </sml:document>
@@ -88,8 +86,8 @@
             <sml:component name="name276">
                 <sml:PhysicalComponent gml:id="I1957">
                     <gml:description>The Department of Homeland Security has elevated the Homeland Security Advisory
-                        System threat level to ORANGE / High in response to intelligence which may indicate a heightened
-                        threat of terrorism.
+	                    System threat level to ORANGE / High in response to intelligence which may indicate a heightened
+	                    threat of terrorism.
                     </gml:description>
                     <gml:name>Image file (GIF)</gml:name>
                     <sml:characteristics name="name277">

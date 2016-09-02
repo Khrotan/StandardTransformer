@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="urn:oasis:names:tc:emergency:cap:1.2 file:/home/arda/Dropbox/SRDC%20Team%20Folder/xsd/CAP-v1.2.xsd">
+	<identifier>NO_INFO</identifier>
+	<sender>NO_INFO</sender>
+	<sent>NO_INFO</sent>
+	<status>Actual</status>
+	<msgType>Update</msgType>
+	<scope>Public</scope>
+	<info>
+		<category>Other</category>
+		<event>NO_INFO</event>
+		<urgency>Unknown</urgency>
+		<severity>Unknown</severity>
+		<certainty>Unknown</certainty>
+		<parameter>
+			<valueName>Alex</valueName>
+			<value>2006-03-21T11:58:00+10:00</value>
+		</parameter>
+		<parameter>
+			<valueName>Jones</valueName>
+			<value>NO_INFO</value>
+		</parameter>
+		<parameter>
+			<valueName>Cyclone Larry</valueName>
+			<value>urn:au-qld-eoc:12332</value>
+		</parameter>
+		<parameter>
+			<valueName>NO_INFO</valueName>
+			<value>RequestResource</value>
+		</parameter>
+	</info>
+</alert>

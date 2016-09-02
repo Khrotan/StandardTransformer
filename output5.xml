@@ -38,13 +38,19 @@
 			<valueName>RequestedArrival</valueName>
 		</eventCode>
 		<eventCode>
+			<valueName>value0</valueName>
+		</eventCode>
+		<eventCode>
 			<valueName>value1</valueName>
 		</eventCode>
 		<eventCode>
 			<valueName>value2</valueName>
 		</eventCode>
 		<eventCode>
-			<valueName>value0</valueName>
+			<valueName>value3</valueName>
+		</eventCode>
+		<eventCode>
+			<valueName>value4</valueName>
 		</eventCode>
 	</info>
 </alert>

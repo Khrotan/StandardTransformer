@@ -52,7 +52,6 @@ public class XmlTransform {
         logger.setLevel( Level.ALL );
     }
 
-
     /**
      * Asserts whether every mapped text context appears on target document.
      */
@@ -203,8 +202,6 @@ public class XmlTransform {
      * @return Returns first unbounded ancestor node if found, returns null if it doesn't have one.
      */
     private Node findUnboundedAncestorNode( Node unboundedAncestor ) {
-
-
         while ( unboundedAncestor.getParentNode() != null ) {
             if ( XmlUtil.isUnboundedNode( unboundedAncestor ) ) {
                 break;
@@ -327,28 +324,13 @@ public class XmlTransform {
 
                     if ( sourceNodeList.size() > 1 ) {
                         if ( sourceNodeList.size() > nonmappedNodesCount ) {
-                            int beforeCount = targetNodeList.size();
-
+                            int beforeCreateNodesCount = targetNodeList.size();
                             createBoundedNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList.get( 0 ) );
 
-                            //this piece of code is to move the reference node which new nodes inserted before it to the top of new created nodes
-
-                            targetNodeList = XmlUtil.asList( (NodeList) xPath.compile( mapping[ 2 ] ).evaluate( templateDocumentParam, XPathConstants.NODESET ) );
-
-                            //no new node have been created, so simply skip
-                            if ( beforeCount == targetNodeList.size() ) {
+                            if ( fixUnsynchronizedNodes( templateDocumentParam, mapping, sourceNodeList, beforeCreateNodesCount ) == false ) {
                                 continue;
                             }
 
-                            Node referenceNode = targetNodeList.get( sourceNodeList.size() - 1 );
-                            Node unboundeAncestorOfReferenceNode = findUnboundedAncestorNode( referenceNode );
-                            Node babaNode = findUnboundedAncestorNode( targetNodeList.get( 0 ) );
-
-                            if ( unboundeAncestorOfReferenceNode == null ) {
-                                continue;
-                            }
-
-                            babaNode.getParentNode().insertBefore( unboundeAncestorOfReferenceNode, babaNode );
                         }
                         else {
                             replaceNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList.subList( 1, targetNodeList.size() ) );
@@ -368,6 +350,38 @@ public class XmlTransform {
         return XmlUtil.prettyPrint( templateDocumentParam );
     }
 
+    /**
+     * CreateNodes method inserts new nodes before a reference node, because of this nature an asynchronism occurs.
+     * This method is to move the reference node, which new nodes inserted before it, to the top of new created nodes.
+     *
+     * @param templateDocumentParam
+     * @param mapping
+     * @param sourceNodeList
+     * @param beforeCount
+     * @return
+     * @throws XPathExpressionException
+     */
+    private boolean fixUnsynchronizedNodes( Document templateDocumentParam, String[] mapping, List<Node> sourceNodeList, int beforeCount ) throws XPathExpressionException {
+        List<Node> targetNodeList;
+        targetNodeList = XmlUtil.asList( (NodeList) xPath.compile( mapping[ 2 ] ).evaluate( templateDocumentParam, XPathConstants.NODESET ) );
+
+        //no new node have been created, so simply skip
+        if ( beforeCount == targetNodeList.size() ) {
+            return false;
+        }
+
+        Node referenceNode = targetNodeList.get( sourceNodeList.size() - 1 );
+        Node unboundeAncestorOfReferenceNode = findUnboundedAncestorNode( referenceNode );
+        Node babaNode = findUnboundedAncestorNode( targetNodeList.get( 0 ) );
+
+        if ( unboundeAncestorOfReferenceNode == null ) {
+            return false;
+        }
+
+        babaNode.getParentNode().insertBefore( unboundeAncestorOfReferenceNode, babaNode );
+        return true;
+    }
+
     public static void main( String[] args ) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -380,11 +394,9 @@ public class XmlTransform {
 */
 
         //output2
-/*
         Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Fake/CAP/edxl-cap1.xml" ).getFile() ) );
         Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/SensorMlTemplate.xml" ).getFile() ) );
         File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--cap--sensorml.csv" ).getFile() );
-*/
 
         //output3
 /*
@@ -418,7 +430,7 @@ public class XmlTransform {
 /*
         Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/RealWorld/CAP/CAP1_2HomelandSecurityAdvisory.xml" ).getFile() ) );
         Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/RM/RMRequestResourceTemplate.xml" ).getFile() ) );
-        File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--cap--rm.csv" ).getFile() );
+        File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--cap--rm--eski.csv" ).getFile() );
 */
 
         //output8
@@ -436,9 +448,18 @@ public class XmlTransform {
 */
 
         //output10
+/*
         Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/RealWorld/RM/RMRequestResource_OASIS_Example.xml" ).getFile() ) );
         Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/CAPTemplate.xml" ).getFile() ) );
         File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "TestFiles/CSV/test--kayik--rm--cap.csv" ).getFile() );
+*/
+
+        //output11
+/*
+        Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/RealWorld/CAP/CAP1_2SevereThunderstormWarning.xml" ).getFile() ) );
+        Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/RM/RMRequestResourceTemplate.xml" ).getFile() ) );
+        File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--cap--rm.csv" ).getFile() );
+*/
 
         //XmlUtil.traverse( targetDocument.getDocumentElement() );
 
