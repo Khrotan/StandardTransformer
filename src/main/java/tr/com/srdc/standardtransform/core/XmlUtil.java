@@ -5,9 +5,11 @@ package tr.com.srdc.standardtransform.core;
  * Helper class for Standard Transformer
  */
 
+import com.sun.org.apache.xerces.internal.dom.DeferredAttrImpl;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import tr.com.srdc.standardtransform.TextContextRestriction.TextContextComparatorModes;
 
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
@@ -45,6 +47,23 @@ public final class XmlUtil {
                 break;
             }
         }
+        return result;
+    }
+
+    static boolean isUntouchedNode( Node node ) {
+        boolean result = true;
+
+        Stack<Node> stack = new Stack<>();
+        stack.push( node );
+        while ( !stack.isEmpty() ) {
+            Node poppedNode = stack.pop();
+            if ( XmlUtil.isNonmappedNode( poppedNode ) == false ) {
+                result = false;
+                break;
+            }
+            stack.addAll( XmlUtil.asList( poppedNode.getChildNodes() ) );
+        }
+
         return result;
     }
 
@@ -118,24 +137,19 @@ public final class XmlUtil {
         }
     }
 
-    private static void traverse( Node node ) {
+    static void traverse( Node node ) {
         String nodeName, parentName;
         nodeName = node.getNodeName().substring( node.getNodeName().indexOf( ":" ) + 1 );
         nodeName = nodeName.substring( 0, 1 ).toUpperCase() + nodeName.substring( 1 );
-        //        sitRepStandard[ traverseIndex++ ][ 0 ] = nodeName;
         if ( node.getParentNode() != null ) {
             parentName = node.getParentNode().getNodeName().substring( node.getParentNode().getNodeName().indexOf( ":" ) + 1 );
             parentName = parentName.substring( 0, 1 ).toUpperCase() + parentName.substring( 1 );
 
-            if ( XmlUtil.isLeafNode( node ) ) {
-                System.out.println( getXPath( node ).substring( 11, getXPath( node ).length() ).replaceAll( "/", "" ) );
-            }
-            //System.out.println( nodeName + ";" + getXPath( node ) + ";." );
+/*            if ( XmlUtil.isLeafNode( node ) ) {
+                System.out.println( getXPath( node ).substring( 11, getXPath( node ).length() ));
+            }*/
+            System.out.println( getXPath( node ).substring( 11, getXPath( node ).length() ));
         }
-        else {
-            //            sitRepStandard[ traverseIndex - 1 ][ 1 ] = "parent";
-        }
-        //        sitRepStandard[ traverseIndex - 1 ][ 2 ] = getXPath( node ).substring( 10 );
 
         NodeList nodeList = node.getChildNodes();
         for ( int m = 0 ; m < nodeList.getLength() ; m++ ) {
@@ -170,6 +184,18 @@ public final class XmlUtil {
         Result fileOutput = new StreamResult( new File( fileName ) );
 
         transformer.transform( input, fileOutput );
+    }
+
+    static int getChildIndex( List<Node> parentNodes, Node childNode ) {
+        if ( childNode.getNodeType() == Node.ATTRIBUTE_NODE ) {
+            childNode = (Node) ( (DeferredAttrImpl) childNode).getOwnerElement();
+        }
+
+        while ( getXPath( childNode ).equals( getXPath( parentNodes.get( 0 ) ) ) == false ) {
+            childNode = childNode.getParentNode();
+        }
+
+        return parentNodes.indexOf( childNode );
     }
 
     static final class NodeListWrapper extends AbstractList<Node> implements RandomAccess {

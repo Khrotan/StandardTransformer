@@ -5,10 +5,7 @@
 
 package tr.com.srdc.standardtransform.core;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 import tr.com.srdc.standardtransform.TextContextRestriction.RM_to_CAP.RMtoCAPRestrictionInformation;
 import tr.com.srdc.standardtransform.TextContextRestriction.RestrictionInformation;
@@ -26,6 +23,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Stack;
 import java.util.logging.FileHandler;
@@ -64,7 +64,16 @@ public class XmlTransform {
         while ( ( line = bufferedReader.readLine() ) != null ) {
             String[] mapping = line.split( ";" );
 
+            if ( mapping[ 3 ].contains( "complex" ) ) {
+                continue;
+            }
+
             if ( mapping[ 2 ].equals( "." ) == false ) {
+
+                if ( mapping[ 3 ].equals( "literal" ) ) {
+                    continue;
+                }
+
                 List<Node> sourceNodeList = XmlUtil.asList( (NodeList) xPath.compile( mapping[ 1 ] ).evaluate( sourceDocument, XPathConstants.NODESET ) );
 
                 if ( sourceNodeList.size() == 0 ) {
@@ -94,7 +103,7 @@ public class XmlTransform {
 
                     if ( miniResult == false ) {
                         returnResult = false;
-                        logger.log( Level.SEVERE, "Source value " + sourceNode.getTextContent().trim() + " doesn't exist!!!" );
+                        logger.log( Level.SEVERE, "Source value of " + mapping[1] + " : " + sourceNode.getTextContent().trim() + " doesn't exist!!!" );
                     }
                 }
             }
@@ -103,15 +112,35 @@ public class XmlTransform {
         return returnResult;
     }
 
+
+
+    public <T> List<T> intersection(List<T> list1, List<T> list2) {
+        List<T> list = new ArrayList<T>();
+
+        for (T t : list1) {
+            if(list2.contains(t)) {
+                list.add(t);
+            }
+        }
+
+        return list;
+    }
+
     /**
      * Deletes descendant nonmapped nodes and custom attributes(cardainality, required, haveNoTextContext).
      * @param node Base node to delete appropriate elements
      */
-    private void deleteNonmappedNodes( Node node ) {
+    private void deleteNonmappedNodes( Node node ) throws XPathExpressionException {
         if ( XmlUtil.isNonmappedNode( node ) ) {
             if ( XmlUtil.isRequiredNode( node ) == false ) {
                 node.getParentNode().removeChild( node );
                 return;
+            } else if ( XmlUtil.isRequiredNode( node ) == true ) {
+                List<Node> targetNodeList = ( XmlUtil.asList( (NodeList) xPath.compile( XmlUtil.getXPath( node ).substring( 10 ) ).evaluate( node.getOwnerDocument(), XPathConstants.NODESET ) ));
+                targetNodeList = intersection( targetNodeList, XmlUtil.asList( node.getParentNode().getChildNodes() ) );
+                if ( targetNodeList.size() > 1 ) {
+                    node.getParentNode().removeChild( node );
+                }
             }
             else if ( XmlUtil.isLeafNode( node ) ) {
                 if ( restrictionInformation.getComparator( node.getNodeName() ) == null ) {
@@ -244,7 +273,7 @@ public class XmlTransform {
      */
     private void replaceNodes( List<Node> sourceList, List<Node> targetList ) {
         for ( int i = 0 ; i < sourceList.size() ; i++ ) {
-            changeTextContext( XmlUtil.getXPath( targetList.get( i ) ), sourceList.get( i ).getTextContent(), targetList.get( i ) );
+            changeTextContext( XmlUtil.getXPath( targetList.get( i ) ), sourceList.get( i ).getTextContent(), targetList.get( targetList.size() - 1 - i ) );
         }
     }
 
@@ -262,14 +291,16 @@ public class XmlTransform {
         while ( !stack.isEmpty() ) {
             Node poppedNode = stack.pop();
             if ( poppedNode.getNodeType() == Node.ELEMENT_NODE && XmlUtil.getXPath( poppedNode ).equals( targetXpath ) ) {
-
                 if ( restrictionInformation.getComparator( poppedNode.getNodeName() ) != null ) {
                     poppedNode.setTextContent( restrictionInformation.getComparator( poppedNode.getNodeName() ).decideTextContext( sourceTextContext, poppedNode, TextContextComparatorModes.CompareValuesAndDecide ) );
                 }
                 else {
-                    poppedNode.setTextContent( sourceTextContext.trim() );
+                    if ( XmlUtil.isUntouchedNode( poppedNode ) == true ) {
+                        poppedNode.setTextContent( sourceTextContext.trim() );
+                    } else {
+                        poppedNode.setTextContent( poppedNode.getTextContent() + " | " + sourceTextContext.trim() );
+                    }
                 }
-
                 break;
             }
             stack.addAll( XmlUtil.asList( poppedNode.getChildNodes() ) );
@@ -293,10 +324,44 @@ public class XmlTransform {
 
             if ( mapping[ 2 ].equals( "." ) == false ) {
 
+                if ( mapping[ 3 ].equals( "literal" ) ) {
+                    List<Node> targetNodeList = XmlUtil.asList( (NodeList) xPath.compile( mapping[ 2 ] ).evaluate( templateDocumentParam, XPathConstants.NODESET ) );
+
+                    if ( XmlUtil.isLeafNode( targetNodeList.get( 0 ) ) == false ) {
+                        logger.log( Level.SEVERE, "literal " + mapping[1] + " to " + mapping[2] + " is wrong, it is not leaf node" );
+                        continue;
+                    }
+
+                    for ( Node targetNode : targetNodeList ) {
+                        targetNode.setTextContent( targetNode.getTextContent() + " | " + mapping[ 1 ] );
+                    }
+
+                    continue;
+                } else if ( mapping[ 3 ].contains( "currentDateTime" ) ) {
+                    List<Node> targetNodeList = XmlUtil.asList( (NodeList) xPath.compile( mapping[ 2 ] ).evaluate( templateDocumentParam, XPathConstants.NODESET ) );
+
+                    if ( XmlUtil.isLeafNode( targetNodeList.get( 0 ) ) == false ) {
+                        logger.log( Level.SEVERE, "literal " + mapping[1] + " to " + mapping[2] + " is wrong, it is not leaf node" );
+                        continue;
+                    }
+
+                    for ( Node targetNode : targetNodeList ) {
+                        targetNode.setTextContent( new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format( new Date() ) );
+                    }
+
+                    continue;
+                }
+
                 List<Node> sourceNodeList = XmlUtil.asList( (NodeList) xPath.compile( mapping[ 1 ] ).evaluate( sourceDocumentParam, XPathConstants.NODESET ) );
 
                 if ( sourceNodeList.size() == 0 ) {
                     logger.log( Level.INFO, "Source: " + mapping[ 1 ] + " doesn't exist in incoming message." );
+                    if ( mapping[ 3 ].contains( "complex" ) ) {
+                        int mapCount = Integer.parseInt( mapping[ 3 ].split( "-" )[1] );
+                        for ( int u = 0 ; u < mapCount ; u++ ) {
+                            line = bufferedReader.readLine();
+                        }
+                    }
                     continue;
                 }
 
@@ -308,13 +373,81 @@ public class XmlTransform {
                     continue;
                 }
 
-                if ( mapping[ 0 ].equals( "resourceDesc" ) || mapping[ 0 ].equals( "Value" ) ) {
+                if ( mapping[ 0 ].equals( "resourceDesc" )
+                        || mapping[ 0 ].equals( "Value" )
+                        || mapping[ 0 ].equals( "episotest" ) ) {
                     System.out.print( "" );
+                }
+
+                if ( mapping[ 3 ].contains( "complex" ) ) {
+                    Node target = targetNodeList.get( 0 );
+
+                    Node unboundedAncestor = findUnboundedAncestorNode( target );
+
+                    if ( unboundedAncestor == null ) {
+                        logger.log( Level.SEVERE, "Mapping from " + XmlUtil.getXPath( sourceNodeList.get( 0 ) ) + " to " + XmlUtil.getXPath( target ) + " has been done incorrectly. There is no unbounded ancestor node." );
+                        continue;
+                    }
+
+                    if ( targetNodeList.size() == 1 && XmlUtil.isUntouchedNode( targetNodeList.get( 0 ) ) ) {
+                        for ( int v = 1 ; v < sourceNodeList.size() ; v++ ) {
+                            Node newcomer = unboundedAncestor.cloneNode( true );
+                            revertNodeToTemplateForm( newcomer );
+                            unboundedAncestor.getParentNode().insertBefore( newcomer, unboundedAncestor );
+                        }
+                    } else {
+                        for ( int v = 0 ; v < sourceNodeList.size() ; v++ ) {
+                            Node newcomer = unboundedAncestor.cloneNode( true );
+                            revertNodeToTemplateForm( newcomer );
+                            unboundedAncestor.getParentNode().insertBefore( newcomer, unboundedAncestor );
+                        }
+                    }
+
+                    targetNodeList = XmlUtil.asList( (NodeList) xPath.compile( mapping[ 2 ] ).evaluate( templateDocumentParam, XPathConstants.NODESET ) );
+                    int mapCount = Integer.parseInt( mapping[ 3 ].split( "-" )[1] );
+
+                    for ( int v = 0 ; v < mapCount ; v++ ) {
+                        line = bufferedReader.readLine();
+                        String childMapping[] = line.split( ";" );
+
+                        if ( childMapping[0].equals( "weight" )
+                                || childMapping[0].equals( "endof" )
+                                || childMapping[0].equals( "weffective")
+                                || childMapping[0].equals( "forward" ) ) {
+                            System.out.println();
+                        }
+
+                        if ( childMapping[3].equals( "literal" ) ) {
+                            List<Node> targetChildNodeList = XmlUtil.asList( (NodeList) xPath.compile( childMapping[ 2 ] ).evaluate( templateDocumentParam, XPathConstants.NODESET ) );
+
+                            for ( Node targetNode : targetChildNodeList ) {
+                                targetNode.setTextContent( targetNode.getTextContent() + " | " + childMapping[1] );
+                            }
+                        } else {
+                            List<Node> childSourceNodeList = XmlUtil.asList( (NodeList) xPath.compile( childMapping[ 1 ] ).evaluate( sourceDocumentParam, XPathConstants.NODESET ) );
+
+                            if ( childSourceNodeList.size() == 0 ) {
+                                logger.log( Level.INFO, "Source: " + childMapping[ 1 ] + " doesn't exist in incoming message." );
+                            }
+
+                            for ( int h = 0 ; h < childSourceNodeList.size() ; h++ ) {
+                                int childSourceNodeIndex = XmlUtil.getChildIndex( sourceNodeList, childSourceNodeList.get( h ) );
+                                List<Node> targetChildNodeList = XmlUtil.asList( (NodeList) xPath.compile( childMapping[ 2 ] ).evaluate( templateDocumentParam, XPathConstants.NODESET ) );
+                                replaceNodes( childSourceNodeList.subList( h, h+1 ), targetChildNodeList.subList( childSourceNodeIndex, childSourceNodeIndex + 1 ) );
+                            }
+                        }
+                    }
+                    continue;
                 }
 
                 // Mapping have been previously done, so just create new nodes
                 if ( XmlUtil.isNonmappedNode( targetNodeList.get( 0 ) ) == false ) {
+                    int beforeCreateNodesCount = targetNodeList.size();
                     createBoundedNodes( sourceNodeList, targetNodeList.get( 0 ) );
+
+/*                    if ( fixLastNode( templateDocumentParam, mapping, beforeCreateNodesCount ) == false ) {
+                        continue;
+                    }*/
                 }
                 else {
                     int nonmappedNodesCount = XmlUtil.findConsecutiveNonmappedNodes( targetNodeList );
@@ -330,7 +463,6 @@ public class XmlTransform {
                             if ( fixUnsynchronizedNodes( templateDocumentParam, mapping, sourceNodeList, beforeCreateNodesCount ) == false ) {
                                 continue;
                             }
-
                         }
                         else {
                             replaceNodes( sourceNodeList.subList( 1, sourceNodeList.size() ), targetNodeList.subList( 1, targetNodeList.size() ) );
@@ -382,6 +514,27 @@ public class XmlTransform {
         return true;
     }
 
+    private boolean fixLastNode( Document templateDocumentParam, String[] mapping, int beforeCount ) throws XPathExpressionException {
+        List<Node> targetNodeList;
+        targetNodeList = XmlUtil.asList( (NodeList) xPath.compile( mapping[ 2 ] ).evaluate( templateDocumentParam, XPathConstants.NODESET ) );
+
+        //no new node have been created, so simply skip
+        if ( beforeCount == targetNodeList.size() ) {
+            return false;
+        }
+
+        Node referenceNode = targetNodeList.get( targetNodeList.size() - 1 );
+        Node unboundeAncestorOfReferenceNode = findUnboundedAncestorNode( referenceNode );
+        Node babaNode = findUnboundedAncestorNode( targetNodeList.get( 0 ) );
+
+        if ( unboundeAncestorOfReferenceNode == null ) {
+            return false;
+        }
+
+        babaNode.getParentNode().insertBefore( unboundeAncestorOfReferenceNode, babaNode );
+        return true;
+    }
+
     public static void main( String[] args ) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -394,9 +547,11 @@ public class XmlTransform {
 */
 
         //output2
+/*
         Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Fake/CAP/edxl-cap1.xml" ).getFile() ) );
         Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/SensorMlTemplate.xml" ).getFile() ) );
         File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--cap--sensorml.csv" ).getFile() );
+*/
 
         //output3
 /*
@@ -460,6 +615,32 @@ public class XmlTransform {
         Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/RM/RMRequestResourceTemplate.xml" ).getFile() ) );
         File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--cap--rm.csv" ).getFile() );
 */
+
+        //output12
+/*
+        Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/RealWorld/CCDA/WebradrCcda.xml" ).getFile() ) );
+        Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/E2BTemplate.xml" ).getFile() ) );
+        File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--ccda--e2b--test.csv" ).getFile() );
+*/
+
+        //output13
+/*
+        Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/RealWorld/SCR/WebradrScr.xml" ).getFile() ) );
+        Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/E2BTemplate.xml" ).getFile() ) );
+        File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--scr--e2b.csv" ).getFile() );
+*/
+
+        //output14
+/*
+        Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/ValidOutputs/CcdaResponse.xml" ).getFile() ) );
+        Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/epidemico.xml" ).getFile() ) );
+        File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--e2b--epidemico.csv" ).getFile() );
+*/
+
+        //output15
+        Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/ValidOutputs/ScrResponse.xml" ).getFile() ) );
+        Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/epidemico.xml" ).getFile() ) );
+        File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--e2b--epidemico.csv" ).getFile() );
 
         //XmlUtil.traverse( targetDocument.getDocumentElement() );
 

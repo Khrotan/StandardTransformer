@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ichicsr xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="file:/home/arda/Downloads/ich-icsr-v2-1.xsd" lang="lang0">
+	<ichicsrmessageheader required="true" >
+		<messagetype required="true" >ichicsr</messagetype>
+		<messageformatversion required="true" >2.1</messageformatversion>
+		<messageformatrelease required="true" >2.0</messageformatrelease>
+		<messagenumb required="true" >115632</messagenumb>
+		<messagesenderidentifier required="true" >WEB-RADR</messagesenderidentifier>
+		<messagereceiveridentifier required="true" >MEDWATCHER</messagereceiveridentifier>
+		<messagedateformat required="true" >204</messagedateformat>
+		<messagedate required="true" >££££</messagedate>
+	</ichicsrmessageheader>
+	<safetyreport  required="true" cardinality="unbounded">
+		<safetyreportversion >££££</safetyreportversion>
+		<safetyreportid  required="true">££££</safetyreportid>
+		<primarysourcecountry >££££</primarysourcecountry>
+		<occurcountry >££££</occurcountry>
+		<transmissiondateformat >££££</transmissiondateformat>
+		<transmissiondate >££££</transmissiondate>
+		<reporttype >££££</reporttype>
+		<serious >££££</serious>
+		<seriousnessdeath >££££</seriousnessdeath>
+		<seriousnesslifethreatening >££££</seriousnesslifethreatening>
+		<seriousnesshospitalization >££££</seriousnesshospitalization>
+		<seriousnessdisabling >££££</seriousnessdisabling>
+		<seriousnesscongenitalanomali >££££</seriousnesscongenitalanomali>
+		<seriousnessother >££££</seriousnessother>
+		<receivedateformat >££££</receivedateformat>
+		<receivedate >££££</receivedate>
+		<receiptdateformat  required="true">££££</receiptdateformat>
+		<receiptdate  required="true">££££</receiptdate>
+		<additionaldocument >££££</additionaldocument>
+		<documentlist >££££</documentlist>
+		<fulfillexpeditecriteria >££££</fulfillexpeditecriteria>
+		<authoritynumb >££££</authoritynumb>
+		<companynumb >££££</companynumb>
+		<duplicate >££££</duplicate>
+		<casenullification >££££</casenullification>
+		<nullificationreason >££££</nullificationreason>
+		<medicallyconfirm >££££</medicallyconfirm>
+		<reportduplicate cardinality="unbounded" >
+			<duplicatesource >££££</duplicatesource>
+			<duplicatenumb >££££</duplicatenumb>
+		</reportduplicate>
+		<linkedreport cardinality="unbounded" >
+			<linkreportnumb >££££</linkreportnumb>
+		</linkedreport>
+		<primarysource required="true" cardinality="unbounded" >
+			<reportertitle >££££</reportertitle>
+Y			<reportergivename >££££</reportergivename>
+			<reportermiddlename >££££</reportermiddlename>
+Y			<reporterfamilyname >££££</reporterfamilyname>
+			<reporterorganization >££££</reporterorganization>
+			<reporterdepartment >££££</reporterdepartment>
+Y			<reporterstreet >££££</reporterstreet>
+Y			<reportercity >££££</reportercity>
+			<reporterstate >££££</reporterstate>
+			<reporterpostcode >££££</reporterpostcode>
+			<reportercountry >££££</reportercountry>
+			<qualification >££££</qualification>
+			<literaturereference >££££</literaturereference>
+			<studyname >££££</studyname>
+			<sponsorstudynumb >££££</sponsorstudynumb>
+			<observestudytype >££££</observestudytype>
+		</primarysource>
+		<sender required="true" >
+			<sendertype >££££</sendertype>
+			<senderorganization required="true" >££££</senderorganization>
+			<senderdepartment >££££</senderdepartment>
+			<sendertitle >££££</sendertitle>
+			<sendergivename >££££</sendergivename>
+			<sendermiddlename >££££</sendermiddlename>
+			<senderfamilyname >££££</senderfamilyname>
+			<senderstreetaddress >££££</senderstreetaddress>
+			<sendercity >££££</sendercity>
+			<senderstate >££££</senderstate>
+			<senderpostcode >££££</senderpostcode>
+			<sendercountrycode >££££</sendercountrycode>
+			<sendertel >££££</sendertel>
+			<sendertelextension >££££</sendertelextension>
+			<sendertelcountrycode >££££</sendertelcountrycode>
+			<senderfax >££££</senderfax>
+			<senderfaxextension >££££</senderfaxextension>
+			<senderfaxcountrycode >££££</senderfaxcountrycode>
+			<senderemailaddress >££££</senderemailaddress>
+		</sender>
+		<receiver required="true" >
+			<receivertype >££££</receivertype>
+			<receiverorganization >££££</receiverorganization>
+			<receiverdepartment >££££</receiverdepartment>
+			<receivertitle >££££</receivertitle>
+			<receivergivename >££££</receivergivename>
+			<receivermiddlename >££££</receivermiddlename>
+			<receiverfamilyname >££££</receiverfamilyname>
+			<receiverstreetaddress >££££</receiverstreetaddress>
+			<receivercity >££££</receivercity>
+			<receiverstate >££££</receiverstate>
+			<receiverpostcode >££££</receiverpostcode>
+			<receivercountrycode >££££</receivercountrycode>
+			<receivertel >££££</receivertel>
+			<receivertelextension >££££</receivertelextension>
+			<receivertelcountrycode >££££</receivertelcountrycode>
+			<receiverfax >££££</receiverfax>
+			<receiverfaxextension >££££</receiverfaxextension>
+			<receiverfaxcountrycode >££££</receiverfaxcountrycode>
+			<receiveremailaddress >££££</receiveremailaddress>
+		</receiver>
+		<patient required="true" >
+Y			<patientinitial >££££</patientinitial>
+			<patientgpmedicalrecordnumb >££££</patientgpmedicalrecordnumb>
+			<patientspecialistrecordnumb >££££</patientspecialistrecordnumb>
+			<patienthospitalrecordnumb >££££</patienthospitalrecordnumb>
+			<patientinvestigationnumb >££££</patientinvestigationnumb>
+			<patientbirthdateformat >££££</patientbirthdateformat>
+			<patientbirthdate >££££</patientbirthdate>
+Y			<patientonsetage >££££</patientonsetage>
+			<patientonsetageunit >££££</patientonsetageunit>
+			<gestationperiod >££££</gestationperiod>
+			<gestationperiodunit >££££</gestationperiodunit>
+			<patientagegroup >££££</patientagegroup>
+Y			<patientweight >££££</patientweight>
+			<patientheight >££££</patientheight>
+			<patientsex >££££</patientsex>
+			<lastmenstrualdateformat >££££</lastmenstrualdateformat>
+			<patientlastmenstrualdate >££££</patientlastmenstrualdate>
+			<patientmedicalhistorytext >££££</patientmedicalhistorytext>
+			<resultstestsprocedures >££££</resultstestsprocedures>
+			<medicalhistoryepisode cardinality="unbounded" >
+				<patientepisodenamemeddraversion>££££</patientepisodenamemeddraversion>
+				<patientepisodename>££££</patientepisodename>
+				<patientmedicalstartdateformat>££££</patientmedicalstartdateformat>
+				<patientmedicalstartdate>££££</patientmedicalstartdate>
+				<patientmedicalcontinue>££££</patientmedicalcontinue>
+				<patientmedicalenddateformat>££££</patientmedicalenddateformat>
+				<patientmedicalenddate>££££</patientmedicalenddate>
+				<patientmedicalcomment>££££</patientmedicalcomment>
+			</medicalhistoryepisode>
+			<patientpastdrugtherapy cardinality="unbounded" >
+				<patientdrugname >££££</patientdrugname>
+				<patientdrugstartdateformat >££££</patientdrugstartdateformat>
+				<patientdrugstartdate >££££</patientdrugstartdate>
+				<patientdrugenddateformat >££££</patientdrugenddateformat>
+				<patientdrugenddate >££££</patientdrugenddate>
+				<patientindicationmeddraversion >££££</patientindicationmeddraversion>
+				<patientdrugindication >££££</patientdrugindication>
+				<patientdrgreactionmeddraversion >££££</patientdrgreactionmeddraversion>
+				<patientdrugreaction >££££</patientdrugreaction>
+			</patientpastdrugtherapy>
+			<patientdeath >
+				<patientdeathdateformat >££££</patientdeathdateformat>
+				<patientdeathdate >££££</patientdeathdate>
+				<patientautopsyyesno >££££</patientautopsyyesno>
+				<patientdeathcause cardinality="unbounded" >
+					<patientdeathreportmeddraversion >££££</patientdeathreportmeddraversion>
+					<patientdeathreport >££££</patientdeathreport>
+				</patientdeathcause>
+				<patientautopsy cardinality="unbounded" >
+					<patientdetermautopsmeddraversion >££££</patientdetermautopsmeddraversion>
+					<patientdetermineautopsy >££££</patientdetermineautopsy>
+				</patientautopsy>
+			</patientdeath>
+			<parent >
+				<parentidentification >££££</parentidentification>
+				<parentbirthdateformat >££££</parentbirthdateformat>
+				<parentbirthdate >££££</parentbirthdate>
+				<parentage >££££</parentage>
+				<parentageunit >££££</parentageunit>
+				<parentlastmenstrualdateformat >££££</parentlastmenstrualdateformat>
+				<parentlastmenstrualdate >££££</parentlastmenstrualdate>
+				<parentweight >££££</parentweight>
+				<parentheight >££££</parentheight>
+				<parentsex >££££</parentsex>
+				<parentmedicalrelevanttext >££££</parentmedicalrelevanttext>
+				<parentmedicalhistoryepisode cardinality="unbounded" >
+					<parentmdepisodemeddraversion >££££</parentmdepisodemeddraversion>
+					<parentmedicalepisodename >££££</parentmedicalepisodename>
+					<parentmedicalstartdateformat >££££</parentmedicalstartdateformat>
+					<parentmedicalstartdate >££££</parentmedicalstartdate>
+					<parentmedicalcontinue >££££</parentmedicalcontinue>
+					<parentmedicalenddateformat >££££</parentmedicalenddateformat>
+					<parentmedicalenddate >££££</parentmedicalenddate>
+					<parentmedicalcomment >££££</parentmedicalcomment>
+				</parentmedicalhistoryepisode>
+				<parentpastdrugtherapy cardinality="unbounded" >
+					<parentdrugname >££££</parentdrugname>
+					<parentdrugstartdateformat >££££</parentdrugstartdateformat>
+					<parentdrugstartdate >££££</parentdrugstartdate>
+					<parentdrugenddateformat >££££</parentdrugenddateformat>
+					<parentdrugenddate >££££</parentdrugenddate>
+					<parentdrgindicationmeddraversion >££££</parentdrgindicationmeddraversion>
+					<parentdrugindication >££££</parentdrugindication>
+					<parentdrgreactionmeddraversion >££££</parentdrgreactionmeddraversion>
+					<parentdrugreaction >££££</parentdrugreaction>
+				</parentpastdrugtherapy>
+			</parent>
+			<reaction required="true" cardinality="unbounded" >
+Y				<primarysourcereaction >££££</primarysourcereaction>
+				<reactionmeddraversionllt >££££</reactionmeddraversionllt>
+				<reactionmeddrallt >££££</reactionmeddrallt>
+				<reactionmeddraversionpt >££££</reactionmeddraversionpt>
+				<reactionmeddrapt >££££</reactionmeddrapt>
+				<termhighlighted >££££</termhighlighted>
+Y				<reactionstartdateformat >££££</reactionstartdateformat>
+Y				<reactionstartdate >££££</reactionstartdate>
+Y				<reactionenddateformat >££££</reactionenddateformat>
+Y				<reactionenddate >££££</reactionenddate>
+				<reactionduration >££££</reactionduration>
+				<reactiondurationunit >££££</reactiondurationunit>
+				<reactionfirsttime >££££</reactionfirsttime>
+				<reactionfirsttimeunit >££££</reactionfirsttimeunit>
+				<reactionlasttime >££££</reactionlasttime>
+				<reactionlasttimeunit >££££</reactionlasttimeunit>
+Y				<reactionoutcome >££££</reactionoutcome>
+			</reaction>
+			<test cardinality="unbounded">
+				<testdateformat >££££</testdateformat>
+				<testdate >££££</testdate>
+				<testname >££££</testname>
+				<testresult >££££</testresult>
+				<testunit >££££</testunit>
+				<lowtestrange >££££</lowtestrange>
+				<hightestrange >££££</hightestrange>
+				<moreinformation >££££</moreinformation>
+			</test>
+			<drug cardinality="unbounded" required="true" >
+				<drugcharacterization >££££</drugcharacterization>
+Y				<medicinalproduct >££££</medicinalproduct>
+				<obtaindrugcountry >££££</obtaindrugcountry>
+Y				<drugbatchnumb >££££</drugbatchnumb>
+				<drugauthorizationnumb >££££</drugauthorizationnumb>
+				<drugauthorizationcountry >££££</drugauthorizationcountry>
+				<drugauthorizationholder >££££</drugauthorizationholder>
+				<drugstructuredosagenumb >££££</drugstructuredosagenumb>
+				<drugstructuredosageunit >££££</drugstructuredosageunit>
+				<drugseparatedosagenumb >££££</drugseparatedosagenumb>
+				<drugintervaldosageunitnumb >££££</drugintervaldosageunitnumb>
+				<drugintervaldosagedefinition >££££</drugintervaldosagedefinition>
+				<drugcumulativedosagenumb >££££</drugcumulativedosagenumb>
+				<drugcumulativedosageunit >££££</drugcumulativedosageunit>
+				<drugdosagetext >££££</drugdosagetext>
+				<drugdosageform >££££</drugdosageform>
+Y				<drugadministrationroute >££££</drugadministrationroute>
+				<drugparadministration >££££</drugparadministration>
+				<reactiongestationperiod >££££</reactiongestationperiod>
+				<reactiongestationperiodunit >££££</reactiongestationperiodunit>
+				<drugindicationmeddraversion >££££</drugindicationmeddraversion>
+Y				<drugindication >££££</drugindication>
+Y				<drugstartdateformat >££££</drugstartdateformat>
+Y				<drugstartdate >££££</drugstartdate>
+				<drugstartperiod >££££</drugstartperiod>
+				<drugstartperiodunit >££££</drugstartperiodunit>
+				<druglastperiod >££££</druglastperiod>
+				<druglastperiodunit >££££</druglastperiodunit>
+Y				<drugenddateformat >££££</drugenddateformat>
+Y				<drugenddate >££££</drugenddate>
+				<drugtreatmentduration >££££</drugtreatmentduration>
+				<drugtreatmentdurationunit >££££</drugtreatmentdurationunit>
+Y				<actiondrug >££££</actiondrug>
+				<drugrecurreadministration >££££</drugrecurreadministration>
+				<drugadditional >££££</drugadditional>
+				<activesubstance >
+					<activesubstancename >££££</activesubstancename>
+				</activesubstance>
+				<drugrecurrence >
+					<drugrecuractionmeddraversion >££££</drugrecuractionmeddraversion>
+					<drugrecuraction >££££</drugrecuraction>
+				</drugrecurrence>
+				<drugreactionrelatedness >
+					<drugreactionassesmeddraversion >££££</drugreactionassesmeddraversion>
+					<drugreactionasses >££££</drugreactionasses>
+					<drugassessmentsource >££££</drugassessmentsource>
+					<drugassessmentmethod >££££</drugassessmentmethod>
+					<drugresult >££££</drugresult>
+				</drugreactionrelatedness>
+			</drug>
+			<summary >
+				<narrativeincludeclinical >££££</narrativeincludeclinical>
+				<reportercomment >££££</reportercomment>
+				<senderdiagnosismeddraversion >££££</senderdiagnosismeddraversion>
+				<senderdiagnosis >££££</senderdiagnosis>
+				<sendercomment >££££</sendercomment>
+			</summary>
+		</patient>
+	</safetyreport>
+</ichicsr>
