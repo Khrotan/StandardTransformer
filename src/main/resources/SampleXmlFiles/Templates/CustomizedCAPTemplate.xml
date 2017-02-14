@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="urn:oasis:names:tc:emergency:cap:1.2 file:/home/okan/Downloads/Customized/edxl/CAP/CAP-v1.2.xsd">
+    <identifier required="true">££££</identifier>
+    <sender required="true">££££</sender>
+    <sent required="true">££££</sent>
+    <status required="true">££££</status>
+    <msgType required="true">££££</msgType>
+    <source>££££</source>
+    <scope required="true">££££</scope>
+    <addresses>££££</addresses>
+    <code cardinality="unbounded">££££</code>
+    <note>££££</note>
+    <incidents>££££</incidents>
+    <info cardinality="unbounded">
+        <category required="true" cardinality="unbounded">££££</category>
+        <event required="true">££££</event>
+        <responseType>££££</responseType>
+        <urgency required="true">££££</urgency>
+        <severity required="true">££££</severity>
+        <certainty required="true">££££</certainty>
+        <audience required="true">££££</audience>
+        <eventCode>
+            <valueName required="true">££££</valueName>
+            <value required="true">££££</value>
+        </eventCode>
+        <effective>££££</effective>
+        <onset>££££</onset>
+        <expires>££££</expires>
+        <senderName>££££</senderName>
+        <headline>££££</headline>
+        <description>££££</description>
+        <instruction>££££</instruction>
+        <contact>££££</contact>
+        <area cardinality="unbounded">
+            <areaDesc required="true">££££</areaDesc>
+            <polygon cardinality="unbounded">££££</polygon>
+            <geocode cardinality="unbounded">
+                <valueName required="true">££££</valueName>
+                <value required="true">££££</value>
+            </geocode>
+            <altitude>££££</altitude>
+        </area>
+    </info>
+</alert>

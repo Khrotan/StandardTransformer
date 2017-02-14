@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitRep xmlns:edxl-gsf="urn:oasis:names:tc:emergency:edxl:gsf:1.0"
+            xmlns:ns0="urn:oasis:names:tc:emergency:edxl:ct:1.0"
+            xmlns:ext="urn:oasis:names:tc:emergency:edxl:extension:1.0"
+            xmlns:xpil="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xpil"
+            xmlns:xal="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal"
+            xmlns:gml="http://www.opengis.net/gml/3.2"
+            xmlns:ct="urn:oasis:names:tc:emergency:edxl:ciq:1.0:ct"
+            xmlns:n="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xnl"
+            xmlns:ns1="urn:oasis:names:tc:emergency:EDXL:SitRep:1.0"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="urn:oasis:names:tc:emergency:EDXL:SitRep:1.0 file:/home/okan/Downloads/Customized/edxl/SitRep/EDXLSitRep-v1.0.xsd">
+    <messageID required="true">££££</messageID>
+    <preparedBy required="true">
+        <personDetails>
+            <personName required="true" cardinality="unbounded">
+                <nameElement required="true">££££</nameElement>
+            </personName>
+            <addresses>
+                <address required="true" cardinality="unbounded">
+                    <freeTextAddress>
+                        <addressLine required="true">££££</addressLine>
+                    </freeTextAddress>
+                    <country>
+                        <nameElement required="true">££££</nameElement>
+                    </country>
+                    <administrativeArea>
+                        <nameElement required="true">££££</nameElement>
+                    </administrativeArea>
+                    <locality>
+                        <nameElement required="true">££££</nameElement>
+                    </locality>
+                    <postCode>
+                        <identifier required="true">££££</identifier>
+                    </postCode>
+                </address>
+            </addresses>
+            <contactNumbers>
+                <contactNumber required="true" cardinality="unbounded">
+                    <contactNumberElement required="true">££££</contactNumberElement>
+                </contactNumber>
+            </contactNumbers>
+            <electronicAddressIdentifiers>
+                <electronicAddressIdentifier required="true" cardinality="unbounded">££££</electronicAddressIdentifier>
+            </electronicAddressIdentifiers>
+            <identifiers>
+                <identifier required="true" cardinality="unbounded">
+                    <identifierElement required="true">££££</identifierElement>
+                    <issuerName>
+                        <nameElement>££££</nameElement>
+                    </issuerName>
+                </identifier>
+            </identifiers>
+        </personDetails>
+        <timeValue required="true">££££</timeValue>
+    </preparedBy>
+    <authorizedBy required="true">
+        <personDetails>
+            <personName required="true" cardinality="unbounded">
+                <nameElement required="true">££££</nameElement>
+            </personName>
+            <addresses>
+                <address required="true" cardinality="unbounded">
+                    <freeTextAddress>
+                        <addressLine required="true">££££</addressLine>
+                    </freeTextAddress>
+                    <country>
+                        <nameElement required="true">££££</nameElement>
+                    </country>
+                    <administrativeArea>
+                        <nameElement required="true">££££</nameElement>
+                    </administrativeArea>
+                    <locality>
+                        <nameElement required="true">££££</nameElement>
+                    </locality>
+                    <postCode>
+                        <identifier required="true">££££</identifier>
+                    </postCode>
+                </address>
+            </addresses>
+            <contactNumbers>
+                <contactNumber required="true" cardinality="unbounded">
+                    <contactNumberElement required="true">££££</contactNumberElement>
+                </contactNumber>
+            </contactNumbers>
+            <electronicAddressIdentifiers>
+                <electronicAddressIdentifier required="true" cardinality="unbounded">££££</electronicAddressIdentifier>
+            </electronicAddressIdentifiers>
+            <identifiers>
+                <identifier required="true" cardinality="unbounded">
+                    <identifierElement required="true">££££</identifierElement>
+                    <issuerName>
+                        <nameElement>££££</nameElement>
+                    </issuerName>
+                </identifier>
+            </identifiers>
+        </personDetails>
+        <timeValue required="true">££££</timeValue>
+    </authorizedBy>
+    <reportPurpose required="true">££££</reportPurpose>
+    <reportNumber required="true">££££</reportNumber>
+    <reportVersion required="true">££££</reportVersion>
+    <forTimePeriod required="true">
+        <fromDateTime required="true">££££</fromDateTime>
+        <toDateTime required="true">££££</toDateTime>
+    </forTimePeriod>
+    <reportTitle>££££</reportTitle>
+    <incidentID required="true" cardinality="unbounded">££££</incidentID>
+    <incidentLifecyclePhase cardinality="unbounded">££££</incidentLifecyclePhase>
+    <originatingMessageID>££££</originatingMessageID>
+    <precedingMessageID cardinality="unbounded">££££</precedingMessageID>
+    <urgency>££££</urgency>
+    <reportConfidence required="true">££££</reportConfidence>
+    <severity required="true">££££</severity>
+    <reportingLocation>
+        <!--        <EDXLGeoLocation>
+                    <gml:point gml:Id="ID000">
+                        <gml:pos>££££</gml:pos>
+                    </gml:point>
+                </EDXLGeoLocation>-->
+        <EDXLGeoPoliticalLocation>
+            <address>
+                <freeTextAddress>
+                    <addressLine>££££</addressLine>
+                </freeTextAddress>
+                <country>
+                    <nameElement>££££</nameElement>
+                </country>
+                <administrativeArea>
+                    <nameElement>££££</nameElement>
+                    <subAdministrativeArea>
+                        <nameElement>££££</nameElement>
+                    </subAdministrativeArea>
+                </administrativeArea>
+                <locality>
+                    <nameElement>££££</nameElement>
+                    <subLocality>
+                        <nameElement>££££</nameElement>
+                    </subLocality>
+                </locality>
+                <postCode>
+                    <identifier>££££</identifier>
+                </postCode>
+            </address>
+        </EDXLGeoPoliticalLocation>
+    </reportingLocation>
+    <actionPlan>££££</actionPlan>
+    <nextContact>££££</nextContact>
+    <report xsi:type="ResponseResourcesTotalsType" required="true">
+        <extension cardinality="unbounded">
+            <community required="true">££££</community>
+            <id required="true">££££</id>
+            <parameter required="true" cardinality="unbounded">
+                <nameURI required="true">££££</nameURI>
+                <value required="true" cardinality="unbounded">££££</value>
+            </parameter>
+        </extension>
+        <!--        <resourceTotal>
+                    <branchDivisionGroup>££££</branchDivisionGroup>
+                    <resource>
+                        <agencyOrganization>££££</agencyOrganization>
+                        <resourceName>££££</resourceName>
+                        <resourceTypeCategoryKind>
+                            <valueListURI>££££</valueListURI>
+                            <value>££££</value>
+                        </resourceTypeCategoryKind>
+                        <resourceDetail>
+                            <resourcePersonnelCount>££££</resourcePersonnelCount>
+                            <unassignedResourcePersonnel>££££</unassignedResourcePersonnel>
+                            <resourceRequiredCount>££££</resourceRequiredCount>
+                            <resourceCommittedCount>££££</resourceCommittedCount>
+                            <resourceOnHandCount>££££</resourceOnHandCount>
+                            <resourceStillNeededCount>££££</resourceStillNeededCount>
+                            <resourceRequestedCount>££££</resourceRequestedCount>
+                            <dateTimeOrdered>££££</dateTimeOrdered>
+                            <requestedArrival>££££</requestedArrival>
+                            <estimatedArrival>££££</estimatedArrival>
+                            <reportToLocation>
+                                <EDXLGeoPoliticalLocation>
+                                    <address>
+                                    </address>
+                                </EDXLGeoPoliticalLocation>
+                            </reportToLocation>
+                            <workAssignment>££££</workAssignment>
+                            <specialInstructions>££££</specialInstructions>
+                            <specialEquipmentAndSupplies>££££</specialEquipmentAndSupplies>
+                            <additionalAssistingOrganizations>££££</additionalAssistingOrganizations>
+                            <resourceStatus>
+                                <inventoryRefreshDateTime>££££</inventoryRefreshDateTime>
+                                <availability>££££</availability>
+                            </resourceStatus>
+                        </resourceDetail>
+                        <isSufficient>££££</isSufficient>
+                    </resource>
+                </resourceTotal>-->
+        <organizationAndAssignments>
+            <commandStructure>££££</commandStructure>
+            <positionTitle>££££</positionTitle>
+            <personName>
+                <personName>
+                    <nameElement>££££</nameElement>
+                </personName>
+                <addresses>
+                    <address>
+                    </address>
+                </addresses>
+                <contactNumbers>
+                    <contactNumber>
+                        <contactNumberElement>££££</contactNumberElement>
+                    </contactNumber>
+                </contactNumbers>
+                <electronicAddressIdentifiers>
+                    <electronicAddressIdentifier>££££</electronicAddressIdentifier>
+                </electronicAddressIdentifiers>
+                <identifiers>
+                    <identifier>
+                        <identifierElement>££££</identifierElement>
+                    </identifier>
+                </identifiers>
+            </personName>
+            <branch>
+                <valueListURI>££££</valueListURI>
+                <value>££££</value>
+            </branch>
+            <reportsToPositionTitle>££££</reportsToPositionTitle>
+            <reportsToPersonName>
+                <personName>
+                    <nameElement>££££</nameElement>
+                </personName>
+                <addresses>
+                    <address>
+                    </address>
+                </addresses>
+                <contactNumbers>
+                    <contactNumber>
+                        <contactNumberElement>££££</contactNumberElement>
+                    </contactNumber>
+                </contactNumbers>
+                <electronicAddressIdentifiers>
+                    <electronicAddressIdentifier>££££</electronicAddressIdentifier>
+                </electronicAddressIdentifiers>
+                <identifiers>
+                    <identifier>
+                        <identifierElement>££££</identifierElement>
+                    </identifier>
+                </identifiers>
+            </reportsToPersonName>
+            <reportsToAgency>
+                <valueListURI>££££</valueListURI>
+                <value>££££</value>
+            </reportsToAgency>
+            <reportsToBranch>
+                <valueListURI>££££</valueListURI>
+                <value>££££</value>
+            </reportsToBranch>
+        </organizationAndAssignments>
+    </report>
+</sitRep>
