@@ -5,10 +5,10 @@
 	<identifier required="true">££££</identifier>
 	<sender required="true">££££</sender>
 	<sent required="true">££££</sent>
-	<status required="true">££££</status>
-	<msgType required="true">££££</msgType>
+	<status required="true">Actual</status>
+	<msgType required="true">Alert</msgType>
 	<source>££££</source>
-	<scope required="true">££££</scope>
+	<scope required="true">Public</scope>
 	<restriction>££££</restriction>
 	<addresses>££££</addresses>
 	<code cardinality="unbounded">££££</code>
@@ -17,12 +17,12 @@
 	<incidents>££££</incidents>
 	<info cardinality="unbounded">
 		<language>££££</language>
-		<category required="true" cardinality="unbounded">££££</category>
+		<category required="true" cardinality="unbounded">Other</category>
 		<event required="true">££££</event>
 		<responseType cardinality="unbounded">££££</responseType>
-		<urgency required="true">££££</urgency>
-		<severity required="true">££££</severity>
-		<certainty required="true">££££</certainty>
+		<urgency required="true">Unknown</urgency>
+		<severity required="true">Unknown</severity>
+		<certainty required="true">Unknown</certainty>
 		<audience>££££</audience>
 		<eventCode cardinality="unbounded">
 			<valueName required="true">££££</valueName>
