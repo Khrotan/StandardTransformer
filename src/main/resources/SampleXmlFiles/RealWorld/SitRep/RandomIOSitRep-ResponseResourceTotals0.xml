@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--
+     Emergency Data Exchange Language Situation Reporting (EDXL-SitRep) Version 1.0
+     Committee Specification 01
+     11 April 2013
+     Copyright (c) OASIS Open 2013. All Rights Reserved.
+	 Source: http://docs.oasis-open.org/emergency/edxl-sitrep/v1.0/cs01/schemas-and-examples/
+-->
+<EDXLDistribution xmlns="urn:oasis:names:tc:emergency:EDXL:DE:1.0">
+	<distributionID>SitRepResponseResx0</distributionID>
+	<senderID>admin@icnet.mitre.org</senderID>
+	<dateTimeSent>2011-09-18T19:47:19-04:00</dateTimeSent>
+	<distributionStatus>Test</distributionStatus>
+	<distributionType>Update</distributionType>
+	<combinedConfidentiality>U</combinedConfidentiality>
+	<language>en-US</language>
+	<distributionReference>SitRepResponseResx0,admin@icnet.mitre.org,1753-01-01T00:00:00.0000000Z</distributionReference>
+	<contentObject>
+		<contentDescription>EDXL-SitRep</contentDescription>
+		<contentKeyword>
+			<valueListUrn>http://icnet.mitre.org/ValueLists/ContentKeywords</valueListUrn>
+			<value>EDXL-SitRep</value>
+		</contentKeyword>
+		<xmlContent>
+			<embeddedXMLContent>
+				<SitRep xmlns="urn:oasis:names:tc:emergency:EDXL:SitRep:1.0">
+					<MessageID>d23914e6-4d29-449b-b7be-60e209a6128c</MessageID>
+					<PreparedBy>
+						<PersonDetails xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+							<PersonName xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xnl">
+								<NameElement>John Doe</NameElement>
+							</PersonName>
+						</PersonDetails>
+						<TimeValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">2011-09-18T11:47:19-04:00</TimeValue>
+					</PreparedBy>
+					<AuthorizedBy>
+						<PersonDetails xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+							<PersonName xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xnl">
+								<NameElement>John Doe</NameElement>
+							</PersonName>
+						</PersonDetails>
+						<TimeValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">2011-09-18T11:47:19-04:00</TimeValue>
+					</AuthorizedBy>
+					<ReportPurpose>Status Update</ReportPurpose>
+					<ReportNumber>4</ReportNumber>
+					<ReportVersion>
+						<Version>
+							<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/version</ValueListURI>
+							<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">.5</Value>
+						</Version>
+					</ReportVersion>
+					<ForTimePeriod>
+						<FromDateTime xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">2011-09-18T11:47:19-04:00</FromDateTime>
+						<ToDateTime xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">2011-09-18T11:47:19-04:00</ToDateTime>
+					</ForTimePeriod>
+					<ReportTitle>Sit Rep Report: 680</ReportTitle>
+					<IncidentID>Hurricane Test</IncidentID>
+					<IncidentLifecyclePhase>
+						<IncidentLifecycle>
+							<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/incidentlifecyclephase</ValueListURI>
+							<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Response</Value>
+						</IncidentLifecycle>
+					</IncidentLifecyclePhase>
+					<PrecedingMessageID>efaeebfbadffeccdb</PrecedingMessageID>
+					<PrecedingMessageID>ceaffbdcf</PrecedingMessageID>
+					<PrecedingMessageID>becffafabcdedcfa</PrecedingMessageID>
+					<Urgency>
+						<Urgency>
+							<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/urgency</ValueListURI>
+							<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">urgency:low</Value>
+						</Urgency>
+					</Urgency>
+					<ReportConfidence>
+						<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/confidence</ValueListURI>
+						<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">confidence:low</Value>
+					</ReportConfidence>
+					<Severity>
+						<Severity>
+							<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/severity</ValueListURI>
+							<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">severity:low</Value>
+						</Severity>
+					</Severity>
+					<ReportingLocation>
+						<EDXLGeoLocation xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+							<Point p4:id="effaebbedba" xmlns:p4="http://www.opengis.net/gml/3.2" xmlns="http://www.opengis.net/gml/3.2">
+								<pos axisLabels="cedeecbcafd efcbfbba bfabeebfaccead" srsDimension="1" srsName="http://directpostype" uomLabels="dfaaacfeabfe ccebbcaffc fccbfeffaba">41.179922 -73.199724</pos>
+							</Point>
+						</EDXLGeoLocation>
+					</ReportingLocation>
+					<ActionPlan>Continue Response Operations</ActionPlan>
+					<NextContact>2011-09-18T11:47:19-04:00</NextContact>
+					<Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ResponseResourcesTotals">
+						<OrganizationAndAssignments>
+							<CommandStructure>ICS</CommandStructure>
+							<PositionTitle>
+								<Position>
+									<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+										<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/PositionTitle</ValueListURI>
+										<Value>Triage Officer</Value>
+									</ValueKeyURI>
+									<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Triage Officer</PairValue>
+								</Position>
+							</PositionTitle>
+							<PersonName>
+								<PersonName xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xnl">
+									<NameElement>John Doe</NameElement>
+								</PersonName>
+							</PersonName>
+							<ReportsToPositionTitle>
+								<Position>
+									<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+										<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+										<Value>Type II ALS Ambulances</Value>
+									</ValueKeyURI>
+									<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">ffdfafabb</PairValue>
+								</Position>
+							</ReportsToPositionTitle>
+							<ReportsToPersonName>
+								<PersonName xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xnl">
+									<NameElement>John Doe</NameElement>
+								</PersonName>
+							</ReportsToPersonName>
+							<ReportsToAgency>
+								<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/reportstoagency</ValueListURI>
+								<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">FEMA</Value>
+								<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Local response Agency</Value>
+							</ReportsToAgency>
+							<ReportsToBranch>
+								<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/agency</ValueListURI>
+								<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Operations Branch</Value>
+							</ReportsToBranch>
+						</OrganizationAndAssignments>
+						<OrganizationAndAssignments>
+							<CommandStructure>ICS</CommandStructure>
+							<PositionTitle>
+								<Position>
+									<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+										<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/PositionTitle</ValueListURI>
+										<Value>Triage Officer</Value>
+									</ValueKeyURI>
+									<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Triage Officer</PairValue>
+								</Position>
+							</PositionTitle>
+							<PersonName>
+								<PersonName xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xnl">
+									<NameElement>John Doe</NameElement>
+								</PersonName>
+							</PersonName>
+							<ReportsToPositionTitle>
+								<Position>
+									<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+										<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+										<Value>Type II ALS Ambulances</Value>
+									</ValueKeyURI>
+									<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">edbcdacdeafed</PairValue>
+								</Position>
+							</ReportsToPositionTitle>
+							<ReportsToPersonName>
+								<PersonName xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xnl">
+									<NameElement>John Doe</NameElement>
+								</PersonName>
+							</ReportsToPersonName>
+							<ReportsToAgency>
+								<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/reportstoagency</ValueListURI>
+								<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">FEMA</Value>
+								<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Local response Agency</Value>
+							</ReportsToAgency>
+							<ReportsToBranch>
+								<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/agency</ValueListURI>
+								<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Operations Branch</Value>
+							</ReportsToBranch>
+						</OrganizationAndAssignments>
+						<OrganizationAndAssignments>
+							<CommandStructure>ICS</CommandStructure>
+							<PositionTitle>
+								<Position>
+									<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+										<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/PositionTitle</ValueListURI>
+										<Value>Triage Officer</Value>
+									</ValueKeyURI>
+									<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Triage Officer</PairValue>
+								</Position>
+							</PositionTitle>
+							<PersonName>
+								<PersonName xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xnl">
+									<NameElement>John Doe</NameElement>
+								</PersonName>
+							</PersonName>
+							<ReportsToPositionTitle>
+								<Position>
+									<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+										<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+										<Value>Type II ALS Ambulances</Value>
+									</ValueKeyURI>
+									<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">feddcabcafe</PairValue>
+								</Position>
+							</ReportsToPositionTitle>
+							<ReportsToPersonName>
+								<PersonName xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xnl">
+									<NameElement>John Doe</NameElement>
+								</PersonName>
+							</ReportsToPersonName>
+							<ReportsToAgency>
+								<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/reportstoagency</ValueListURI>
+								<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">FEMA</Value>
+								<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Local response Agency</Value>
+							</ReportsToAgency>
+							<ReportsToBranch>
+								<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/agency</ValueListURI>
+								<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Operations Branch</Value>
+							</ReportsToBranch>
+						</OrganizationAndAssignments>
+						<OrganizationAndAssignments>
+							<CommandStructure>ICS</CommandStructure>
+							<PositionTitle>
+								<Position>
+									<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+										<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/PositionTitle</ValueListURI>
+										<Value>Triage Officer</Value>
+									</ValueKeyURI>
+									<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Triage Officer</PairValue>
+								</Position>
+							</PositionTitle>
+							<PersonName>
+								<PersonName xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xnl">
+									<NameElement>John Doe</NameElement>
+								</PersonName>
+							</PersonName>
+							<ReportsToPositionTitle>
+								<Position>
+									<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+										<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+										<Value>Type II ALS Ambulances</Value>
+									</ValueKeyURI>
+									<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">cdefdcecebcbcd</PairValue>
+								</Position>
+							</ReportsToPositionTitle>
+							<ReportsToPersonName>
+								<PersonName xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xnl">
+									<NameElement>John Doe</NameElement>
+								</PersonName>
+							</ReportsToPersonName>
+							<ReportsToAgency>
+								<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/reportstoagency</ValueListURI>
+								<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">FEMA</Value>
+								<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Local response Agency</Value>
+							</ReportsToAgency>
+							<ReportsToBranch>
+								<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/agency</ValueListURI>
+								<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Operations Branch</Value>
+							</ReportsToBranch>
+						</OrganizationAndAssignments>
+					</Report>
+				</SitRep>
+			</embeddedXMLContent>
+		</xmlContent>
+	</contentObject>
+</EDXLDistribution>

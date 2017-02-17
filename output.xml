@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:emergency:cap:1.2 file:/home/arda/Dropbox/SRDC%20Team%20Folder/xsd/CAP-v1.2.xsd">
+    <identifier>0e0cd0f8-1511-4ab5-9d63-51133c6b71b3</identifier>
+    <sender>John Doe
+			
+		
+		2011-09-18T11:47:27-04:00</sender>
+    <sent>NO_INFO</sent>
+    <status>Actual</status>
+    <msgType>Alert</msgType>
+    <source>John Doe
+			
+		
+		2011-09-18T11:47:27-04:00</source>
+    <scope>Public</scope>
+    <restriction>Status Update</restriction>
+    <code>dcbcfdbbfaedfbd</code>
+    <code>fddbaecf</code>
+    <code>befaaafbabfacfa</code>
+    <code>Hurricane Test</code>
+    <code>http://icnet.mitre.org/ValueLists/SitRep/version
+			.5</code>
+    <code>7</code>
+    <note>41.182922 -73.190724
+				
+			
+		
+		Supplies
+		
+			
+				http://icnet.mitre.org/ValueLists/SitRep/immediateneeds
+				water
+				food
+			
+		
+		Need more Medical Supplies</note>
+    <info>
+        <category>NO_INFO</category>
+        <event>NO_INFO</event>
+        <responseType>Continue Response Operations</responseType>
+        <urgency>Immediate</urgency>
+        <severity>Minor</severity>
+        <certainty>Possible</certainty>
+        <contact>2011-09-18T11:47:27-04:00</contact>
+        <area>
+            <areaDesc>NO_INFO</areaDesc>
+            <geocode>
+                <valueName>NO_INFO</valueName>
+                <value>http://icnet.mitre.org/ValueLists/GeoCodes/ZipCodes
+				51835
+				66563
+				71712</value>
+            </geocode>
+		</area>
+    </info>
+    <info>
+        <category>Other</category>
+        <event>NO_INFO</event>
+        <urgency>Unknown</urgency>
+        <severity>Unknown</severity>
+        <certainty>Unknown</certainty>
+        <headline>Sit Rep Report: 831</headline>
+	</info>
+</alert>

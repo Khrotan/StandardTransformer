@@ -5,7 +5,10 @@
 
 package tr.com.srdc.standardtransform.core;
 
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import tr.com.srdc.standardtransform.TextContextRestriction.RM_to_CAP.RMtoCAPRestrictionInformation;
 import tr.com.srdc.standardtransform.TextContextRestriction.RestrictionInformation;
@@ -135,20 +138,15 @@ public class XmlTransform {
             if ( XmlUtil.isRequiredNode( node ) == false ) {
                 node.getParentNode().removeChild( node );
                 return;
-            } else if ( XmlUtil.isRequiredNode( node ) == true ) {
+            }
+            else if ( XmlUtil.isRequiredNode( node ) == true ) {
                 List<Node> targetNodeList = ( XmlUtil.asList( (NodeList) xPath.compile( XmlUtil.getXPath( node ).substring( 10 ) ).evaluate( node.getOwnerDocument(), XPathConstants.NODESET ) ));
                 targetNodeList = intersection( targetNodeList, XmlUtil.asList( node.getParentNode().getChildNodes() ) );
                 if ( targetNodeList.size() > 1 ) {
                     node.getParentNode().removeChild( node );
                 }
-            }
-            else if ( XmlUtil.isLeafNode( node ) ) {
-                if ( restrictionInformation.getComparator( node.getNodeName() ) == null ) {
-                    node.setTextContent( "NO_INFO" );
-                }
-                else {
-                    node.setTextContent( restrictionInformation.getComparator( node.getNodeName() ).decideTextContext( null, node, TextContextComparatorModes.OnDeleteIfNoInfo ) );
-                }
+
+                node.setTextContent( "NO_INFO" );
 
                 if ( XmlUtil.isNoTextContextNode( node ) ) {
                     if ( XmlUtil.isNonmappedNode( node ) == false ) {
@@ -157,6 +155,16 @@ public class XmlTransform {
                     node.setTextContent( "" );
                 }
             }
+/*            else if ( XmlUtil.isLeafNode( node ) ) {
+                node.setTextContent( "NO_INFO" );
+
+                if ( XmlUtil.isNoTextContextNode( node ) ) {
+                    if ( XmlUtil.isNonmappedNode( node ) == false ) {
+                        logger.log( Level.WARNING, XmlUtil.getXPath( node ) + " have been mapped incorrectly, is a no text context node." );
+                    }
+                    node.setTextContent( "" );
+                }
+            }*/
         }
 
         if ( node.getAttributes().getNamedItem( "cardinality" ) != null ) {
@@ -643,10 +651,18 @@ public class XmlTransform {
         Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/epidemico.xml" ).getFile() ) );
         File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--e2b--epidemico.csv" ).getFile() );
 */
+
         //output16
         Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/RealWorld/SitRep/RandomIOSitRep-FieldObservation0.xml" ).getFile() ) );
         Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/CAPTemplate.xml" ).getFile() ) );
         File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--sitrep--cap.csv" ).getFile() );
+
+        //output17
+/*
+        Document sourceDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/RealWorld/CAP/CAP1_2SevereThunderstormWarning.xml" ).getFile() ) );
+        Document targetDocument = builder.parse( new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Templates/SitRepTemplate.xml" ).getFile() ) );
+        File csvFile = new File( XmlTransform.class.getClassLoader().getResource( "SampleXmlFiles/Mappings/mapping--cap--sitrep.csv" ).getFile() );
+*/
 
         //XmlUtil.traverse( targetDocument.getDocumentElement() );
 

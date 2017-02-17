@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--
+     Emergency Data Exchange Language Situation Reporting (EDXL-SitRep) Version 1.0
+     Committee Specification 01
+     11 April 2013
+     Copyright (c) OASIS Open 2013. All Rights Reserved.
+	 Source: http://docs.oasis-open.org/emergency/edxl-sitrep/v1.0/cs01/schemas-and-examples/
+-->
+<EDXLDistribution xmlns="urn:oasis:names:tc:emergency:EDXL:DE:1.0">
+	<distributionID>SitRepManagement0</distributionID>
+	<senderID>admin@icnet.mitre.org</senderID>
+	<dateTimeSent>2011-09-18T19:47:51-04:00</dateTimeSent>
+	<distributionStatus>Test</distributionStatus>
+	<distributionType>Update</distributionType>
+	<combinedConfidentiality>U</combinedConfidentiality>
+	<language>en-US</language>
+	<distributionReference>SitRepManagement0,admin@icnet.mitre.org,1753-01-01T00:00:00.0000000Z</distributionReference>
+	<contentObject>
+		<contentDescription>EDXL-SitRep</contentDescription>
+		<contentKeyword>
+			<valueListUrn>http://icnet.mitre.org/ValueLists/ContentKeywords</valueListUrn>
+			<value>EDXL-SitRep</value>
+		</contentKeyword>
+		<xmlContent>
+			<embeddedXMLContent>
+				<SitRep xmlns="urn:oasis:names:tc:emergency:EDXL:SitRep:1.0">
+					<MessageID>469a7f6a-7474-40ce-a0c6-7105003a6fc7</MessageID>
+					<PreparedBy>
+						<PersonDetails xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+							<PersonName xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xnl">
+								<NameElement>John Doe</NameElement>
+							</PersonName>
+						</PersonDetails>
+						<TimeValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">2011-09-18T11:47:51-04:00</TimeValue>
+					</PreparedBy>
+					<AuthorizedBy>
+						<PersonDetails xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+							<PersonName xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xnl">
+								<NameElement>John Doe</NameElement>
+							</PersonName>
+						</PersonDetails>
+						<TimeValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">2011-09-18T11:47:51-04:00</TimeValue>
+					</AuthorizedBy>
+					<ReportPurpose>Status Update</ReportPurpose>
+					<ReportNumber>7</ReportNumber>
+					<ReportVersion>
+						<Version>
+							<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/version</ValueListURI>
+							<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">.5</Value>
+						</Version>
+					</ReportVersion>
+					<ForTimePeriod>
+						<FromDateTime xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">2011-09-18T11:47:51-04:00</FromDateTime>
+						<ToDateTime xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">2011-09-18T11:47:51-04:00</ToDateTime>
+					</ForTimePeriod>
+					<ReportTitle>Sit Rep Report: 436</ReportTitle>
+					<IncidentID>Hurricane Test</IncidentID>
+					<IncidentLifecyclePhase>
+						<IncidentLifecycle>
+							<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/incidentlifecyclephase</ValueListURI>
+							<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Response</Value>
+						</IncidentLifecycle>
+					</IncidentLifecyclePhase>
+					<PrecedingMessageID>bedebfebbe</PrecedingMessageID>
+					<PrecedingMessageID>bccabcccfbfdcc</PrecedingMessageID>
+					<PrecedingMessageID>bdccfbfacdc</PrecedingMessageID>
+					<Urgency>
+						<Urgency>
+							<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/urgency</ValueListURI>
+							<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">urgency:low</Value>
+						</Urgency>
+					</Urgency>
+					<ReportConfidence>
+						<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/confidence</ValueListURI>
+						<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">confidence:low</Value>
+					</ReportConfidence>
+					<Severity>
+						<Severity>
+							<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/severity</ValueListURI>
+							<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">severity:low</Value>
+						</Severity>
+					</Severity>
+					<ReportingLocation>
+						<EDXLGeoPoliticalLocation xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+							<Address>
+								<FreeTextAddress xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+									<AddressLine>123 Fake St.</AddressLine>
+									<AddressLine>123 Fake St.</AddressLine>
+									<AddressLine>123 Fake St.</AddressLine>
+									<AddressLine>123 Fake St.</AddressLine>
+								</FreeTextAddress>
+								<Country xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+									<NameElement>US</NameElement>
+								</Country>
+								<AdministrativeArea xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+									<NameElement>FakeTown</NameElement>
+									<SubAdministrativeArea>
+										<NameElement>NY</NameElement>
+										<NameElement>cbfbecbf</NameElement>
+										<NameElement>cbcebfcd</NameElement>
+										<NameElement>cbacebaed</NameElement>
+										<NameElement>ecacdeccf</NameElement>
+									</SubAdministrativeArea>
+								</AdministrativeArea>
+								<Locality xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+									<NameElement>bdcbafaadcb</NameElement>
+									<NameElement>dbfebfbedaccba</NameElement>
+									<NameElement>efcfaffebcf</NameElement>
+									<NameElement>eadebcfd</NameElement>
+									<SubLocality>
+										<NameElement>addacdceaae</NameElement>
+										<NameElement>bebefebcdeff</NameElement>
+										<NameElement>bfebfdfa</NameElement>
+										<NameElement>beabeffddac</NameElement>
+									</SubLocality>
+								</Locality>
+								<Thoroughfare p5:Type="afdeacacfbe" xmlns:p5="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal" xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+									<NameElement>afbbacaaa</NameElement>
+									<NameElement>dedcfbdecd</NameElement>
+									<NameElement>aaaadcbbcb</NameElement>
+									<NameElement>fadbbefedb</NameElement>
+									<Number p5:Type="RangeTo">bfefebbeedde</Number>
+									<Number p5:Type="Prefix">cbaffabbdccdbd</Number>
+									<Number p5:Type="Range">dfefbffb</Number>
+									<Number p5:Type="Range">cbebbbbdafbab</Number>
+								</Thoroughfare>
+								<PostCode xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+									<p6:Identifier p6:Type="RangeTo" xmlns:p6="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">27884</p6:Identifier>
+									<p6:Identifier p6:Type="Range" xmlns:p6="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">23653</p6:Identifier>
+									<p6:Identifier p6:Type="Number" xmlns:p6="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">74635</p6:Identifier>
+									<p6:Identifier p6:Type="Suffix" xmlns:p6="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">32123</p6:Identifier>
+								</PostCode>
+							</Address>
+						</EDXLGeoPoliticalLocation>
+					</ReportingLocation>
+					<ActionPlan>Continue Response Operations</ActionPlan>
+					<NextContact>2011-09-18T11:47:51-04:00</NextContact>
+					<Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ManagementReportingSummary">
+						<SituationSummary>
+							<IncidentCause>Natural Disaster - Hurricane</IncidentCause>
+							<SignificantEvents>
+								<SignificantEvents>
+									<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/reportstoagency</ValueListURI>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">FEMA</Value>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">State EOC</Value>
+								</SignificantEvents>
+							</SignificantEvents>
+							<SignificantEvents>
+								<SignificantEvents>
+									<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/reportstoagency</ValueListURI>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">FEMA</Value>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">State EOC</Value>
+								</SignificantEvents>
+							</SignificantEvents>
+							<SignificantEvents>
+								<SignificantEvents>
+									<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/reportstoagency</ValueListURI>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">FEMA</Value>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">State EOC</Value>
+								</SignificantEvents>
+							</SignificantEvents>
+							<SignificantEvents>
+								<SignificantEvents>
+									<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/reportstoagency</ValueListURI>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">FEMA</Value>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">State EOC</Value>
+								</SignificantEvents>
+							</SignificantEvents>
+							<DamageAssessmentInformation>Damage is severe</DamageAssessmentInformation>
+							<PrimaryHazards>Possible Disease outbreak</PrimaryHazards>
+							<HazMatIncidentReport />
+							<ExtentOfContamination>
+								<EDXLGeoPoliticalLocation xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<GeoCode>
+										<ValueListURI>http://icnet.mitre.org/ValueLists/GeoCodes/ZipCodes</ValueListURI>
+										<Value>50485</Value>
+										<Value>12863</Value>
+										<Value>35054</Value>
+									</GeoCode>
+								</EDXLGeoPoliticalLocation>
+							</ExtentOfContamination>
+							<ExtentOfContamination>
+								<EDXLGeoLocation xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<LineString p7:id="bdabafeabcdbcb" xmlns:p7="http://www.opengis.net/gml/3.2" xmlns="http://www.opengis.net/gml/3.2">
+										<pos axisLabels="cfdddeaeccdaf eefaeacfa aaeffeeebfadedd" srsDimension="1" srsName="http://directpostype" uomLabels="eeccddbdad eedbafedaeefcdb eaedbababeee">41.193922 -73.198724</pos>
+										<pos axisLabels="cbafadaddfbeebc dacaabfe bafaaafabd" srsDimension="3" srsName="http://directpostype" uomLabels="ebbdcbcfbcbfabefdce aecafbfbe fcafdcdbbdeda">41.193922 -73.197724</pos>
+									</LineString>
+								</EDXLGeoLocation>
+							</ExtentOfContamination>
+							<ExtentOfContamination>
+								<EDXLGeoLocation xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<Point p7:id="ddfecabee" xmlns:p7="http://www.opengis.net/gml/3.2" xmlns="http://www.opengis.net/gml/3.2">
+										<pos axisLabels="edbdfcccad bdafedb abecdddbcfe" srsDimension="3" srsName="http://directpostype" uomLabels="fffcbadddbca abaabacbef cbfbedfaebffbe">41.177922 -73.197724</pos>
+									</Point>
+								</EDXLGeoLocation>
+							</ExtentOfContamination>
+							<ExtentOfContamination>
+								<EDXLGeoPoliticalLocation xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<GeoCode>
+										<ValueListURI>http://icnet.mitre.org/ValueLists/GeoCodes/ZipCodes</ValueListURI>
+										<Value>63084</Value>
+										<Value>08336</Value>
+										<Value>88625</Value>
+									</GeoCode>
+								</EDXLGeoPoliticalLocation>
+							</ExtentOfContamination>
+							<GeneralPopulationStatus>Population is getting combative</GeneralPopulationStatus>
+							<HumanLifeAndSafetyThreat>humans can die</HumanLifeAndSafetyThreat>
+							<IncidentThreatSummaryAndRisk>Lack of Medical supplies</IncidentThreatSummaryAndRisk>
+							<IncidentThreatSummaryAndRisk>Lack of evacuation capabilities</IncidentThreatSummaryAndRisk>
+							<FollowOnIndication>Follow on is posible</FollowOnIndication>
+							<InfrastructureAffected>
+								<InfrastructureAffected>
+									<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/infastructure</ValueListURI>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Bridges</Value>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Highways</Value>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Hospitals</Value>
+								</InfrastructureAffected>
+							</InfrastructureAffected>
+							<InfrastructureAffected>
+								<InfrastructureAffected>
+									<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/infastructure</ValueListURI>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Bridges</Value>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Highways</Value>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Hospitals</Value>
+								</InfrastructureAffected>
+							</InfrastructureAffected>
+							<InfrastructureAffected>
+								<InfrastructureAffected>
+									<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/infastructure</ValueListURI>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Bridges</Value>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Highways</Value>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Hospitals</Value>
+								</InfrastructureAffected>
+							</InfrastructureAffected>
+							<InfrastructureAffected>
+								<InfrastructureAffected>
+									<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/infastructure</ValueListURI>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Bridges</Value>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Highways</Value>
+									<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Hospitals</Value>
+								</InfrastructureAffected>
+							</InfrastructureAffected>
+							<PropertyDamage>
+								<PropertyDamage>
+									<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+										<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+										<Value>Houses</Value>
+									</ValueKeyURI>
+									<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">1</PairValue>
+								</PropertyDamage>
+							</PropertyDamage>
+							<PropertyDamage>
+								<PropertyDamage>
+									<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+										<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+										<Value>Houses</Value>
+									</ValueKeyURI>
+									<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">5</PairValue>
+								</PropertyDamage>
+							</PropertyDamage>
+							<PropertyDamage>
+								<PropertyDamage>
+									<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+										<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+										<Value>Houses</Value>
+									</ValueKeyURI>
+									<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">7</PairValue>
+								</PropertyDamage>
+							</PropertyDamage>
+							<PropertyDamage>
+								<PropertyDamage>
+									<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+										<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+										<Value>Houses</Value>
+									</ValueKeyURI>
+									<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">8</PairValue>
+								</PropertyDamage>
+							</PropertyDamage>
+							<PercentContained>2</PercentContained>
+							<RequestsForAdditionalSupport>Need ambulances</RequestsForAdditionalSupport>
+							<TerrorismNexus>unlikely</TerrorismNexus>
+							<WeatherEffects>
+								<METARReadings xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<ObservationTime>2011-09-18T11:47:51-04:00</ObservationTime>
+									<DewpointC>-22.3428917</DewpointC>
+									<AltimeterHP>1199</AltimeterHP>
+								</METARReadings>
+								<WeatherConcerns xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Secondary flooding damage</WeatherConcerns>
+							</WeatherEffects>
+							<WMDEffects>None</WMDEffects>
+							<TransportationSystems>
+								<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+									<Value>Trains</Value>
+								</ValueKeyURI>
+								<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">debdca</PairValue>
+							</TransportationSystems>
+							<TransportationSystems>
+								<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+									<Value>Trains</Value>
+								</ValueKeyURI>
+								<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">fbefdfdbadeaf</PairValue>
+							</TransportationSystems>
+							<TransportationSystems>
+								<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+									<Value>Trains</Value>
+								</ValueKeyURI>
+								<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">cebdabfecc</PairValue>
+							</TransportationSystems>
+							<TransportationSystems>
+								<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+									<Value>Trains</Value>
+								</ValueKeyURI>
+								<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">bffbfffafadfa</PairValue>
+							</TransportationSystems>
+						</SituationSummary>
+						<DecisionSupportInformation>
+							<ProjectedIncidentActivity>
+								<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/projectedincidentactivity</ValueListURI>
+									<Value>Treat and Transport</Value>
+								</ValueKeyURI>
+								<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Treat and transport</PairValue>
+							</ProjectedIncidentActivity>
+							<ProjectedNumberToBeSheltered>4</ProjectedNumberToBeSheltered>
+							<CriticalResourceNeeds>
+								<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+									<Value>Type II ALS Ambulances</Value>
+								</ValueKeyURI>
+								<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">dacabba</PairValue>
+							</CriticalResourceNeeds>
+							<CriticalResourceNeeds>
+								<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+									<Value>Type II ALS Ambulances</Value>
+								</ValueKeyURI>
+								<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">beedfecbeecdc</PairValue>
+							</CriticalResourceNeeds>
+							<CriticalResourceNeeds>
+								<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+									<Value>Type II ALS Ambulances</Value>
+								</ValueKeyURI>
+								<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">eadecabfedabc</PairValue>
+							</CriticalResourceNeeds>
+							<CriticalResourceNeeds>
+								<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+									<Value>Type II ALS Ambulances</Value>
+								</ValueKeyURI>
+								<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">eadebaddeeddba</PairValue>
+							</CriticalResourceNeeds>
+							<ProjectedFinalIncidentSize>8</ProjectedFinalIncidentSize>
+							<AnticipatedCompletion>
+								<AnticipatedCompletionDate>2011-09-18T11:47:51-04:00</AnticipatedCompletionDate>
+							</AnticipatedCompletion>
+							<ProjectedDemobilization>
+								<ProjectedDemobilizationStartDate>2011-09-18T11:47:51-04:00</ProjectedDemobilizationStartDate>
+							</ProjectedDemobilization>
+							<EstimatedCosts>
+								<EstimatedCostsToDate>10.00 DOL</EstimatedCostsToDate>
+							</EstimatedCosts>
+							<ProjectedCosts>
+								<ProjectedFinalCosts>10.00 DOL</ProjectedFinalCosts>
+							</ProjectedCosts>
+							<EmergencyResponseIssues>
+								<EmergencyResponseIssues>
+									<ValueKeyURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+										<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/criticalresourceneeds</ValueListURI>
+										<Value>Triage Tags</Value>
+									</ValueKeyURI>
+									<PairValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Lack of transport capabilities</PairValue>
+								</EmergencyResponseIssues>
+							</EmergencyResponseIssues>
+							<StrategicDiscussion>Need to evac patients</StrategicDiscussion>
+							<PlannedActions>Continue Triage and Treatment</PlannedActions>
+						</DecisionSupportInformation>
+						<JurisdictionInformation>
+							<Name>Incident Location</Name>
+							<JurisdictionSize>
+								<GeographicSize>1</GeographicSize>
+							</JurisdictionSize>
+							<Location>
+								<EDXLGeoLocation xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<Point p7:id="aaecebcfcafbdbf" xmlns:p7="http://www.opengis.net/gml/3.2" xmlns="http://www.opengis.net/gml/3.2">
+										<pos axisLabels="fcdcfdccbaabedd befeeacafedabfa ccdecfdcafaacdbba" srsDimension="3" srsName="http://directpostype" uomLabels="fffffeafbcabbada bcafcddace afdbadcdccb">41.184922 -73.197724</pos>
+									</Point>
+								</EDXLGeoLocation>
+							</Location>
+							<Description>Incident Area</Description>
+						</JurisdictionInformation>
+						<JurisdictionInformation>
+							<Name>Incident Location</Name>
+							<JurisdictionSize>
+								<GeographicSize>3</GeographicSize>
+							</JurisdictionSize>
+							<Location>
+								<EDXLGeoPoliticalLocation xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<Address>
+										<FreeTextAddress xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+											<AddressLine>123 Fake St.</AddressLine>
+											<AddressLine>123 Fake St.</AddressLine>
+											<AddressLine>123 Fake St.</AddressLine>
+											<AddressLine>123 Fake St.</AddressLine>
+										</FreeTextAddress>
+										<Country xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+											<NameElement>US</NameElement>
+										</Country>
+										<AdministrativeArea xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+											<NameElement>FakeTown</NameElement>
+											<SubAdministrativeArea>
+												<NameElement>NY</NameElement>
+												<NameElement>fbbadcbdabdc</NameElement>
+												<NameElement>adbeffbcacbcd</NameElement>
+												<NameElement>defdffcf</NameElement>
+												<NameElement>baaefbbbdabfd</NameElement>
+											</SubAdministrativeArea>
+										</AdministrativeArea>
+										<Locality xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+											<NameElement>fababbeff</NameElement>
+											<NameElement>fdfcbbedd</NameElement>
+											<NameElement>cffdcfaacfaff</NameElement>
+											<NameElement>aeffadbeda</NameElement>
+											<SubLocality>
+												<NameElement>cfcccbedfadde</NameElement>
+												<NameElement>bfcbcbdbbdfa</NameElement>
+												<NameElement>dfccbbfebbcee</NameElement>
+												<NameElement>cbbaeabdabec</NameElement>
+											</SubLocality>
+										</Locality>
+										<Thoroughfare p8:Type="aeedacaee" xmlns:p8="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal" xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+											<NameElement>bedbacceaddcff</NameElement>
+											<NameElement>ddfccedfeb</NameElement>
+											<NameElement>fbeabdcfabedbc</NameElement>
+											<NameElement>bcdfcfbebafeaccba</NameElement>
+											<Number p8:Type="Separator">fdaeebfbbffaacaa</Number>
+											<Number p8:Type="RangeFrom">dcefbaabdbffa</Number>
+											<Number p8:Type="Range">cecefceebbaac</Number>
+											<Number p8:Type="Number">adeefbefbcbf</Number>
+										</Thoroughfare>
+										<PostCode xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+											<p9:Identifier p9:Type="Separator" xmlns:p9="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">10302</p9:Identifier>
+											<p9:Identifier p9:Type="Separator" xmlns:p9="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">78710</p9:Identifier>
+											<p9:Identifier p9:Type="Number" xmlns:p9="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">07586</p9:Identifier>
+											<p9:Identifier p9:Type="Separator" xmlns:p9="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">20403</p9:Identifier>
+										</PostCode>
+									</Address>
+								</EDXLGeoPoliticalLocation>
+							</Location>
+							<Description>Incident Area</Description>
+						</JurisdictionInformation>
+						<JurisdictionInformation>
+							<Name>Incident Location</Name>
+							<JurisdictionSize>
+								<GeographicSize>4</GeographicSize>
+							</JurisdictionSize>
+							<Location>
+								<EDXLGeoPoliticalLocation xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<Address>
+										<FreeTextAddress xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+											<AddressLine>123 Fake St.</AddressLine>
+											<AddressLine>123 Fake St.</AddressLine>
+											<AddressLine>123 Fake St.</AddressLine>
+											<AddressLine>123 Fake St.</AddressLine>
+										</FreeTextAddress>
+										<Country xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+											<NameElement>US</NameElement>
+										</Country>
+										<AdministrativeArea xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+											<NameElement>FakeTown</NameElement>
+											<SubAdministrativeArea>
+												<NameElement>NY</NameElement>
+												<NameElement>aefafbda</NameElement>
+												<NameElement>aafddcebfddbbaf</NameElement>
+												<NameElement>ffcacaabcefec</NameElement>
+												<NameElement>aabcaadfcfae</NameElement>
+											</SubAdministrativeArea>
+										</AdministrativeArea>
+										<Locality xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+											<NameElement>aaeefcdaaaddbb</NameElement>
+											<NameElement>abdedbcbba</NameElement>
+											<NameElement>efeacbbfacfeceb</NameElement>
+											<NameElement>dcdaaecbbacbbd</NameElement>
+											<SubLocality>
+												<NameElement>fcecebede</NameElement>
+												<NameElement>feddbcadfbdc</NameElement>
+												<NameElement>fafaaeaffb</NameElement>
+												<NameElement>fccedabfaaab</NameElement>
+											</SubLocality>
+										</Locality>
+										<Thoroughfare p8:Type="fecebfbfcecfaa" xmlns:p8="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal" xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+											<NameElement>eaccacbcaeeca</NameElement>
+											<NameElement>ffdfaaec</NameElement>
+											<NameElement>defeeabbfeabfcc</NameElement>
+											<NameElement>ffeaabeccbfde</NameElement>
+											<Number p8:Type="RangeTo">ceaabdeaad</Number>
+											<Number p8:Type="Prefix">dfcadbebfab</Number>
+											<Number p8:Type="Prefix">ddbdfbddfa</Number>
+											<Number p8:Type="RangeFrom">bebdfccebdba</Number>
+										</Thoroughfare>
+										<PostCode xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">
+											<p9:Identifier p9:Type="RangeTo" xmlns:p9="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">72405</p9:Identifier>
+											<p9:Identifier p9:Type="Separator" xmlns:p9="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">11771</p9:Identifier>
+											<p9:Identifier p9:Type="Number" xmlns:p9="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">17470</p9:Identifier>
+											<p9:Identifier p9:Type="Prefix" xmlns:p9="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xal">12776</p9:Identifier>
+										</PostCode>
+									</Address>
+								</EDXLGeoPoliticalLocation>
+							</Location>
+							<Description>Incident Area</Description>
+						</JurisdictionInformation>
+						<JurisdictionInformation>
+							<Name>Incident Location</Name>
+							<JurisdictionSize>
+								<GeographicSize>8</GeographicSize>
+							</JurisdictionSize>
+							<Location>
+								<EDXLGeoLocation xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+									<Point p7:id="afabffdaeb" xmlns:p7="http://www.opengis.net/gml/3.2" xmlns="http://www.opengis.net/gml/3.2">
+										<pos axisLabels="dfebcbfecffcb aaefecbadcadcbcb fcabeccc" srsDimension="3" srsName="http://directpostype" uomLabels="caaecefbddd fffcafbdcfc bbbcfbd">41.184922 -73.190724</pos>
+									</Point>
+								</EDXLGeoLocation>
+							</Location>
+							<Description>Incident Area</Description>
+						</JurisdictionInformation>
+					</Report>
+				</SitRep>
+			</embeddedXMLContent>
+		</xmlContent>
+	</contentObject>
+</EDXLDistribution>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<sitRep>
+	<messageID>30073779-347c-40d1-8f9c-ed606643d6ef</messageID>
+	<preparedBy>
+		<PersonDetails>
+			<PersonName>
+				<NameElement>John Doe</NameElement>
+			</PersonName>
+		</PersonDetails>
+		<TimeValue>2011-09-18T11:47:34-04:00</TimeValue>
+	</preparedBy>
+	<authorizedBy>
+		<PersonDetails>
+			<PersonName>
+				<NameElement>John Doe</NameElement>
+			</PersonName>
+		</PersonDetails>
+		<TimeValue>2011-09-18T11:47:34-04:00</TimeValue>
+	</authorizedBy>
+	<reportPurpose>Status Update</reportPurpose>
+	<reportNumber>5</reportNumber>
+	<reportVersion>
+		<Version>
+			<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/version</ValueListURI>
+			<Value>.5</Value>
+		</Version>
+	</reportVersion>
+	<forTimePeriod>
+		<FromDateTime>2011-09-18T11:47:34-04:00</FromDateTime>
+		<ToDateTime>2011-09-18T11:47:34-04:00</ToDateTime>
+	</forTimePeriod>
+	<reportTitle>Sit Rep Report: 842</reportTitle>
+	<incidentID>Hurricane Test</incidentID>
+	<incidentLifecyclePhase>
+		<IncidentLifecycle>
+			<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/incidentlifecyclephase</ValueListURI>
+			<Value>Response</Value>
+		</IncidentLifecycle>
+	</incidentLifecyclePhase>
+	<precedingMessageID>acdfcfcbbbcdaec</precedingMessageID>
+	<precedingMessageID>aefecacdaba</precedingMessageID>
+	<precedingMessageID>bafcdeaf</precedingMessageID>
+	<urgency>
+		<Urgency>
+			<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/urgency</ValueListURI>
+			<Value>urgency:low</Value>
+		</Urgency>
+	</urgency>
+	<reportConfidence>
+		<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/confidence</ValueListURI>
+		<Value>confidence:low</Value>
+	</reportConfidence>
+	<severity>
+		<Severity>
+			<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/severity</ValueListURI>
+			<Value>severity:low</Value>
+		</Severity>
+	</severity>
+	<ReportingLocation>
+		<EDXLGeoPoliticalLocation>
+			<Address>
+				<FreeTextAddress>
+					<AddressLine>123 Fake St.</AddressLine>
+					<AddressLine>123 Fake St.</AddressLine>
+					<AddressLine>123 Fake St.</AddressLine>
+					<AddressLine>123 Fake St.</AddressLine>
+				</FreeTextAddress>
+				<Country>
+					<NameElement>US</NameElement>
+				</Country>
+				<AdministrativeArea>
+					<NameElement>FakeTown</NameElement>
+					<SubAdministrativeArea>
+						<NameElement>NY</NameElement>
+						<NameElement>dceabaaebfb</NameElement>
+						<NameElement>fdcbfcebfbca</NameElement>
+						<NameElement>cfceafcdaa</NameElement>
+						<NameElement>acaefcccdc</NameElement>
+					</SubAdministrativeArea>
+				</AdministrativeArea>
+				<Locality>
+					<NameElement>baafabaabeaa</NameElement>
+					<NameElement>cdaeaba</NameElement>
+					<NameElement>fefecdbbbadce</NameElement>
+					<NameElement>dbaecbbeabc</NameElement>
+					<SubLocality>
+						<NameElement>fcffceebcffaaba</NameElement>
+						<NameElement>ddfefccbce</NameElement>
+						<NameElement>fbaebdafcdac</NameElement>
+						<NameElement>cadddfddaacce</NameElement>
+					</SubLocality>
+				</Locality>
+				<Thoroughfare Type="fcffcdbeaaded">
+					<NameElement>facdfadeebdeefe</NameElement>
+					<NameElement>bbaebffebca</NameElement>
+					<NameElement>fbedfdddb</NameElement>
+					<NameElement>ecabcd</NameElement>
+					<Number Type="Range">ccecbad</Number>
+					<Number Type="RangeFrom">adccccff</Number>
+					<Number Type="RangeFrom">decaddebdfe</Number>
+					<Number Type="Suffix">edeebabfcbc</Number>
+				</Thoroughfare>
+				<PostCode>
+					<Identifier Type="Name">44177</Identifier>
+					<Identifier Type="Suffix">55161</Identifier>
+					<Identifier Type="Range">20571</Identifier>
+					<Identifier Type="Name">81860</Identifier>
+				</PostCode>
+			</Address>
+		</EDXLGeoPoliticalLocation>
+	</ReportingLocation>
+	<ActionPlan>Continue Response Operations</ActionPlan>
+	<NextContact>2011-09-18T11:47:34-04:00</NextContact>
+	<Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CasualtyAndIllnessSummary">
+		<SummaryCount>
+			<CasualtyAndIllnessCountCategory>
+				<CountCategory>
+					<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/CasualtyAndIllnessCountCategory</ValueListURI>
+					<Value>Triage Area 1</Value>
+				</CountCategory>
+			</CasualtyAndIllnessCountCategory>
+			<ResponderSummaryCount>1</ResponderSummaryCount>
+			<NonResponderSummaryCount>5</NonResponderSummaryCount>
+			<ResponderSummaryCountToDate>7</ResponderSummaryCountToDate>
+			<NonResponderSummaryCountToDate>2</NonResponderSummaryCountToDate>
+			<ReceivedMassImmunizations>
+				<HaveReceivedMassImmunizationsCount>7</HaveReceivedMassImmunizationsCount>
+			</ReceivedMassImmunizations>
+			<RequireMassImmunizations>
+				<RequireMassImmunizationsCount>5</RequireMassImmunizationsCount>
+			</RequireMassImmunizations>
+			<ShelterCountEstimate>2</ShelterCountEstimate>
+		</SummaryCount>
+		<SummaryCount>
+			<CasualtyAndIllnessCountCategory>
+				<CountCategory>
+					<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/CasualtyAndIllnessCountCategory</ValueListURI>
+					<Value>Triage Area 1</Value>
+				</CountCategory>
+			</CasualtyAndIllnessCountCategory>
+			<ResponderSummaryCount>8</ResponderSummaryCount>
+			<NonResponderSummaryCount>8</NonResponderSummaryCount>
+			<ResponderSummaryCountToDate>1</ResponderSummaryCountToDate>
+			<NonResponderSummaryCountToDate>6</NonResponderSummaryCountToDate>
+			<ReceivedMassImmunizations>
+				<HaveReceivedMassImmunizationsCount>4</HaveReceivedMassImmunizationsCount>
+			</ReceivedMassImmunizations>
+			<RequireMassImmunizations>
+				<RequireMassImmunizationsCount>9</RequireMassImmunizationsCount>
+			</RequireMassImmunizations>
+			<ShelterCountEstimate>9</ShelterCountEstimate>
+		</SummaryCount>
+		<SummaryCount>
+			<CasualtyAndIllnessCountCategory>
+				<CountCategory>
+					<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/CasualtyAndIllnessCountCategory</ValueListURI>
+					<Value>Triage Area 1</Value>
+				</CountCategory>
+			</CasualtyAndIllnessCountCategory>
+			<ResponderSummaryCount>7</ResponderSummaryCount>
+			<NonResponderSummaryCount>1</NonResponderSummaryCount>
+			<ResponderSummaryCountToDate>9</ResponderSummaryCountToDate>
+			<NonResponderSummaryCountToDate>6</NonResponderSummaryCountToDate>
+			<ReceivedMassImmunizations>
+				<HaveReceivedMassImmunizationsCount>8</HaveReceivedMassImmunizationsCount>
+			</ReceivedMassImmunizations>
+			<RequireMassImmunizations>
+				<RequireMassImmunizationsCount>5</RequireMassImmunizationsCount>
+			</RequireMassImmunizations>
+			<ShelterCountEstimate>1</ShelterCountEstimate>
+		</SummaryCount>
+		<SummaryCount>
+			<CasualtyAndIllnessCountCategory>
+				<CountCategory>
+					<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/CasualtyAndIllnessCountCategory</ValueListURI>
+					<Value>Triage Area 1</Value>
+				</CountCategory>
+			</CasualtyAndIllnessCountCategory>
+			<ResponderSummaryCount>3</ResponderSummaryCount>
+			<NonResponderSummaryCount>7</NonResponderSummaryCount>
+			<ResponderSummaryCountToDate>1</ResponderSummaryCountToDate>
+			<NonResponderSummaryCountToDate>4</NonResponderSummaryCountToDate>
+			<ReceivedMassImmunizations>
+				<HaveReceivedMassImmunizationsCount>6</HaveReceivedMassImmunizationsCount>
+			</ReceivedMassImmunizations>
+			<RequireMassImmunizations>
+				<RequireMassImmunizationsCount>8</RequireMassImmunizationsCount>
+			</RequireMassImmunizations>
+			<ShelterCountEstimate>5</ShelterCountEstimate>
+		</SummaryCount>
+		<NotifiableDiseaseNumbers>
+			<DiseaseSuspected>
+				<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/diseaselist</ValueListURI>
+				<Value>Cholera</Value>
+			</DiseaseSuspected>
+			<ProbableCause>Bad water</ProbableCause>
+			<CountOfSuspectedCases>477</CountOfSuspectedCases>
+			<CountOfConfirmedCases>9</CountOfConfirmedCases>
+		</NotifiableDiseaseNumbers>
+		<NotifiableDiseaseNumbers>
+			<DiseaseSuspected>
+				<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/diseaselist</ValueListURI>
+				<Value>Cholera</Value>
+			</DiseaseSuspected>
+			<ProbableCause>Bad water</ProbableCause>
+			<CountOfSuspectedCases>277</CountOfSuspectedCases>
+			<CountOfConfirmedCases>43</CountOfConfirmedCases>
+		</NotifiableDiseaseNumbers>
+		<NotifiableDiseaseNumbers>
+			<DiseaseSuspected>
+				<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/diseaselist</ValueListURI>
+				<Value>Cholera</Value>
+			</DiseaseSuspected>
+			<ProbableCause>Bad water</ProbableCause>
+			<CountOfSuspectedCases>298</CountOfSuspectedCases>
+			<CountOfConfirmedCases>44</CountOfConfirmedCases>
+		</NotifiableDiseaseNumbers>
+		<NotifiableDiseaseNumbers>
+			<DiseaseSuspected>
+				<ValueListURI>http://icnet.mitre.org/ValueLists/SitRep/diseaselist</ValueListURI>
+				<Value>Cholera</Value>
+			</DiseaseSuspected>
+			<ProbableCause>Bad water</ProbableCause>
+			<CountOfSuspectedCases>30</CountOfSuspectedCases>
+			<CountOfConfirmedCases>7</CountOfConfirmedCases>
+		</NotifiableDiseaseNumbers>
+	</Report>
+</sitRep>

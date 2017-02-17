@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<sitRep xmlns="urn:oasis:names:tc:emergency:EDXL:SitRep:1.0">
+	<messageID>0e0cd0f8-1511-4ab5-9d63-51133c6b71b3</messageID>
+	<preparedBy>
+		<PersonDetails xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+			<PersonName xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xnl">
+				<NameElement>John Doe</NameElement>
+			</PersonName>
+		</PersonDetails>
+		<TimeValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">2011-09-18T11:47:27-04:00</TimeValue>
+	</preparedBy>
+	<authorizedBy>
+		<PersonDetails xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+			<PersonName xmlns="urn:oasis:names:tc:emergency:edxl:ciq:1.0:xnl">
+				<NameElement>John Doe</NameElement>
+			</PersonName>
+		</PersonDetails>
+		<TimeValue xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">2011-09-18T11:47:27-04:00</TimeValue>
+	</authorizedBy>
+	<reportPurpose>Status Update</reportPurpose>
+	<reportNumber>7</reportNumber>
+	<reportVersion>
+		<Version>
+			<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/version</ValueListURI>
+			<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">.5</Value>
+		</Version>
+	</reportVersion>
+	<forTimePeriod>
+		<FromDateTime xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">2011-09-18T11:47:27-04:00</FromDateTime>
+		<ToDateTime xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">2011-09-18T11:47:27-04:00</ToDateTime>
+	</forTimePeriod>
+	<reportTitle>Sit Rep Report: 831</reportTitle>
+	<incidentID>Hurricane Test</incidentID>
+	<incidentLifecyclePhase>
+		<IncidentLifecycle>
+			<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/incidentlifecyclephase</ValueListURI>
+			<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">Response</Value>
+		</IncidentLifecycle>
+	</incidentLifecyclePhase>
+	<precedingMessageID>dcbcfdbbfaedfbd</precedingMessageID>
+	<precedingMessageID>fddbaecf</precedingMessageID>
+	<precedingMessageID>befaaafbabfacfa</precedingMessageID>
+	<urgency>
+		Unknown
+	</urgency>
+	<reportConfidence>
+		Unknown
+	</reportConfidence>
+	<severity>
+		Unknown
+	</severity>
+	<reportingLocation>
+		<EDXLGeoPoliticalLocation xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+			<GeoCode>
+				<ValueListURI>http://icnet.mitre.org/ValueLists/GeoCodes/ZipCodes</ValueListURI>
+				<Value>51835</Value>
+				<Value>66563</Value>
+				<Value>71712</Value>
+			</GeoCode>
+		</EDXLGeoPoliticalLocation>
+	</reportingLocation>
+	<actionPlan>Continue Response Operations</actionPlan>
+	<nextContact>2011-09-18T11:47:27-04:00</nextContact>
+	<report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="FieldObservation">
+		<ObservationLocation>
+			<EDXLGeoLocation xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">
+				<Point p6:id="ccbaddbcac" xmlns:p6="http://www.opengis.net/gml/3.2" xmlns="http://www.opengis.net/gml/3.2">
+					<pos axisLabels="eaceddfecdecb eceabafee ddaedbafbdccdf" srsDimension="3" srsName="http://directpostype" uomLabels="feabdbafcbf bedabcbfdccfacb ffaabbabdcaaa">41.182922 -73.190724</pos>
+				</Point>
+			</EDXLGeoLocation>
+		</ObservationLocation>
+		<ImmediateNeeds>Supplies</ImmediateNeeds>
+		<ImmediateNeedsCategory>
+			<ImmediateNeedsCategory>
+				<ValueListURI xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">http://icnet.mitre.org/ValueLists/SitRep/immediateneeds</ValueListURI>
+				<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">water</Value>
+				<Value xmlns="urn:oasis:names:tc:emergency:edxl:ct:1.0">food</Value>
+			</ImmediateNeedsCategory>
+		</ImmediateNeedsCategory>
+		<ObservationText>Need more Medical Supplies</ObservationText>
+	</report>
+</sitRep>
